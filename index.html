@@ -6,6 +6,21 @@
          background: url(umi_kani.png) bottom right no-repeat;  
          opacity: 0.5;
       }
+.bg{
+    /*位置の設定*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /*背景画像の設定*/
+    background: url(umi_kani.png);
+    background-size: cover;
+
+    /*透過の設定*/
+    opacity: 0.5;
+}
    </style>
 <script type="text/javascript" src="weather.js">
 </script>
@@ -75,6 +90,7 @@ function populateWeather() {
 </script>
 </head>
 <body>
+   <div class="bg"></div>
 <table>
 <tr><td>Zone: </td><td><select id="zoneSelect" onchange="populateWeather()">
 <option value="">Select a Zone</option>
