@@ -1,5 +1,5 @@
 
-osakana = [
+osakanas = [
  {
    "Fish": "ファットパース",
    "Spot": "",
