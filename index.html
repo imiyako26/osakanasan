@@ -4,7 +4,7 @@
 	<title>おさかな</title>
 <style>
 	body {
-	 
+		font-size: 12px;
 	}
 	.bg {
 		/*位置の設定*/
@@ -108,13 +108,13 @@ $(function() {
          weather = osakana.Previous_Weather + " → なんでも";
       }
 	  
-	  /* おさかなチャンス 3個 */
-	  var chances = getFishChance(3, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
+	  /* おさかなチャンス 2個 */
+	  var chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
 	  
       var html = '<tr><td>' + osakana.Fish + '</td><td>' + osakana.Spot + '</td><td>' + osakana.Zone + '</td><td>' + time + '</td><td>' + weather + '</td>';
 	  html += '<td>' + chances[0] + '</td>';
 	  html += '<td>' + chances[1] + '</td>';
-	  html += '<td>' + chances[2] + '</td>';
+	  // html += '<td>' + chances[2] + '</td>';
 	  html += '</tr>'
       $("#osakana_list").append(html);   
    }
