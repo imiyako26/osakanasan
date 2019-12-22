@@ -238,8 +238,8 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 	var targetWeathers = makeTranslatedWeatherArray(targetWeather_)
 	var targetPrevWeathers = makeTranslatedWeatherArray(targetPrevWeather_)
 	/* おさかなの開始・終了時間 */
-	var startTime = (startTime_ === "なし") ? 0 : startTime_;
-	var endTime = (endTime_ === "なし") ? 24 : endTime_;
+	var startTime = (startTime_ === "") ? 0 : startTime_;
+	var endTime = (endTime_ === "") ? 24 : endTime_;
 	/* 現在の天気 */
 	var weather = WeatherFinder.getWeather(weatherStartTime, zone);
 	/* ひとつ前の天気 */
