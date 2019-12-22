@@ -8,6 +8,10 @@ osakanas = [
     "To": 20,
     "Previous_Weather": "",
     "Weather": "曇り・霧",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "スカルピン(スピナーベイト)",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -18,7 +22,25 @@ osakanas = [
     "To": 4,
     "Previous_Weather": "",
     "Weather": "霧",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "グラディエーターベタ(コスリカ)",
+    "Hookset": "",
     "Remark": ""
+  },
+  {
+    "Fish": "リトルペリュコス",
+    "Spot": "常夏の島北",
+    "Zone": "東ラノシア",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "雨・暴雨",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "ワフー(メルトールゴビー(ラグワーム))",
+    "Hookset": "",
+    "Remark": "no ヌシヒット"
   },
   {
     "Fish": "ファットパース",
@@ -28,6 +50,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -38,6 +64,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "吹雪",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -48,6 +78,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "",
     "Weather": "吹雪",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -58,6 +92,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -68,6 +106,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -78,6 +120,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "雪",
     "Weather": "吹雪",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -88,6 +134,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "雪",
     "Weather": "吹雪",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -98,16 +148,24 @@ osakanas = [
     "To": 14,
     "Previous_Weather": "",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
     "Fish": "シャリベネ",
-    "Spot": "",
+    "Spot": "クリアプール",
     "Zone": "クルザス西部高地",
     "From": "",
     "To": "",
     "Previous_Weather": "",
     "Weather": "吹雪",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "ハルオネ(ツチグモ)",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -118,6 +176,10 @@ osakanas = [
     "To": 2,
     "Previous_Weather": "",
     "Weather": "曇り・霧・砂塵",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -128,6 +190,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "曇り・霧・砂塵",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -138,6 +204,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -148,6 +218,10 @@ osakanas = [
     "To": 8,
     "Previous_Weather": "曇り・霧・砂塵",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -158,6 +232,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "快晴",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -168,6 +246,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -178,6 +260,10 @@ osakanas = [
     "To": 6,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "TRUE",
+    "Intuition": "",
+    "Bait": "マグマワーム",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -188,6 +274,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "",
     "Weather": "晴れ・快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -198,6 +288,10 @@ osakanas = [
     "To": 15,
     "Previous_Weather": "",
     "Weather": "晴れ・快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -208,6 +302,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -218,6 +316,10 @@ osakanas = [
     "To": 2,
     "Previous_Weather": "",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -228,6 +330,10 @@ osakanas = [
     "To": 6,
     "Previous_Weather": "雨",
     "Weather": "暴雨",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -238,6 +344,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "暴雨",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -248,6 +358,10 @@ osakanas = [
     "To": 4,
     "Previous_Weather": "",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -258,6 +372,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "白金魚(バイオレットワーム)",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -268,6 +386,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "TRUE",
+    "Intuition": "",
+    "Bait": "白金魚(バイオレットワーム)",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -278,6 +400,10 @@ osakanas = [
     "To": 22,
     "Previous_Weather": "曇り",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -288,6 +414,10 @@ osakanas = [
     "To": 2,
     "Previous_Weather": "",
     "Weather": "曇り",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -298,6 +428,10 @@ osakanas = [
     "To": 10,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "エーテルアイ(ツチグモ)",
+    "Hookset": "プレシジョン",
     "Remark": ""
   },
   {
@@ -308,6 +442,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "晴れ",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -318,6 +456,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "曇り",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -328,6 +470,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "雷",
+    "Fish_Eye": "2m (オプロプケン)",
+    "Intuition": "2m/オプロプケン3匹",
+    "Bait": "白金魚(バイオレットワーム)",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -338,6 +484,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "風",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -348,6 +498,10 @@ osakanas = [
     "To": 13,
     "Previous_Weather": "",
     "Weather": "晴れ・快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -358,6 +512,10 @@ osakanas = [
     "To": 7,
     "Previous_Weather": "",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -368,6 +526,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "霧",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -378,6 +540,10 @@ osakanas = [
     "To": 12,
     "Previous_Weather": "霧",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -388,6 +554,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "",
     "Weather": "晴れ・快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -398,6 +568,10 @@ osakanas = [
     "To": 6,
     "Previous_Weather": "",
     "Weather": "晴れ・快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -408,6 +582,10 @@ osakanas = [
     "To": 10,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -418,6 +596,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "快晴",
     "Weather": "暴風",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -428,6 +610,10 @@ osakanas = [
     "To": 13,
     "Previous_Weather": "暴風",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -438,6 +624,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "曇り",
     "Weather": "暴風",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -448,6 +638,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "快晴",
     "Weather": "暴風",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -458,6 +652,10 @@ osakanas = [
     "To": 8,
     "Previous_Weather": "",
     "Weather": "暴風",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -468,6 +666,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -478,6 +680,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -488,6 +694,10 @@ osakanas = [
     "To": 12,
     "Previous_Weather": "",
     "Weather": "曇り",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -498,6 +708,10 @@ osakanas = [
     "To": 20,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -508,6 +722,10 @@ osakanas = [
     "To": 20,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -518,6 +736,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -528,6 +750,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "",
     "Weather": "雷・晴れ・快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -538,6 +764,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "霧",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -548,6 +778,10 @@ osakanas = [
     "To": 24,
     "Previous_Weather": "",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -558,6 +792,10 @@ osakanas = [
     "To": 20,
     "Previous_Weather": "",
     "Weather": "曇り",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -568,6 +806,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "砂塵",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -578,6 +820,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "砂塵",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -588,6 +834,10 @@ osakanas = [
     "To": 12,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -598,6 +848,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "霧",
     "Weather": "晴れ",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -608,6 +862,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "曇り・霧・風・砂塵",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -618,6 +876,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "快晴",
     "Weather": "晴れ",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -628,6 +890,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -638,6 +904,10 @@ osakanas = [
     "To": 18,
     "Previous_Weather": "雷雨",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -648,6 +918,10 @@ osakanas = [
     "To": 12,
     "Previous_Weather": "晴れ",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -658,6 +932,10 @@ osakanas = [
     "To": 8,
     "Previous_Weather": "晴れ",
     "Weather": "霧",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -668,6 +946,10 @@ osakanas = [
     "To": 8,
     "Previous_Weather": "",
     "Weather": "霧",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -678,6 +960,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "暴風",
     "Weather": "曇り",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -688,6 +974,10 @@ osakanas = [
     "To": 24,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -698,6 +988,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "風",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -708,6 +1002,10 @@ osakanas = [
     "To": 8,
     "Previous_Weather": "雨",
     "Weather": "晴れ・快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -718,6 +1016,10 @@ osakanas = [
     "To": 7,
     "Previous_Weather": "雨",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -728,6 +1030,10 @@ osakanas = [
     "To": 24,
     "Previous_Weather": "晴れ・快晴",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -738,6 +1044,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "晴れ・快晴",
     "Weather": "風",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -748,6 +1058,10 @@ osakanas = [
     "To": 20,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -758,6 +1072,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -768,6 +1086,10 @@ osakanas = [
     "To": 24,
     "Previous_Weather": "",
     "Weather": "雷",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -778,6 +1100,10 @@ osakanas = [
     "To": 18,
     "Previous_Weather": "雷",
     "Weather": "晴れ",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -788,6 +1114,10 @@ osakanas = [
     "To": 8,
     "Previous_Weather": "雷",
     "Weather": "曇り",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -798,6 +1128,10 @@ osakanas = [
     "To": 8,
     "Previous_Weather": "雷",
     "Weather": "曇り",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -808,6 +1142,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "晴れ",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -818,6 +1156,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "雨",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -828,6 +1170,10 @@ osakanas = [
     "To": 24,
     "Previous_Weather": "",
     "Weather": "快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -838,6 +1184,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -848,6 +1198,10 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "",
     "Weather": "霧",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -858,6 +1212,10 @@ osakanas = [
     "To": 14,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -868,6 +1226,10 @@ osakanas = [
     "To": 24,
     "Previous_Weather": "",
     "Weather": "暴雨",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -878,6 +1240,10 @@ osakanas = [
     "To": 6,
     "Previous_Weather": "曇り",
     "Weather": "晴れ",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -888,6 +1254,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "曇り",
     "Weather": "晴れ・快晴",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -898,6 +1268,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "霧",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -908,6 +1282,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -918,6 +1296,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   },
   {
@@ -928,6 +1310,10 @@ osakanas = [
     "To": 6,
     "Previous_Weather": "",
     "Weather": "",
+    "Fish_Eye": "",
+    "Intuition": "",
+    "Bait": "",
+    "Hookset": "",
     "Remark": ""
   }
 ]

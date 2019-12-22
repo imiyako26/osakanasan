@@ -186,7 +186,7 @@ var WeatherFinder ={
 };
 
 function makeTranslatedWeatherArray(weathers) {
-	/* 空文字列は条件なし (=null) */
+	/* 空文字は条件なし (=null) */
 	if (weathers.length == 0) {
 		return null;
 	}
@@ -231,7 +231,7 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 	var tries = 0;
 	var matches = 0;
 	while (tries < 1000 && matches < maximum) {
-		/* nullのときは天気指定なし？ */
+		/* nullのときは天気指定なし */
 		var weatherMatch = targetWeather == null;
 		var prevWeatherMatch = targetPrevWeather == null;
 		var timeMatch = false;
