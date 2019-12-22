@@ -89,8 +89,26 @@ function populateWeather() {
    
 $(function() {   
    for (var i = 0; i < osakanas.length; i++) {
-      var osakana = osakanas[i]
-      $("#osakana_list").append('<tr><td>' + osakana.Fish + '</td><td>' + osakana.Spot + '</td><td>' + osakana.Zone + '</td></tr>')      
+      var osakana = osakanas[i];
+      
+      var time = "";
+      if (osakana.From != "") {
+         time = osakana.From + ":00-" + osakana.To + ":00";
+      }
+      
+      var weather = "";      
+      if (osakana.Previous_Weather != "" && osakana.Weather != "") {
+         /* 移ろいﾌｨｯｼｭ */
+         weather = osakana.Previous_Weather + " → " + osakana.Weather;
+      } else if (osakana.Weather != "") {         
+         /* 移ろわないﾌｨｯｼｭ */
+         weather = osakana.Weather;
+      } else if (osakana.Previous_Weather != "") {         
+         /* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
+         weather = osakana.Previous_Weather + " → なんでも";
+      }
+      var html = '<tr><td>' + osakana.Fish + '</td><td>' + osakana.Spot + '</td><td>' + osakana.Zone + '</td><td>' + time + '</td><td>' + weather + '</td></tr>';
+      $("#osakana_list").append(html);   
    }
 })
 </script>
