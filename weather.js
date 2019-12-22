@@ -185,62 +185,81 @@ var WeatherFinder ={
   }  
 };
 
-function getFishChance(zone_, targetWeather_, targetPrevWeather_, startTime_, endTime_) {  
-  var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
-  var weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
-  var weatherEndHour = weatherStartHour + 8 // エオルゼア仕様
-  var zone = WeatherFinder.zoneJp[zone_]
-  var targetWeather = WeatherFinder.weatherJp[targetWeather_]
-  var targetPrevWeather = WeatherFinder.weatherJp[targetPrevWeather_]
-  var startTime = (startTime_ === "なし") ? 0 : startTime_;
-  var endTime = (endTime_ === "なし") ? 24 : endTime_;
-  var tries = 0;
-  var matches = 0;
-  var weather = WeatherFinder.getWeather(weatherStartTime, zone);
-  var prevWeather = WeatherFinder.getWeather(weatherStartTime-1, zone);
-  var targetFishHours = WeatherFinder.getTargetHourArray(startTime, endTime)
+function getFishChance(zone_, targetWeather_, targetPrevWeather_, startTime_, endTime_) { 
+	/* 地球時間をET0,8,16に合わせる (Floor = 下合わせ？) */
+	var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
+	/* ET */
+	var weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
+	/* ETのおわ */
+	var weatherEndHour = weatherStartHour + 8 // エオルゼア仕様
+	/* 日本語から英名に */
+	var zone = WeatherFinder.zoneJp[zone_]
+	var targetWeather = WeatherFinder.weatherJp[targetWeather_]
+	var targetPrevWeather = WeatherFinder.weatherJp[targetPrevWeather_]
+	/* おさかなの開始・終了時間 */
+	var startTime = (startTime_ === "なし") ? 0 : startTime_;
+	var endTime = (endTime_ === "なし") ? 24 : endTime_;
+	/* 現在の天気 */
+	var weather = WeatherFinder.getWeather(weatherStartTime, zone);
+	/* ひとつ前の天気 */
+	var prevWeather = WeatherFinder.getWeather(weatherStartTime-1, zone);
+	/* おさかな時間のArray From=5 To=8 だったら [5,6,7] */
+	var targetFishHours = WeatherFinder.getTargetHourArray(startTime, endTime)
+	
+	/* おさかなチャンスリスト */
+	var result = [];
+		
+	/* 挑戦回数・ヒット回数 */
+	var tries = 0;
+	var matches = 0;
+	while (tries < 1000 && matches < 5) {
+		/* nullのときは天気指定なし？ */
+		var weatherMatch = targetWeather == null;
+		var prevWeatherMatch = targetPrevWeather == null;
+		var timeMatch = false;
+		
+		/* 天気が一致するかどうか */
+		if (targetWeather == "" || targetWeather == weather) {
+			weatherMatch = true;  
+		}
+		/* 前の天気が一致するかどうか */
+		if (targetPrevWeather == "" || targetPrevWeather == prevWeather) {
+			prevWeatherMatch = true;
+		}
 
-  var result = [];
-  
-  while (tries < 1000 && matches < 5) {    
-    var weatherMatch = targetWeather == null;
-    var prevWeatherMatch = targetPrevWeather == null;
-    var timeMatch = null;
-    if (targetWeather == "" || targetWeather == weather) {
-      weatherMatch = true;  
-    }
-    if (targetPrevWeather == "" || targetPrevWeather == prevWeather) {
-      prevWeatherMatch = true;
-    }
-    
-    var weatherHours = WeatherFinder.getTargetHourArray(weatherStartHour, weatherEndHour)
-    if (WeatherFinder.isDuplicate(targetFishHours, weatherHours)){
-      timeMatch = true;
-    }
-    
-    if (weatherMatch && prevWeatherMatch && timeMatch) {
-      Logger.log(matches);
-      var weatherDate = new Date(weatherStartTime);
-      var month = weatherDate.getMonth() + 1
-      var day = weatherDate.getDate()
-      var hour = ("0"+(weatherDate.getHours())).slice(-2)
-      var minutes = ("0"+(weatherDate.getMinutes())).slice(-2)
-      var EorzeaHour = weatherStartHour+':00'
+		/* 試行中の時間アレイ [0,1,2,3,4,5,6,7] */
+		var weatherHours = WeatherFinder.getTargetHourArray(weatherStartHour, weatherEndHour)
+		/* おさかな時間とかぶってるかを確認 */
+		if (WeatherFinder.isDuplicate(targetFishHours, weatherHours)){
+			timeMatch = true;
+		}
 
-      //var tmp = [matches, prevWeather, weather, month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
-      var tmp = [month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
-      result.push(tmp)
-      matches++;
-    }
-    weatherStartTime += 8 * 175 * 1000; // Increment by 8 Eorzean hours
-    weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
-    weatherEndHour = weatherStartHour + 8
-    prevWeather = weather;
-    weather = WeatherFinder.getWeather(weatherStartTime, zone);
-    tries++;  
-  }
-  
-  return result
+		/* ヒット! */
+		if (weatherMatch && prevWeatherMatch && timeMatch) {
+			Logger.log(matches);
+			var weatherDate = new Date(weatherStartTime);
+			var month = weatherDate.getMonth() + 1
+			var day = weatherDate.getDate()
+			var hour = ("0"+(weatherDate.getHours())).slice(-2)
+			var minutes = ("0"+(weatherDate.getMinutes())).slice(-2)
+			var EorzeaHour = weatherStartHour+':00'
+
+			//var tmp = [matches, prevWeather, weather, month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
+			var tmp = [month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
+			result.push(tmp)
+			matches++;
+		}
+		
+		/* 試行時間・天気を更新 */
+		weatherStartTime += 8 * 175 * 1000; // Increment by 8 Eorzean hours
+		weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
+		weatherEndHour = weatherStartHour + 8
+		prevWeather = weather;
+		weather = WeatherFinder.getWeather(weatherStartTime, zone);
+		tries++;  
+	}
+
+	return result
 };
 
 // Todo: リファクタリング
