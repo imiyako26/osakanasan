@@ -185,7 +185,25 @@ var WeatherFinder ={
   }  
 };
 
-function getFishChance(zone_, targetWeather_, targetPrevWeather_, startTime_, endTime_) { 
+function makeTranslatedWeatherArray(weathers) {
+	/* 空文字列は条件なし (=null) */
+	if (weathers.length == 0) {
+		return null;
+	}
+	
+	/* weathersは"・"で区切られた日本語の天気　(例: "雨・豪雨")*/
+	var arr = weathers.split("・");
+	/* 英名を入れる (例: ["Rain", "Showers"])*/
+	var eng = [];
+	for (var i = 0; i < arr.length; i++) {
+		var weatherJp = arr[i];
+		var weatherEn = WeatherFinder.weatherJp[weatherJp];
+		eng.push(weatherEn);
+	}
+	return eng;
+}
+
+function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, startTime_, endTime_) { 
 	/* 地球時間をET0,8,16に合わせる (Floor = 下合わせ？) */
 	var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
 	/* ET */
@@ -194,8 +212,8 @@ function getFishChance(zone_, targetWeather_, targetPrevWeather_, startTime_, en
 	var weatherEndHour = weatherStartHour + 8 // エオルゼア仕様
 	/* 日本語から英名に */
 	var zone = WeatherFinder.zoneJp[zone_]
-	var targetWeather = WeatherFinder.weatherJp[targetWeather_]
-	var targetPrevWeather = WeatherFinder.weatherJp[targetPrevWeather_]
+	var targetWeathers = makeTranslatedWeatherArray(targetWeather_)
+	var targetPrevWeathers = makeTranslatedWeatherArray(targetPrevWeather_)
 	/* おさかなの開始・終了時間 */
 	var startTime = (startTime_ === "なし") ? 0 : startTime_;
 	var endTime = (endTime_ === "なし") ? 24 : endTime_;
@@ -212,18 +230,18 @@ function getFishChance(zone_, targetWeather_, targetPrevWeather_, startTime_, en
 	/* 挑戦回数・ヒット回数 */
 	var tries = 0;
 	var matches = 0;
-	while (tries < 1000 && matches < 5) {
+	while (tries < 1000 && matches < maximum) {
 		/* nullのときは天気指定なし？ */
 		var weatherMatch = targetWeather == null;
 		var prevWeatherMatch = targetPrevWeather == null;
 		var timeMatch = false;
 		
 		/* 天気が一致するかどうか */
-		if (targetWeather == "" || targetWeather == weather) {
+		if (targetWeathers.includes(weather)) {
 			weatherMatch = true;  
 		}
 		/* 前の天気が一致するかどうか */
-		if (targetPrevWeather == "" || targetPrevWeather == prevWeather) {
+		if (targetPrevWeathers.includes(prevWeather)) {
 			prevWeatherMatch = true;
 		}
 

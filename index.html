@@ -107,7 +107,15 @@ $(function() {
          /* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
          weather = osakana.Previous_Weather + " → なんでも";
       }
-      var html = '<tr><td>' + osakana.Fish + '</td><td>' + osakana.Spot + '</td><td>' + osakana.Zone + '</td><td>' + time + '</td><td>' + weather + '</td></tr>';
+	  
+	  /* おさかなチャンス 3個 */
+	  var chances = getFishChance(3, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
+	  
+      var html = '<tr><td>' + osakana.Fish + '</td><td>' + osakana.Spot + '</td><td>' + osakana.Zone + '</td><td>' + time + '</td><td>' + weather + '</td>';
+	  html += '<td>' + chances[0] + '</td>';
+	  html += '<td>' + chances[1] + '</td>';
+	  html += '<td>' + chances[2] + '</td>';
+	  html += '</tr>'
       $("#osakana_list").append(html);   
    }
 })
