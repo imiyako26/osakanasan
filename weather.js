@@ -96,45 +96,52 @@ var WeatherFinder ={
   },
   
   zoneJp:{
-    "リムサ":"Limsa Lominsa",
-    "中央ラノ":"Middle La Noscea",
-    "低地ラノ":"Lower La Noscea",
-    "東ラノ":"Eastern La Noscea",
-    "西ラノ":"Western La Noscea",
-    "高地ラノ":"Upper La Noscea",
-    "外地ラノ":"Outer La Noscea",
+    "リムサ・ロミンサ：下甲板層":"Limsa Lominsa",
+    "リムサ・ロミンサ：上甲板層":"Limsa Lominsa",
+    "リムサ・ロミンサ":"Limsa Lominsa",
+    "中央ラノシア":"Middle La Noscea",
+    "低地ラノシア":"Lower La Noscea",
+    "東ラノシア":"Eastern La Noscea",
+    "西ラノシア":"Western La Noscea",
+    "高地ラノシア":"Upper La Noscea",
+    "外地ラノシア":"Outer La Noscea",
     "ミスト":"Mist",
+    "グリダニア：旧市街":"Gridania",
+    "グリダニア：新市街":"Gridania",
     "グリダニア":"Gridania",
-    "中央森林":"Central Shroud",
-    "東部森林":"East Shroud",
-    "南部森林":"South Shroud",
-    "北部森林":"North Shroud",
-    "ラベンダー":"The Lavender Beds",
-    "ウルダハ":"Ul'dah",
-    "西ザナ":"Western Thanalan",
-    "中央ザナ":"Central Thanalan",
-    "東ザナ":"Eastern Thanalan",
-    "南ザナ":"Southern Thanalan",
-    "北ザナ":"Northern Thanalan",
-    "ゴブレット":"The Goblet",
-    "モドゥナ":"Mor Dhona",
-    "イシュガルド":"Ishgard",
-    "クルザス中央":"Coerthas Central Highlands",
-    "クルザス西部":"Coerthas Western Highlands",
-    "アバ雲海":"The Sea of Clouds",
-    "アジスラ":"Azys Lla",
-    "高地ドラ":"The Dravanian Forelands",
-    "低地ドラ":"The Dravanian Hinterlands",
-    "ドラ雲海":"The Churning Mists",
-    "イディル":"Idyllshire",
-    "ラルガ":"Rhalgr's Reach",
-    "ギラ辺境":"The Fringes",
-    "ギラ山岳":"The Peaks",
-    "ギラ湖畔":"The Lochs",
+    "黒衣森：中央森林":"Central Shroud",
+    "黒衣森：東部森林":"East Shroud",
+    "黒衣森：南部森林":"South Shroud",
+    "黒衣森：北部森林":"North Shroud",
+    "ラベンダーベッド":"The Lavender Beds",
+    "ウルダハ：ナル回廊":"Ul'dah",
+    "西ザナラーン":"Western Thanalan",
+    "中央ザナラーン":"Central Thanalan",
+    "東ザナラーン":"Eastern Thanalan",
+    "南ザナラーン":"Southern Thanalan",
+    "北ザナラーン":"Northern Thanalan",
+    "ゴブレットビュート":"The Goblet",
+    "モードゥナ":"Mor Dhona",
+    "イシュガルド：下層":"Ishgard",
+    "イシュガルド：上層":"Ishgard",
+    "クルザス中央高地":"Coerthas Central Highlands",
+    "クルザス西部高地":"Coerthas Western Highlands",
+    "アバラシア雲海":"The Sea of Clouds",
+    "アジス・ラー":"Azys Lla",
+    "高地ドラヴァニア":"The Dravanian Forelands",
+    "低地ドラヴァニア":"The Dravanian Hinterlands",
+    "ドラヴァニア雲海":"The Churning Mists",
+    "イディルシャイア":"Idyllshire",
+    "ラールガーズリーチ":"Rhalgr's Reach",
+    "ギラバニア辺境地帯":"The Fringes",
+    "ギラバニア山岳地帯":"The Peaks",
+    "ギラバニア湖畔地帯":"The Lochs",
     "クガネ":"Kugane",
     "紅玉海":"The Ruby Sea",
     "ヤンサ":"Yanxia",
-    "アジステ":"The Azim Steppe",
+    "アジムステップ":"The Azim Steppe",
+    "クガネ":"Kugane",
+    "シロガネ":"Shirogane",
   },
   
   weatherChances: {
@@ -212,6 +219,7 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 	var weatherEndHour = weatherStartHour + 8 // エオルゼア仕様
 	/* 日本語から英名に */
 	var zone = WeatherFinder.zoneJp[zone_]
+	console.log(zone_ + "→" + zone)
 	var targetWeathers = makeTranslatedWeatherArray(targetWeather_)
 	var targetPrevWeathers = makeTranslatedWeatherArray(targetPrevWeather_)
 	/* おさかなの開始・終了時間 */
@@ -232,16 +240,16 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 	var matches = 0;
 	while (tries < 1000 && matches < maximum) {
 		/* nullのときは天気指定なし */
-		var weatherMatch = targetWeather == null;
-		var prevWeatherMatch = targetPrevWeather == null;
+		var weatherMatch = targetWeathers == null;
+		var prevWeatherMatch = targetPrevWeathers == null;
 		var timeMatch = false;
 		
 		/* 天気が一致するかどうか */
-		if (targetWeathers.includes(weather)) {
+		if (targetWeathers != null && targetWeathers.includes(weather)) {
 			weatherMatch = true;  
 		}
 		/* 前の天気が一致するかどうか */
-		if (targetPrevWeathers.includes(prevWeather)) {
+		if (targetPrevWeathers != null && targetPrevWeathers.includes(prevWeather)) {
 			prevWeatherMatch = true;
 		}
 
@@ -254,7 +262,7 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 
 		/* ヒット! */
 		if (weatherMatch && prevWeatherMatch && timeMatch) {
-			Logger.log(matches);
+			// Logger.log(matches);
 			var weatherDate = new Date(weatherStartTime);
 			var month = weatherDate.getMonth() + 1
 			var day = weatherDate.getDate()
