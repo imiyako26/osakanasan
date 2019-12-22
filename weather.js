@@ -279,14 +279,14 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 		if (weatherMatch && prevWeatherMatch && timeMatch) {
 			// Logger.log(matches);
 			var weatherDate = new Date(weatherStartTime);
-			var month = weatherDate.getMonth() + 1
-			var day = weatherDate.getDate()
+			var month = ("0" + (weatherDate.getMonth() + 1)).slice(-2)
+			var day = ("0" + weatherDate.getDate()).slice(-2)
 			var hour = ("0"+(weatherDate.getHours())).slice(-2)
 			var minutes = ("0"+(weatherDate.getMinutes())).slice(-2)
-			var EorzeaHour = weatherStartHour+':00'
+			var EorzeaHour = ("0" + weatherStartHour).slice(-2) +':00'
 
 			//var tmp = [matches, prevWeather, weather, month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
-			var tmp = [month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
+			var tmp = [month + '/' + day + ' ' + hour + ':' + minutes, '(ET'+ EorzeaHour + ')'].join(' ')
 			result.push(tmp)
 			matches++;
 		}

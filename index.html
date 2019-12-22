@@ -3,8 +3,8 @@
 <head>
 	<title>おさかな</title>
 <style>
-	body {
-		font-size: 12px;
+	td {
+		font-size: 14px;
 	}
 	.bg {
 		/*位置の設定*/
@@ -18,7 +18,7 @@
 		background: url(umi_kani.png) bottom right no-repeat;  
 
 		/*透過の設定*/
-		opacity: 0.3;
+		opacity: 0.1;
 		z-index: -1;
 		background-size: 50%;
 	}
@@ -93,7 +93,7 @@ $(function() {
       
       var time = "";
       if (osakana.From != "") {
-         time = osakana.From + ":00-" + osakana.To + ":00";
+         time = ("0" + osakana.From).slice(-2) + ":00-" + ("0" + osakana.To).slice(-2) + ":00";
       }
       
       var weather = "";      
