@@ -111,7 +111,12 @@ $(function() {
 	  /* おさかなチャンス 2個 */
 	  var chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
 	  
-      var html = '<tr><td>' + osakana.Fish + '</td><td>' + osakana.Spot + '</td><td>' + osakana.Zone + '</td><td>' + time + '</td><td>' + weather + '</td>';
+      var html = '<tr>';
+	  html += '<td>' + osakana.Fish + '</td>';
+	  html += '<td>' + osakana.Spot + '</td>';
+	  html += '<td>' + osakana.Zone + '</td>';
+	  html += '<td>' + time + '</td>';
+	  html += '<td>' + weather + '</td>';
 	  html += '<td>' + chances[0] + '</td>';
 	  html += '<td>' + chances[1] + '</td>';
 	  // html += '<td>' + chances[2] + '</td>';

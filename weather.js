@@ -277,13 +277,24 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 
 		/* ヒット! */
 		if (weatherMatch && prevWeatherMatch && timeMatch) {
-			// Logger.log(matches);
-			var weatherDate = new Date(weatherStartTime);
-			var month = ("0" + (weatherDate.getMonth() + 1)).slice(-2)
-			var day = ("0" + weatherDate.getDate()).slice(-2)
-			var hour = ("0"+(weatherDate.getHours())).slice(-2)
-			var minutes = ("0"+(weatherDate.getMinutes())).slice(-2)
-			var EorzeaHour = ("0" + weatherStartHour).slice(-2) +':00'
+			/* 時間調整。例えば10時開始の場合は+2時間する。 エオ1時間=リアル175秒*/
+			/* おさかなさん開始時刻。単位はミリ秒 (= 0.001秒) */
+			var windowStartTime = weatherStartTime;
+			/* 0 or 8 or 16 */
+			var windowStartET = WeatherFinder.getEorzeaHour(windowStartTime);
+			/* おさかな時間開始が天気開始時刻より遅い場合 */
+			if (startTime > windowStartET) {
+				windowStartET = startTime;
+				/* 遅れ分足す */
+				windowStartTime += (startTime % 8) * 175 * 1000;
+			}			
+			
+			var weatherDate = new Date(windowStartTime);
+			var month = ("0" + (weatherDate.getMonth() + 1)).slice(-2);
+			var day = ("0" + weatherDate.getDate()).slice(-2);
+			var hour = ("0"+(weatherDate.getHours())).slice(-2);
+			var minutes = ("0"+(weatherDate.getMinutes())).slice(-2);
+			var EorzeaHour = ("0" + windowStartET).slice(-2) +':00';
 
 			//var tmp = [matches, prevWeather, weather, month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
 			var tmp = [month + '/' + day + ' ' + hour + ':' + minutes, '(ET'+ EorzeaHour + ')'].join(' ')
