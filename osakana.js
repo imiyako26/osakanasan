@@ -10,7 +10,8 @@ osakanas = [
     "Weather": "曇り・霧",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "スカルピン(スピナーベイト)",
+    "Bait": "スピナーベイト",
+    "Mooch": "スカルピン",
     "Hookset": "",
     "Remark": ""
   },
@@ -24,7 +25,8 @@ osakanas = [
     "Weather": "霧",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "グラディエーターベタ(コスリカ)",
+    "Bait": "コスリカ",
+    "Mooch": "グラディエーターベタ",
     "Hookset": "",
     "Remark": ""
   },
@@ -38,7 +40,8 @@ osakanas = [
     "Weather": "雨・暴雨",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "ワフー(メルトールゴビー(ラグワーム))",
+    "Bait": "ラグワーム",
+    "Mooch": "メルトールゴビー→ワフー",
     "Hookset": "",
     "Remark": "no ヌシヒット"
   },
@@ -53,6 +56,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "ブルートリーチ",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -66,8 +70,9 @@ osakanas = [
     "Weather": "吹雪",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Hookset": "",
+    "Bait": "ジャンボガンボボ",
+    "Mooch": "グレイシャーコア",
+    "Hookset": "プレシジョン",
     "Remark": ""
   },
   {
@@ -80,8 +85,9 @@ osakanas = [
     "Weather": "吹雪",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Hookset": "",
+    "Bait": "ツチグモ",
+    "Mooch": "ハルオネ",
+    "Hookset": "ストロング",
     "Remark": ""
   },
   {
@@ -94,7 +100,8 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ブルートリーチ",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -108,9 +115,10 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ブルートリーチ",
+    "Mooch": "",
     "Hookset": "",
-    "Remark": ""
+    "Remark": "引っ掛け 50s+"
   },
   {
     "Fish": "氷の巫女",
@@ -120,10 +128,11 @@ osakanas = [
     "To": "",
     "Previous_Weather": "雪",
     "Weather": "吹雪",
-    "Fish_Eye": "",
+    "Fish_Eye": "2m20s",
     "Intuition": "",
-    "Bait": "",
-    "Hookset": "",
+    "Bait": "カディスラーヴァ",
+    "Mooch": "ハルオネ",
+    "Hookset": "ストロング",
     "Remark": ""
   },
   {
@@ -136,7 +145,8 @@ osakanas = [
     "Weather": "吹雪",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ブルートリーチ",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -148,9 +158,10 @@ osakanas = [
     "To": 14,
     "Previous_Weather": "",
     "Weather": "快晴",
-    "Fish_Eye": "",
+    "Fish_Eye": "3m",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ブルートリーチ",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -164,8 +175,9 @@ osakanas = [
     "Weather": "吹雪",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "ハルオネ(ツチグモ)",
-    "Hookset": "",
+    "Bait": "ツチグモ",
+    "Mooch": "ハルオネ",
+    "Hookset": "プレシジョン",
     "Remark": ""
   },
   {
@@ -178,7 +190,8 @@ osakanas = [
     "Weather": "曇り・霧・砂塵",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ブルートリーチ",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -192,7 +205,8 @@ osakanas = [
     "Weather": "曇り・霧・砂塵",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ブルートリーチ",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -206,7 +220,8 @@ osakanas = [
     "Weather": "快晴",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ブルートリーチ",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -220,8 +235,9 @@ osakanas = [
     "Weather": "雷",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Hookset": "",
+    "Bait": "ストーンラーヴァ",
+    "Mooch": "マクロブラキウム",
+    "Hookset": "ストロング",
     "Remark": ""
   },
   {
@@ -232,10 +248,11 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "快晴",
     "Weather": "快晴",
-    "Fish_Eye": "",
+    "Fish_Eye": "5m",
     "Intuition": "",
-    "Bait": "",
-    "Hookset": "",
+    "Bait": "マグマワーム",
+    "Mooch": "グラナイトクラブ",
+    "Hookset": "ストロング",
     "Remark": ""
   },
   {
@@ -248,8 +265,9 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Hookset": "",
+    "Bait": "マグマワーム",
+    "Mooch": "グラナイトクラブ",
+    "Hookset": "ストロング",
     "Remark": ""
   },
   {
@@ -260,9 +278,10 @@ osakanas = [
     "To": 6,
     "Previous_Weather": "",
     "Weather": "",
-    "Fish_Eye": "TRUE",
+    "Fish_Eye": "2m",
     "Intuition": "",
     "Bait": "マグマワーム",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -274,11 +293,12 @@ osakanas = [
     "To": 16,
     "Previous_Weather": "",
     "Weather": "晴れ・快晴",
-    "Fish_Eye": "",
+    "Fish_Eye": "5m",
     "Intuition": "",
-    "Bait": "",
-    "Hookset": "",
-    "Remark": ""
+    "Bait": "マグマワーム",
+    "Mooch": "グラナイトクラブ",
+    "Hookset": "ストロング",
+    "Remark": "3択ガチャ"
   },
   {
     "Fish": "プロブレマティカス",
@@ -288,11 +308,12 @@ osakanas = [
     "To": 15,
     "Previous_Weather": "",
     "Weather": "晴れ・快晴",
-    "Fish_Eye": "",
-    "Intuition": "",
-    "Bait": "",
-    "Hookset": "",
-    "Remark": ""
+    "Fish_Eye": "3m (アロワナ)",
+    "Intuition": "アロワナx3 カニx5",
+    "Bait": "マグマワーム",
+    "Mooch": "グラナイトクラブ",
+    "Hookset": "ストロング",
+    "Remark": "3択ガチャ"
   },
   {
     "Fish": "水瓶王",
@@ -305,6 +326,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -319,6 +341,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -333,6 +356,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -347,6 +371,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -361,6 +386,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -374,7 +400,8 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "白金魚(バイオレットワーム)",
+    "Bait": "バイオレットワーム",
+    "Mooch": "白金魚",
     "Hookset": "",
     "Remark": ""
   },
@@ -386,9 +413,10 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "",
-    "Fish_Eye": "TRUE",
+    "Fish_Eye": "Yes",
     "Intuition": "",
-    "Bait": "白金魚(バイオレットワーム)",
+    "Bait": "バイオレットワーム",
+    "Mooch": "白金魚",
     "Hookset": "",
     "Remark": ""
   },
@@ -403,6 +431,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -417,6 +446,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -430,7 +460,8 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "エーテルアイ(ツチグモ)",
+    "Bait": "ツチグモ",
+    "Mooch": "エーテルアイ",
     "Hookset": "プレシジョン",
     "Remark": ""
   },
@@ -445,6 +476,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -459,6 +491,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -472,7 +505,8 @@ osakanas = [
     "Weather": "雷",
     "Fish_Eye": "2m (オプロプケン)",
     "Intuition": "2m/オプロプケン3匹",
-    "Bait": "白金魚(バイオレットワーム)",
+    "Bait": "バイオレットワーム",
+    "Mooch": "白金魚",
     "Hookset": "",
     "Remark": ""
   },
@@ -487,6 +521,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -501,6 +536,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -515,6 +551,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -529,6 +566,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -543,6 +581,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -557,6 +596,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -571,6 +611,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -585,6 +626,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -599,6 +641,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -613,6 +656,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -627,6 +671,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -641,6 +686,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -655,6 +701,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -669,6 +716,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -683,6 +731,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -697,6 +746,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -711,6 +761,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -725,6 +776,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -739,6 +791,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -753,6 +806,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -767,6 +821,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -781,6 +836,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -795,6 +851,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -809,6 +866,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -823,6 +881,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -837,6 +896,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -851,6 +911,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -865,6 +926,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -879,6 +941,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -893,6 +956,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -907,6 +971,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -921,6 +986,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -935,6 +1001,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -949,6 +1016,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -963,6 +1031,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -977,6 +1046,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -991,6 +1061,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1005,6 +1076,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1019,6 +1091,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1033,6 +1106,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1047,6 +1121,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1061,6 +1136,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1075,6 +1151,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1089,6 +1166,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1103,6 +1181,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1117,6 +1196,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1131,6 +1211,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1145,6 +1226,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1159,6 +1241,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1173,6 +1256,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1187,6 +1271,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1201,6 +1286,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1215,6 +1301,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1229,6 +1316,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1243,6 +1331,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1257,6 +1346,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1271,6 +1361,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1285,6 +1376,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1299,6 +1391,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   },
@@ -1313,6 +1406,7 @@ osakanas = [
     "Fish_Eye": "",
     "Intuition": "",
     "Bait": "",
+    "Mooch": "",
     "Hookset": "",
     "Remark": ""
   }
