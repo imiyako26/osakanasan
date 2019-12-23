@@ -120,7 +120,7 @@ $(function() {
 	  var chances = getFishChance(1, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
 	  
       var html = '<tr>';
-	  html += '<td><input type="checkbox"></td>';
+	  html += '<td><input type="checkbox" class="remove"></td>';
 	  html += '<td>' + osakana.Fish + '</td>';
 	  html += '<td>' + osakana.Spot + '</td>';
 	  html += '<td>' + osakana.Zone + '</td>';
@@ -146,6 +146,10 @@ $(function() {
       $("#osakana_list tbody").append(html);   
    }
    $("#osakana_list").tablesorter()
+   
+	$(document).on("click", ".remove", function() {
+		$(this).parents('tr').css('opacity', '0.5')
+	})
 })
 </script>
 </head>
