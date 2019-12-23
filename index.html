@@ -148,7 +148,12 @@ $(function() {
    $("#osakana_list").tablesorter()
    
 	$(document).on("click", ".remove", function() {
-		$(this).parents('tr').css('opacity', '0.5')
+		var checked = $(this).prop("checked")
+		if (checked) {
+			$(this).parents('tr').css('opacity', '0.5')
+		} else {
+			$(this).parents('tr').css('opacity', '1')
+		}
 	})
 })
 </script>
