@@ -4,7 +4,8 @@
 	<title>おさかな</title>
 <style>
 	td {
-		font-size: 14px;
+		font-size: 13px;
+		border-bottom: 1px solid rgba(31,45,60,.1);
 	}
 	.bg {
 		/*位置の設定*/
@@ -108,8 +109,8 @@ $(function() {
          weather = osakana.Previous_Weather + " → なんでも";
       }
 	  
-	  /* おさかなチャンス 2個 */
-	  var chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
+	  /* おさかなチャンス 1個 */
+	  var chances = getFishChance(1, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
 	  
       var html = '<tr>';
 	  html += '<td>' + osakana.Fish + '</td>';
@@ -117,8 +118,21 @@ $(function() {
 	  html += '<td>' + osakana.Zone + '</td>';
 	  html += '<td>' + time + '</td>';
 	  html += '<td>' + weather + '</td>';
+	  
+	  var requirements = [];
+	  if (osakana.Bait.length > 0) {
+		requirements.push('エサ: ' + osakana.Bait);
+	  }
+	  if (osakana.Fish_Eye.length > 0) {
+		requirements.push('アイ: ' + osakana.Fish_Eye);
+	  }
+	  if (osakana.Intuition.length > 0) {
+		requirements.push('直観: ' + osakana.Intuition);
+	  }
+	  html += '<td>' + requirements.join('<br>') + '</td>';
+	  
 	  html += '<td>' + chances[0] + '</td>';
-	  html += '<td>' + chances[1] + '</td>';
+	  // html += '<td>' + chances[1] + '</td>';
 	  // html += '<td>' + chances[2] + '</td>';
 	  html += '</tr>'
       $("#osakana_list").append(html);   
