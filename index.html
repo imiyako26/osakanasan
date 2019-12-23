@@ -120,6 +120,7 @@ $(function() {
 	  var chances = getFishChance(1, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
 	  
       var html = '<tr>';
+	  html += '<td><input type="checkbox"></td>';
 	  html += '<td>' + osakana.Fish + '</td>';
 	  html += '<td>' + osakana.Spot + '</td>';
 	  html += '<td>' + osakana.Zone + '</td>';
@@ -153,6 +154,7 @@ $(function() {
 	<table id="osakana_list">
 		<thead>
 			<tr>
+				<th></th>
 				<th>Fish</th>
 				<th>Spot</th>
 				<th>Zone</th>
