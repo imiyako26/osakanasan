@@ -75,8 +75,8 @@ var WeatherFinder ={
   },
 
   weatherJp:{
-    "晴れ":"Clear Skies",
-    "快晴":"Fair Skies",
+    "晴れ":"Fair Skies",
+    "快晴":"Clear Skies",
     "曇り":"Clouds",
     "霧":"Fog",
     "雨":"Rain",
