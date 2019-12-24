@@ -3,7 +3,7 @@
 <head>
 	<title>おさかな</title>
 <style>
-	td {
+	tr {
 		font-size: 13px;
 		border-bottom: 1px solid rgba(31,45,60,.1);
 	}
@@ -24,9 +24,12 @@
 		background-size: 50%;
 	}
 	.tablesorter-default { background-color: transparent !important; }
-	.tablesorter-default td { background-color: transparent !important; }
+	.tablesorter-default td { 
+		background-color: transparent !important; 
+		border-bottom: none !important; 
+	}
 	
-	.caught {
+	.caught td {
 		opacity: 0.3;
 	}
 </style>
