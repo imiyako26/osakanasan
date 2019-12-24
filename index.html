@@ -25,6 +25,10 @@
 	}
 	.tablesorter-default { background-color: transparent !important; }
 	.tablesorter-default td { background-color: transparent !important; }
+	
+	.caught {
+		opacity: 0.3;
+	}
 </style>
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="osakana.js"></script>
@@ -97,65 +101,74 @@ function populateWeather() {
    
 $(function() {   
    for (var i = 0; i < osakanas.length; i++) {
-      var osakana = osakanas[i];
-      
-      var time = "";
-      if (osakana.From != "") {
-         time = ("0" + osakana.From).slice(-2) + ":00-" + ("0" + osakana.To).slice(-2) + ":00";
-      }
-      
-      var weather = "";      
-      if (osakana.Previous_Weather != "" && osakana.Weather != "") {
-         /* 移ろいﾌｨｯｼｭ */
-         weather = osakana.Previous_Weather + " → " + osakana.Weather;
-      } else if (osakana.Weather != "") {         
-         /* 移ろわないﾌｨｯｼｭ */
-         weather = osakana.Weather;
-      } else if (osakana.Previous_Weather != "") {         
-         /* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
-         weather = osakana.Previous_Weather + " → なんでも";
-      }
-	  
-	  /* おさかなチャンス 1個 */
-	  var chances = getFishChance(1, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
-	  
-      var html = '<tr>';
-	  html += '<td><input type="checkbox" class="remove"></td>';
-	  html += '<td>' + osakana.Fish + '</td>';
-	  html += '<td>' + osakana.Spot + '</td>';
-	  html += '<td>' + osakana.Zone + '</td>';
-	  html += '<td>' + time + '</td>';
-	  html += '<td>' + weather + '</td>';
-	  
-	  var requirements = [];
-	  if (osakana.Bait.length > 0) {
-		requirements.push('エサ: ' + osakana.Bait);
-	  }
-	  if (osakana.Mooch.length > 0) {
-		requirements.push('泳がせ: ' + osakana.Mooch);
-	  }
-	  if (osakana.Fish_Eye.length > 0) {
-		requirements.push('アイ: ' + osakana.Fish_Eye);
-	  }
-	  if (osakana.Intuition.length > 0) {
-		requirements.push('直観: ' + osakana.Intuition);
-	  }
-	  html += '<td>' + requirements.join('<br>') + '</td>';
-	  
-	  html += '<td>' + chances[0] + '</td>';
-	  // html += '<td>' + chances[1] + '</td>';
-	  // html += '<td>' + chances[2] + '</td>';
-	  html += '</tr>'
-      $("#osakana_list tbody").append(html);   
-   }
-   $("#osakana_list").tablesorter()
+		var osakana = osakanas[i];
+
+		var time = "";
+		if (osakana.From != "") {
+			time = ("0" + osakana.From).slice(-2) + ":00-" + ("0" + osakana.To).slice(-2) + ":00";
+		}
+
+		var weather = "";      
+		if (osakana.Previous_Weather != "" && osakana.Weather != "") {
+			/* 移ろいﾌｨｯｼｭ */
+			weather = osakana.Previous_Weather + " → " + osakana.Weather;
+		} else if (osakana.Weather != "") {         
+			/* 移ろわないﾌｨｯｼｭ */
+			weather = osakana.Weather;
+		} else if (osakana.Previous_Weather != "") {         
+			/* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
+			weather = osakana.Previous_Weather + " → なんでも";
+		}
+
+		/* おさかなチャンス 1個 */
+		var chances = getFishChance(1, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
+
+		var caught = localStorage.getItem(osakana.Fish) == 'Yes';
+		var html = '<tr';
+		if (caught) {
+			html += ' class="caught"';
+		}
+		html += '>';
+		html += '<td><input type="checkbox" class="caught" value="' + osakana.Fish + '"></td>';
+		html += '<td>' + osakana.Fish + '</td>';
+		html += '<td>' + osakana.Spot + '</td>';
+		html += '<td>' + osakana.Zone + '</td>';
+		html += '<td>' + time + '</td>';
+		html += '<td>' + weather + '</td>';
+
+		var requirements = [];
+		if (osakana.Bait.length > 0) {
+			requirements.push('エサ: ' + osakana.Bait);
+		}
+		if (osakana.Mooch.length > 0) {
+			requirements.push('泳がせ: ' + osakana.Mooch);
+		}
+		if (osakana.Fish_Eye.length > 0) {
+			requirements.push('アイ: ' + osakana.Fish_Eye);
+		}
+		if (osakana.Intuition.length > 0) {
+			requirements.push('直観: ' + osakana.Intuition);
+		}
+		html += '<td>' + requirements.join('<br>') + '</td>';
+
+		html += '<td>' + chances[0] + '</td>';
+		// html += '<td>' + chances[1] + '</td>';
+		// html += '<td>' + chances[2] + '</td>';
+		html += '</tr>'
+		$("#osakana_list tbody").append(html);   
+	}
+
+	$("#osakana_list").tablesorter()
    
-	$(document).on("click", ".remove", function() {
-		var checked = $(this).prop("checked")
+	$(document).on("click", ".caught", function() {
+		var checked = $(this).prop("checked");
+		var fish = $(this).attr("value");
 		if (checked) {
-			$(this).parents('tr').css('opacity', '0.5')
+			$(this).parents('tr').addClass('caught');
+			localStorage.setItem(fish, 'Yes');
 		} else {
-			$(this).parents('tr').css('opacity', '1')
+			$(this).parents('tr').removeClass('caught');
+			localStorage.removeItem(fish);
 		}
 	})
 })
