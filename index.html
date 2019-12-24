@@ -3,6 +3,9 @@
 <head>
 	<title>おさかな</title>
 <style>
+	table {
+		border-collapse: collapse;
+	}
 	tr {
 		font-size: 13px;
 		border-bottom: 1px solid rgba(31,45,60,.1);
@@ -132,7 +135,11 @@ $(function() {
 			html += ' class="caught"';
 		}
 		html += '>';
-		html += '<td><input type="checkbox" class="caught" value="' + osakana.Fish + '"></td>';
+		html += '<td><input type="checkbox" class="caught" value="' + osakana.Fish + '"'
+		if (caught) {
+			html += ' checked';
+		}
+		html += '></td>';
 		html += '<td>' + osakana.Fish + '</td>';
 		html += '<td>' + osakana.Spot + '</td>';
 		html += '<td>' + osakana.Zone + '</td>';
