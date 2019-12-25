@@ -35,6 +35,9 @@
 	.caught td {
 		opacity: 0.3;
 	}
+	.invisible {
+		display: none;
+	}
 </style>
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="osakana.js"></script>
@@ -179,24 +182,71 @@ $(function() {
 		$("#osakana_list tbody").append(html);   
 	}
 
-	$("#osakana_list").tablesorter()
+	$("#osakana_list").tablesorter();
    
 	$(document).on("click", ".caught", function() {
 		var checked = $(this).prop("checked");
 		var fish = $(this).attr("value");
+		var tr = $(this).parents('tr')
 		if (checked) {
-			$(this).parents('tr').addClass('caught');
+			tr.addClass('caught');
+			if (shouldHideCaughtFish()) {
+				tr.addClass('invisible');
+			}
 			localStorage.setItem(fish, 'Yes');
 		} else {
-			$(this).parents('tr').removeClass('caught');
+			tr.removeClass('caught');
+			tr.removeClass('invisible')
 			localStorage.removeItem(fish);
 		}
 	})
+
+	activateInvisibleFishFeature()
 })
+
+/* 釣ったおさかなさんを全部隠すor見せる機能 */
+function activateInvisibleFishFeature() {
+	$('#hidingCaughtFish').on('change', function() {
+		if ($(this).prop('checked')) {
+			/* チェックが入ってたらlocalStorageにYes、半透明のおさかなさんたちをサヨナラ */
+			localStorage.setItem('hidingCaughtFish', 'Yes');
+			updateCaughtFishVisibility(false);
+		} else {
+			/* 逆 */
+			localStorage.removeItem('hidingCaughtFish');
+			updateCaughtFishVisibility(true);
+		}
+	})
+
+	/* 初回はlocalStorageから */
+	if (shouldHideCaughtFish()) {
+		updateCaughtFishVisibility(false);
+		$('#hidingCaughtFish').prop('checked', true)
+	}
+}
+
+/* 隠したり見せたり */
+function updateCaughtFishVisibility(visible) {
+	var tr = $('tr.caught');
+	if (visible) {
+		tr.removeClass('invisible')
+	} else {
+		tr.addClass('invisible')
+	}
+}
+
+/* 釣ったおさかなさんは隠すべき？ */
+function shouldHideCaughtFish() {
+	return localStorage.getItem('hidingCaughtFish') === 'Yes'
+}
 </script>
 </head>
 <body>
 	<div class="bg"></div>
+	<div>
+		<input type="checkbox" id="hidingCaughtFish">
+		<label for="hidingCaughtFish">釣れた魚に用はない</label>
+	</div>
 	<table id="osakana_list">
 		<thead>
 			<tr>
