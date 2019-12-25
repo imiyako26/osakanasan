@@ -55,18 +55,19 @@ $(function() {
 		var osakana = osakanas[i];
 
 		var time = "";
-		if (osakana.From != "") {
+		if (osakana.From !== "") {
 			time = ("0" + osakana.From).slice(-2) + ":00-" + ("0" + osakana.To).slice(-2) + ":00";
 		}
+		console.log(osakana.Fish, osakana.From, osakana.To, time)
 
 		var weather = "";      
-		if (osakana.Previous_Weather != "" && osakana.Weather != "") {
+		if (osakana.Previous_Weather !== "" && osakana.Weather !== "") {
 			/* 移ろいﾌｨｯｼｭ */
 			weather = osakana.Previous_Weather + " → " + osakana.Weather;
-		} else if (osakana.Weather != "") {         
+		} else if (osakana.Weather !== "") {         
 			/* 移ろわないﾌｨｯｼｭ */
 			weather = osakana.Weather;
-		} else if (osakana.Previous_Weather != "") {         
+		} else if (osakana.Previous_Weather !== "") {         
 			/* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
 			weather = osakana.Previous_Weather + " → なんでも";
 		}
