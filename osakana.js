@@ -14,7 +14,8 @@ osakanas = [
     "Mooch": "スカルピン",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 241,
+    "Since": 2.3
   },
   {
     "Fish": "スウィートニュート",
@@ -30,7 +31,8 @@ osakanas = [
     "Mooch": "グラディエーターベタ",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 259,
+    "Since": 2.3
   },
   {
     "Fish": "リトルペリュコス",
@@ -46,7 +48,8 @@ osakanas = [
     "Mooch": "メルトールゴビー→ワフー",
     "Hookset": "",
     "Remark": "no ヌシヒット",
-    "Neko": ""
+    "Neko": 637,
+    "Since": 4
   },
   {
     "Fish": "ファットパース",
@@ -62,7 +65,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 462,
+    "Since": 3.3
   },
   {
     "Fish": "ヘイルイーター",
@@ -78,7 +82,8 @@ osakanas = [
     "Mooch": "グレイシャーコア",
     "Hookset": "プレシジョン",
     "Remark": "",
-    "Neko": ""
+    "Neko": 478,
+    "Since": 3.4
   },
   {
     "Fish": "フレアフィッシュ",
@@ -94,7 +99,8 @@ osakanas = [
     "Mooch": "ハルオネ",
     "Hookset": "ストロング",
     "Remark": "",
-    "Neko": ""
+    "Neko": 479,
+    "Since": 3.4
   },
   {
     "Fish": "ラ・レアル",
@@ -110,7 +116,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 464,
+    "Since": 3.3
   },
   {
     "Fish": "イエティキラー",
@@ -126,7 +133,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "引っ掛け 50s+",
-    "Neko": ""
+    "Neko": 463,
+    "Since": 3.3
   },
   {
     "Fish": "氷の巫女",
@@ -142,7 +150,8 @@ osakanas = [
     "Mooch": "ハルオネ",
     "Hookset": "ストロング",
     "Remark": "",
-    "Neko": ""
+    "Neko": 488,
+    "Since": 3.4
   },
   {
     "Fish": "ネモ",
@@ -158,7 +167,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 490,
+    "Since": 3.5
   },
   {
     "Fish": "ビショップフィッシュ",
@@ -174,7 +184,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 489,
+    "Since": 3.5
   },
   {
     "Fish": "シャリベネ",
@@ -190,7 +201,8 @@ osakanas = [
     "Mooch": "ハルオネ",
     "Hookset": "プレシジョン",
     "Remark": "",
-    "Neko": ""
+    "Neko": 504,
+    "Since": 3.5
   },
   {
     "Fish": "アクムノタネ",
@@ -206,7 +218,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 466,
+    "Since": 3.3
   },
   {
     "Fish": "スケイルリッパー",
@@ -222,7 +235,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 465,
+    "Since": 3.3
   },
   {
     "Fish": "フォークタン",
@@ -238,7 +252,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 480,
+    "Since": 3.4
   },
   {
     "Fish": "サンダースケイル",
@@ -254,7 +269,8 @@ osakanas = [
     "Mooch": "マクロブラキウム",
     "Hookset": "ストロング",
     "Remark": "",
-    "Neko": ""
+    "Neko": 494,
+    "Since": 3.5
   },
   {
     "Fish": "リドル",
@@ -270,7 +286,8 @@ osakanas = [
     "Mooch": "グラナイトクラブ",
     "Hookset": "ストロング",
     "Remark": "",
-    "Neko": ""
+    "Neko": 495,
+    "Since": 3.5
   },
   {
     "Fish": "メテオトータス",
@@ -286,11 +303,12 @@ osakanas = [
     "Mooch": "グラナイトクラブ",
     "Hookset": "ストロング",
     "Remark": "",
-    "Neko": ""
+    "Neko": 467,
+    "Since": 3.3
   },
   {
     "Fish": "聖竜の涙",
-    "Spot": "モーン大岩窟",
+    "Spot": "モーン大岩窟西",
     "Zone": "高地ドラヴァニア",
     "From": 2,
     "To": 6,
@@ -302,7 +320,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": 484,
+    "Since": 3.4
   },
   {
     "Fish": "溶岩帝王",
@@ -318,7 +337,8 @@ osakanas = [
     "Mooch": "グラナイトクラブ",
     "Hookset": "ストロング",
     "Remark": "3択ガチャ",
-    "Neko": ""
+    "Neko": 496,
+    "Since": 3.5
   },
   {
     "Fish": "プロブレマティカス",
@@ -334,7 +354,8 @@ osakanas = [
     "Mooch": "グラナイトクラブ",
     "Hookset": "ストロング",
     "Remark": "3択ガチャ",
-    "Neko": ""
+    "Neko": 500,
+    "Since": 3.5
   },
   {
     "Fish": "水瓶王",
@@ -346,11 +367,12 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Mooch": "",
-    "Hookset": "",
+    "Bait": "ブレーデッドジグ",
+    "Mooch": "香魚",
+    "Hookset": "ストロング",
     "Remark": "",
-    "Neko": ""
+    "Neko": 468,
+    "Since": 3.3
   },
   {
     "Fish": "マダムバタフライ",
@@ -362,11 +384,12 @@ osakanas = [
     "Weather": "快晴",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Mooch": "",
-    "Hookset": "",
+    "Bait": "ストーンラーヴァ",
+    "Mooch": "グリルダロパ",
+    "Hookset": "プレシジョン",
     "Remark": "",
-    "Neko": ""
+    "Neko": 481,
+    "Since": 3.4
   },
   {
     "Fish": "万能のゴブリバス",
@@ -382,7 +405,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "スピーカー",
@@ -398,7 +422,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "鎧魚",
@@ -414,7 +439,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ハイアラガンクラブ改",
@@ -430,7 +456,8 @@ osakanas = [
     "Mooch": "白金魚",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "魔科学物質666",
@@ -446,7 +473,8 @@ osakanas = [
     "Mooch": "白金魚",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "セティ",
@@ -462,7 +490,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "バイオガピラルク",
@@ -478,7 +507,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ハンドレッドアイ",
@@ -494,7 +524,8 @@ osakanas = [
     "Mooch": "エーテルアイ",
     "Hookset": "プレシジョン",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "クリスタルピジョン",
@@ -510,7 +541,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "アラガンブレード・シャーク",
@@ -526,7 +558,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "オパビニア",
@@ -542,7 +575,8 @@ osakanas = [
     "Mooch": "白金魚",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ザ・セカンドワン",
@@ -558,7 +592,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "シーロストラタスモトロ",
@@ -574,7 +609,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "クラウドバタフライ",
@@ -590,7 +626,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "バスキングシャーク",
@@ -606,7 +643,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "パイッサキラー",
@@ -622,7 +660,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "水墨魚",
@@ -638,7 +677,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ラタトスクソウル",
@@ -654,7 +694,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ヴィゾーヴニル",
@@ -670,7 +711,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ディモルフォドン",
@@ -686,7 +728,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "モグルグポンポン",
@@ -702,7 +745,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ボサボサ",
@@ -718,7 +762,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ストームブラッドライダー",
@@ -734,7 +779,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ランデロプテルス",
@@ -750,7 +796,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "フックスティーラー",
@@ -766,7 +813,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "シデンナマズ",
@@ -782,7 +830,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "レッドテイルゾンビー",
@@ -798,7 +847,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "サーメットヘッド",
@@ -814,7 +864,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "クセナカンサス",
@@ -830,7 +881,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "サファイアファン",
@@ -846,7 +898,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "アークビショップフィッシュ",
@@ -862,7 +915,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "タニクダリ",
@@ -878,7 +932,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "コープスチャブ",
@@ -894,7 +949,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ヘモン",
@@ -910,7 +966,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ボンドスプリッター",
@@ -926,7 +983,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ドレパナスピス",
@@ -942,7 +1000,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ナガレクダリ",
@@ -958,7 +1017,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ラストティアー",
@@ -974,7 +1034,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "解脱魚",
@@ -990,7 +1051,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "アラミガンベール",
@@ -1006,7 +1068,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ダイヤモンドアイ",
@@ -1022,7 +1085,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ステタカントゥス",
@@ -1038,7 +1102,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ベジースキッパー",
@@ -1054,7 +1119,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "明けの旗魚",
@@ -1070,7 +1136,8 @@ osakanas = [
     "Mooch": "ザガス",
     "Hookset": "ストロング",
     "Remark": "",
-    "Neko": 834
+    "Neko": 834,
+    "Since": ""
   },
   {
     "Fish": "ブレードスキッパー",
@@ -1086,7 +1153,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "暮れの魚",
@@ -1102,7 +1170,8 @@ osakanas = [
     "Mooch": "ザガス",
     "Hookset": "ストロング",
     "Remark": "",
-    "Neko": 820
+    "Neko": 820,
+    "Since": ""
   },
   {
     "Fish": "シンタクヤブリ",
@@ -1118,7 +1187,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ヤトカガン",
@@ -1134,7 +1204,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ナーマの愛寵",
@@ -1150,7 +1221,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "神々の愛",
@@ -1166,7 +1238,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "バリマンボン",
@@ -1182,7 +1255,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ウミダイジャ",
@@ -1198,7 +1272,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "春不知",
@@ -1214,7 +1289,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ソクシツキ",
@@ -1230,7 +1306,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "菜食王",
@@ -1246,7 +1323,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ナナツボシ",
@@ -1262,7 +1340,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "クアル",
@@ -1278,7 +1357,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "紅龍",
@@ -1294,7 +1374,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "オニニラミ",
@@ -1310,7 +1391,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ザクロウミ",
@@ -1326,7 +1408,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "仙寿の翁",
@@ -1342,7 +1425,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "七彩天主",
@@ -1358,7 +1442,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ニジノヒトスジ",
@@ -1374,7 +1459,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ボクデン",
@@ -1390,7 +1476,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "水天一碧",
@@ -1406,7 +1493,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "シャジクノミ",
@@ -1422,7 +1510,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "羽衣美女",
@@ -1438,7 +1527,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "羽衣鯉",
@@ -1454,7 +1544,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ノボリリュウ",
@@ -1470,7 +1561,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "バクチウチ",
@@ -1486,7 +1578,8 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   },
   {
     "Fish": "ヒメダカ",
@@ -1502,6 +1595,7 @@ osakanas = [
     "Mooch": "",
     "Hookset": "",
     "Remark": "",
-    "Neko": ""
+    "Neko": "",
+    "Since": ""
   }
 ]

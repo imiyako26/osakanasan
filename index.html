@@ -123,7 +123,9 @@ $(function() {
 		$("#osakana_list tbody").append(html);   
 	}
 
-	$("#osakana_list").tablesorter();
+	$("#osakana_list").tablesorter({
+		widgets: ['stickyHeaders']
+	});
    
 	$(document).on("click", ".caught", function() {
 		var checked = $(this).prop("checked");
