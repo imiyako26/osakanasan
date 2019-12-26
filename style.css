@@ -1,7 +1,9 @@
+* {
+  font-family: Meiryo,Arial,Helvetica,sans-serif;
+}
 body {
   padding: 0;
   margin: 0;
-  font-family: Meiryo,Arial,Helvetica,sans-serif;
 }
 table {
   border-collapse: collapse;
