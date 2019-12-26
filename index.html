@@ -3,47 +3,12 @@
 <head>
 	<title>おさかな</title>
 	<link rel="shortcut icon" href="umi_kani.ico"/>
-<style>
-	table {
-		border-collapse: collapse;
-	}
-	tr {
-		font-size: 13px;
-		border-bottom: 1px solid rgba(31,45,60,.1);
-	}
-	.bg {
-		/*位置の設定*/
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		top: 0;
-		left: 0;
-
-		/*背景画像の設定*/
-		background: url(umi_kani.png) bottom right no-repeat;  
-
-		/*透過の設定*/
-		opacity: 0.1;
-		z-index: -1;
-		background-size: 50%;
-	}
-	.tablesorter-default { background-color: transparent !important; }
-	.tablesorter-default td { 
-		background-color: transparent !important; 
-		border-bottom: none !important; 
-	}
 	
-	.caught td {
-		opacity: 0.3;
-	}
-	.invisible {
-		display: none;
-	}
-</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
+	<link rel="stylesheet" href="style.css">
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="osakana.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 <!-- 追加機能(widgets)を使用する場合は次も追加する -->
@@ -116,7 +81,7 @@ $(function() {
 		if (osakana.Intuition.length > 0) {
 			requirements.push('直観: ' + osakana.Intuition);
 		}
-		html += '<td>' + requirements.join('<br>') + '</td>';
+		// html += '<td>' + requirements.join('<br>') + '</td>';
 
 		html += '<td>' + chances[0] + '</td>';
 		html += '<td>' + chances[1] + '</td>';
@@ -188,26 +153,32 @@ function shouldHideCaughtFish() {
 </head>
 <body>
 	<div class="bg"></div>
-	<div>
-		<input type="checkbox" id="hidingCaughtFish">
-		<label for="hidingCaughtFish">釣れた魚に用はない</label>
+	<div class="bg2"></div>
+	<div class="kani"></div>
+	<div class="sun"></div>
+	<div class="frame"></div>
+	<div class="content">
+		<div>
+			<input type="checkbox" id="hidingCaughtFish">
+			<label for="hidingCaughtFish">釣れた魚に用はない</label>
+		</div>
+		<table id="osakana_list">
+			<thead>
+				<tr>
+					<th class="sorter-false"></th>
+					<th>Fish</th>
+					<th>Spot</th>
+					<th>Zone</th>
+					<th>Time/Weather</th>
+					<!--<th>Extra</th>-->
+					<th>#1</th>
+					<th>#2</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- ここにお魚さん -->			
+			</tbody>
+		</table>
 	</div>
-	<table id="osakana_list">
-		<thead>
-			<tr>
-				<th class="sorter-false"></th>
-				<th>Fish</th>
-				<th>Spot</th>
-				<th>Zone</th>
-				<th>Time/Weather</th>
-				<th>Extra</th>
-				<th>#1</th>
-				<th>#2</th>
-			</tr>
-		</thead>
-		<tbody>
-			<!-- ここにお魚さん -->			
-		</tbody>
-	</table>
 <body>
 </html>

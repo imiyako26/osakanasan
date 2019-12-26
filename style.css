@@ -1,0 +1,112 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  font-size: 13px;
+  border-bottom: 1px solid rgba(31, 45, 60, .1);
+}
+
+.bg {
+  /*位置の設定*/
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /*背景画像の設定*/
+  background: url(images/bg_natural_umi.jpg) bottom right no-repeat;
+  background-color: #B4E0FB;
+
+  /*透過の設定*/
+  opacity: 1;
+  z-index: -2;
+}
+
+.bg2 {
+  /*位置の設定*/
+  width: 100%;
+  height: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  /*背景画像の設定*/
+  background: url(images/bg_natural_umi.jpg) bottom right no-repeat;
+
+  /*透過の設定*/
+  opacity: 1;
+  z-index: 10;
+}
+
+
+.kani {
+  background-image: url(images/umi_kani.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 250px;
+  height: 250px;
+  width: 250px;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
+
+.sun {
+  background-image: url(images/taiyou.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 200px;
+  height: 200px;
+  width: 200px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+.kani-space {
+  height: 300px;
+}
+
+.frame {
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  right: 15px;
+  bottom: 15px;
+  background-color: white;
+  border-radius: 5px;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.content {
+  margin: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.tablesorter-default {
+  background-color: transparent !important;
+}
+
+.tablesorter-default td,
+.tablesorter-default th {
+  background-color: transparent !important;
+  border-bottom: none !important;
+}
+
+.caught td {
+  opacity: 0.3;
+}
+
+.invisible {
+  display: none;
+}
