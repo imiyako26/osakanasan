@@ -1,156 +1,160 @@
-
 <html>
+
 <head>
 	<title>おさかな</title>
-	<link rel="shortcut icon" href="umi_kani.ico"/>
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
+	<link rel="shortcut icon" href="umi_kani.ico" />
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
 	<link rel="stylesheet" href="style.css">
-<script type="text/javascript" src="weather.js"></script>
-<script type="text/javascript" src="osakana.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
-<!-- 追加機能(widgets)を使用する場合は次も追加する -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript" src="weather.js"></script>
+	<script type="text/javascript" src="osakana.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+	<!-- 追加機能(widgets)を使用する場合は次も追加する -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
+	<script type="text/javascript">
 
-$(function() {   
-   for (var i = 0; i < osakanas.length; i++) {
-		var osakana = osakanas[i];
+		$(function () {
+			for (var i = 0; i < osakanas.length; i++) {
+				var osakana = osakanas[i];
 
-		var time = "";
-		if (osakana.From !== "") {
-			time = ("0" + osakana.From).slice(-2) + ":00-" + ("0" + osakana.To).slice(-2) + ":00";
-		}
-		console.log(osakana.Fish, osakana.From, osakana.To, time)
+				var time = "";
+				if (osakana.From !== "") {
+					time = ("0" + osakana.From).slice(-2) + ":00-" + ("0" + osakana.To).slice(-2) + ":00";
+				}
+				console.log(osakana.Fish, osakana.From, osakana.To, time)
 
-		var weather = "";      
-		if (osakana.Previous_Weather !== "" && osakana.Weather !== "") {
-			/* 移ろいﾌｨｯｼｭ */
-			weather = osakana.Previous_Weather + " → " + osakana.Weather;
-		} else if (osakana.Weather !== "") {         
-			/* 移ろわないﾌｨｯｼｭ */
-			weather = osakana.Weather;
-		} else if (osakana.Previous_Weather !== "") {         
-			/* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
-			weather = osakana.Previous_Weather + " → なんでも";
-		}
+				var weather = "";
+				if (osakana.Previous_Weather !== "" && osakana.Weather !== "") {
+					/* 移ろいﾌｨｯｼｭ */
+					weather = osakana.Previous_Weather + " → " + osakana.Weather;
+				} else if (osakana.Weather !== "") {
+					/* 移ろわないﾌｨｯｼｭ */
+					weather = osakana.Weather;
+				} else if (osakana.Previous_Weather !== "") {
+					/* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
+					weather = osakana.Previous_Weather + " → なんでも";
+				}
 
-		/* おさかなチャンス 2個 */
-		var chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
+				/* おさかなチャンス 2個 */
+				var chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
 
-		var caught = localStorage.getItem(osakana.Fish) == 'Yes';
-		var html = '<tr';
-		if (caught) {
-			html += ' class="caught"';
-		}
-		html += '>';
-		html += '<td><input type="checkbox" class="caught" value="' + osakana.Fish + '"'
-		if (caught) {
-			html += ' checked';
-		}
-		html += '></td>';
-		var name = osakana.Fish;
-		if (osakana.Neko) {
-			name = '<a target="_blank" href="https://ff14angler.com/fish/' + osakana.Neko + '">' + osakana.Fish + '</a>';
-		}
-		html += '<td>' + name + '</td>';
-		html += '<td>' + osakana.Spot + '</td>';
-		html += '<td>' + osakana.Zone + '</td>';
-		
-		var wa = [];
-		if (time.length) {
-			wa.push(time);
-		}
-		if (weather.length) {
-			wa.push(weather)
-		}
-		html += '<td>' + wa.join('<br>') + '</td>';
+				var caught = localStorage.getItem(osakana.Fish) == 'Yes';
+				var html = '<tr';
+				if (caught) {
+					html += ' class="caught"';
+				}
+				html += '>';
+				html += '<td><input type="checkbox" class="caught" value="' + osakana.Fish + '"'
+				if (caught) {
+					html += ' checked';
+				}
+				html += '></td>';
+				var name = osakana.Fish;
+				if (osakana.Neko) {
+					name = '<a target="_blank" href="https://ff14angler.com/fish/' + osakana.Neko + '">' + osakana.Fish + '</a>';
+				}
+				html += '<td>' + name + '</td>';
+				html += '<td>' + osakana.Spot + '</td>';
+				html += '<td>' + osakana.Zone + '</td>';
 
-		var requirements = [];
-		if (osakana.Bait.length > 0) {
-			requirements.push('エサ: ' + osakana.Bait);
-		}
-		if (osakana.Mooch.length > 0) {
-			requirements.push('泳がせ: ' + osakana.Mooch);
-		}
-		if (osakana.Fish_Eye.length > 0) {
-			requirements.push('アイ: ' + osakana.Fish_Eye);
-		}
-		if (osakana.Intuition.length > 0) {
-			requirements.push('直観: ' + osakana.Intuition);
-		}
-		// html += '<td>' + requirements.join('<br>') + '</td>';
+				var wa = [];
+				if (time.length) {
+					wa.push(time);
+				}
+				if (weather.length) {
+					wa.push(weather)
+				}
+				html += '<td>' + wa.join('<br>') + '</td>';
 
-		html += '<td>' + chances[0] + '</td>';
-		html += '<td>' + chances[1] + '</td>';
-		// html += '<td>' + chances[2] + '</td>';
-		html += '</tr>'
-		$("#osakana_list tbody").append(html);   
-	}
+				var requirements = [];
+				if (osakana.Bait.length > 0) {
+					requirements.push('エサ: ' + osakana.Bait);
+				}
+				if (osakana.Mooch.length > 0) {
+					requirements.push('泳がせ: ' + osakana.Mooch);
+				}
+				if (osakana.Fish_Eye.length > 0) {
+					requirements.push('アイ: ' + osakana.Fish_Eye);
+				}
+				if (osakana.Intuition.length > 0) {
+					requirements.push('直観: ' + osakana.Intuition);
+				}
+				html += '<td>' + requirements.join('<br>') + '</td>';
 
-	$("#osakana_list").tablesorter({
-		widgets: ['stickyHeaders']
-	});
-   
-	$(document).on("click", ".caught", function() {
-		var checked = $(this).prop("checked");
-		var fish = $(this).attr("value");
-		var tr = $(this).parents('tr')
-		if (checked) {
-			tr.addClass('caught');
-			if (shouldHideCaughtFish()) {
-				tr.addClass('invisible');
+				html += '<td>' + chances[0] + '</td>';
+				html += '<td>' + chances[1] + '</td>';
+				// html += '<td>' + chances[2] + '</td>';
+				html += '</tr>'
+				$("#osakana_list tbody").append(html);
 			}
-			localStorage.setItem(fish, 'Yes');
-		} else {
-			tr.removeClass('caught');
-			tr.removeClass('invisible')
-			localStorage.removeItem(fish);
+
+			$("#osakana_list").tablesorter({
+				widgets: ['stickyHeaders']
+			});
+
+			$(document).on("click", ".caught", function () {
+				var checked = $(this).prop("checked");
+				var fish = $(this).attr("value");
+				var tr = $(this).parents('tr')
+				if (checked) {
+					tr.addClass('caught');
+					if (shouldHideCaughtFish()) {
+						tr.addClass('invisible');
+					}
+					localStorage.setItem(fish, 'Yes');
+				} else {
+					tr.removeClass('caught');
+					tr.removeClass('invisible')
+					localStorage.removeItem(fish);
+				}
+			})
+
+			activateInvisibleFishFeature()
+		})
+
+		/* 釣ったおさかなさんを全部隠すor見せる機能 */
+		function activateInvisibleFishFeature() {
+			$('#hidingCaughtFish').on('change', function () {
+				if ($(this).prop('checked')) {
+					/* チェックが入ってたらlocalStorageにYes、半透明のおさかなさんたちをサヨナラ */
+					localStorage.setItem('hidingCaughtFish', 'Yes');
+					updateCaughtFishVisibility(false);
+				} else {
+					/* 逆 */
+					localStorage.removeItem('hidingCaughtFish');
+					updateCaughtFishVisibility(true);
+				}
+			})
+
+			/* 初回はlocalStorageから */
+			if (shouldHideCaughtFish()) {
+				updateCaughtFishVisibility(false);
+				$('#hidingCaughtFish').prop('checked', true)
+			}
 		}
-	})
 
-	activateInvisibleFishFeature()
-})
-
-/* 釣ったおさかなさんを全部隠すor見せる機能 */
-function activateInvisibleFishFeature() {
-	$('#hidingCaughtFish').on('change', function() {
-		if ($(this).prop('checked')) {
-			/* チェックが入ってたらlocalStorageにYes、半透明のおさかなさんたちをサヨナラ */
-			localStorage.setItem('hidingCaughtFish', 'Yes');
-			updateCaughtFishVisibility(false);
-		} else {
-			/* 逆 */
-			localStorage.removeItem('hidingCaughtFish');
-			updateCaughtFishVisibility(true);
+		/* 隠したり見せたり */
+		function updateCaughtFishVisibility(visible) {
+			var tr = $('tr.caught');
+			if (visible) {
+				tr.removeClass('invisible')
+			} else {
+				tr.addClass('invisible')
+			}
 		}
-	})
 
-	/* 初回はlocalStorageから */
-	if (shouldHideCaughtFish()) {
-		updateCaughtFishVisibility(false);
-		$('#hidingCaughtFish').prop('checked', true)
-	}
-}
-
-/* 隠したり見せたり */
-function updateCaughtFishVisibility(visible) {
-	var tr = $('tr.caught');
-	if (visible) {
-		tr.removeClass('invisible')
-	} else {
-		tr.addClass('invisible')
-	}
-}
-
-/* 釣ったおさかなさんは隠すべき？ */
-function shouldHideCaughtFish() {
-	return localStorage.getItem('hidingCaughtFish') === 'Yes'
-}
-</script>
+		/* 釣ったおさかなさんは隠すべき？ */
+		function shouldHideCaughtFish() {
+			return localStorage.getItem('hidingCaughtFish') === 'Yes'
+		}
+	</script>
 </head>
+
 <body>
 	<div class="bg"></div>
 	<div class="bg2"></div>
@@ -170,15 +174,17 @@ function shouldHideCaughtFish() {
 					<th>Spot</th>
 					<th>Zone</th>
 					<th>Time/Weather</th>
-					<!--<th>Extra</th>-->
+					<th>Extra</th>
 					<th>#1</th>
 					<th>#2</th>
 				</tr>
 			</thead>
 			<tbody>
-				<!-- ここにお魚さん -->			
+				<!-- ここにお魚さん -->
 			</tbody>
 		</table>
 	</div>
-<body>
+
+	<body>
+
 </html>
