@@ -78,7 +78,7 @@ tr {
 .frame {
   position: fixed;
   left: 15px;
-  top: 15px;
+  top: 30px;
   right: 15px;
   bottom: 15px;
   background-color: white;
@@ -91,6 +91,11 @@ tr {
   margin: 15px;
   position: relative;
   z-index: 1;
+}
+
+.settings {
+  text-align: right;
+  margin-right: 15px;
 }
 
 .tablesorter-default {
