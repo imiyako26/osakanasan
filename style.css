@@ -62,9 +62,9 @@ tr {
   background-image: url(images/fish_shark.png);
   background-repeat: no-repeat;
   background-position: bottom right;
-  background-size: 400px;
-  height: 300px;
-  width: 400px;
+  background-size: 350px;
+  height: 250px;
+  width: 350px;
   position: fixed;
   left: 0px;
   bottom: 0px;
