@@ -58,6 +58,19 @@ tr {
   z-index: -1;
 }
 
+.same {
+  background-image: url(images/fish_shark.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 400px;
+  height: 300px;
+  width: 400px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
+
 .sun {
   background-image: url(images/taiyou.png);
   background-repeat: no-repeat;
