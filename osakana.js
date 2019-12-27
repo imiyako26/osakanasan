@@ -1078,7 +1078,7 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "快晴",
-    "Fish_Eye": "",
+    "Fish_Eye": "4m",
     "Intuition": "",
     "Bait": "蚕蛹",
     "Mooch": "ロックソルトフィッシュ",
