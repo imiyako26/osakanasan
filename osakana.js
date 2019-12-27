@@ -1094,7 +1094,7 @@ osakanas = [
     "From": 16,
     "To": 18,
     "Previous_Weather": "雷雨",
-    "Weather": "雷雨",
+    "Weather": "",
     "Fish_Eye": "有（スカルプター）",
     "Intuition": "スカルプターx2",
     "Bait": "蚕蛹",
