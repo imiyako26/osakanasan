@@ -994,7 +994,7 @@ osakanas = [
     "Previous_Weather": "",
     "Weather": "砂塵",
     "Fish_Eye": "",
-    "Intuition": "",
+    "Intuition": "ボンドスプリッターx2",
     "Bait": "サスペンドミノー",
     "Mooch": "ボンドスプリッター",
     "Hookset": "ストロング",
