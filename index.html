@@ -94,7 +94,7 @@
 			}
 
 			$("#osakana_list").tablesorter({
-				widgets: ['stickyHeaders']
+				// widgets: ['stickyHeaders']
 			});
 
 			$(document).on("click", ".caught", function () {
@@ -157,15 +157,18 @@
 
 <body>
 	<div class="bg"></div>
-	<div class="bg2"></div>
 	<div class="kani"></div>
 	<div class="same"></div>
 	<div class="sun"></div>
 	<div class="frame"></div>
-	<div class="settings">
+
+	<div class="header">
+		<div class="sun"></div>
 		<input type="checkbox" id="hidingCaughtFish">
 		<label for="hidingCaughtFish">釣れた魚に用はない</label>
 	</div>
+	<div class="footer"></div>
+
 	<div class="content">
 		<table id="osakana_list">
 			<thead>
