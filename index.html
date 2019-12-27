@@ -91,6 +91,14 @@
 					hints.append(bakeIcon('mooch', '', true))
 				}
 
+				if (osakana.Hookset === 'プレシジョン') {
+					hints.append(bakeIcon('precision-hookset', 'フックセット: プレシジョンフッキング'))
+				} else if (osakana.Hookset === 'ストロング') {
+					hints.append(bakeIcon('powerful-hookset', 'フックセット: ストロングフッキング'))
+				} else {
+					hints.append(bakeIcon('hook', '', true))
+				}
+
 				if (osakana.Fish_Eye.length > 0) {
 					hints.append(bakeIcon('fisheyes', 'フィッシュアイ: ' + osakana.Fish_Eye))
 				} else {
