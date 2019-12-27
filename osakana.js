@@ -1,5 +1,5 @@
 
-osakanas = [
+osakanas =[
   {
     "Fish": "トラマフィッシュ",
     "Spot": "オークウッド",
@@ -811,7 +811,7 @@ osakanas = [
     "Intuition": "",
     "Bait": "赤虫",
     "Mooch": "ギラバニアントラウト",
-    "Hookset": "ストロング",
+    "Hookset": "プレシジョン",
     "Neko": 760,
     "Since": 4.3,
     "Remark": ""
@@ -1115,11 +1115,11 @@ osakanas = [
     "Weather": "快晴",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "赤虫",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "プレシジョン",
+    "Neko": 833,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1136,7 +1136,7 @@ osakanas = [
     "Mooch": "ザガス",
     "Hookset": "ストロング",
     "Neko": 834,
-    "Since": "",
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1149,11 +1149,11 @@ osakanas = [
     "Weather": "霧",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "サスペンドミノー",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "ストロング",
+    "Neko": 821,
+    "Since": 4.4,
     "Remark": ""
   },
   {
@@ -1170,7 +1170,7 @@ osakanas = [
     "Mooch": "ザガス",
     "Hookset": "ストロング",
     "Neko": 820,
-    "Since": "",
+    "Since": 4.4,
     "Remark": ""
   },
   {
@@ -1185,9 +1185,9 @@ osakanas = [
     "Intuition": "",
     "Bait": "ザザムシ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "プレシジョン",
+    "Neko": 772,
+    "Since": 4.3,
     "Remark": ""
   },
   {
@@ -1200,11 +1200,11 @@ osakanas = [
     "Weather": "風",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ザザムシ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "プレシジョン",
+    "Neko": 773,
+    "Since": 4.3,
     "Remark": ""
   },
   {
@@ -1217,11 +1217,11 @@ osakanas = [
     "Weather": "晴れ・快晴",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "サスペンドミノー",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "ストロング",
+    "Neko": 832,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1234,12 +1234,12 @@ osakanas = [
     "Weather": "快晴",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ザザムシ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
-    "Remark": ""
+    "Hookset": "プレシジョン",
+    "Neko": 845,
+    "Since": 4.5,
+    "Remark": "ナーマの恵みをトレードで１００％"
   },
   {
     "Fish": "バリマンボン",
@@ -1251,11 +1251,11 @@ osakanas = [
     "Weather": "雷",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "活海老",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "ストロング",
+    "Neko": 825,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1268,11 +1268,11 @@ osakanas = [
     "Weather": "風",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Bait": "活海老",
+    "Mooch": "紅玉海老",
+    "Hookset": "ストロング",
+    "Neko": 818,
+    "Since": 4.4,
     "Remark": ""
   },
   {
@@ -1285,11 +1285,11 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "アオイソメ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "プレシジョン",
+    "Neko": 768,
+    "Since": 4.3,
     "Remark": ""
   },
   {
@@ -1302,11 +1302,11 @@ osakanas = [
     "Weather": "雷",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Bait": "活海老",
+    "Mooch": "紅玉海老",
+    "Hookset": "ストロング",
+    "Neko": 769,
+    "Since": 4.3,
     "Remark": ""
   },
   {
@@ -1319,11 +1319,11 @@ osakanas = [
     "Weather": "雷",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Bait": "活海老",
+    "Mooch": "紅玉海老",
+    "Hookset": "ストロング",
+    "Neko": 823,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1336,11 +1336,11 @@ osakanas = [
     "Weather": "晴れ",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "アオイソメ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "ストロング",
+    "Neko": 824,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1353,11 +1353,11 @@ osakanas = [
     "Weather": "曇り",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "アオイソメ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "ストロング",
+    "Neko": 817,
+    "Since": 4.4,
     "Remark": ""
   },
   {
@@ -1370,12 +1370,12 @@ osakanas = [
     "Weather": "曇り",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
-    "Remark": ""
+    "Bait": "アオイソメ",
+    "Mooch": "クアル",
+    "Hookset": "ストロング",
+    "Neko": 843,
+    "Since": 4.5,
+    "Remark": "紅蓮ラスボス"
   },
   {
     "Fish": "オニニラミ",
@@ -1387,11 +1387,11 @@ osakanas = [
     "Weather": "快晴",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "サスペンドミノー",
     "Mooch": "",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Neko": 827,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1402,13 +1402,13 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "雨",
-    "Fish_Eye": "",
+    "Fish_Eye": "有",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ドバミミズ",
     "Mooch": "",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Neko": 826,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1421,12 +1421,12 @@ osakanas = [
     "Weather": "快晴",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ザザムシ",
     "Mooch": "",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
-    "Remark": ""
+    "Neko": 828,
+    "Since": 4.5,
+    "Remark": "トレード有効"
   },
   {
     "Fish": "七彩天主",
@@ -1437,12 +1437,12 @@ osakanas = [
     "Previous_Weather": "",
     "Weather": "",
     "Fish_Eye": "",
-    "Intuition": "",
-    "Bait": "",
+    "Intuition": "藍彩魚x3(ET00-04) 橙彩魚x3(ET04~08) 緑彩魚x5(ET00-16)",
+    "Bait": "ザザムシ",
     "Mooch": "",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Neko": 844,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1455,11 +1455,11 @@ osakanas = [
     "Weather": "霧",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "サスペンドミノー",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "ストロング",
+    "Neko": 831,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1472,11 +1472,11 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ザザムシ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "プレシジョン",
+    "Neko": 770,
+    "Since": 4.3,
     "Remark": ""
   },
   {
@@ -1489,11 +1489,11 @@ osakanas = [
     "Weather": "暴雨",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ザザムシ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "ストロング",
+    "Neko": 829,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1506,11 +1506,11 @@ osakanas = [
     "Weather": "晴れ",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ザザムシ",
     "Mooch": "",
-    "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Hookset": "ストロング",
+    "Neko": 830,
+    "Since": 4.5,
     "Remark": ""
   },
   {
@@ -1523,11 +1523,11 @@ osakanas = [
     "Weather": "晴れ・快晴",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ザザムシ",
     "Mooch": "",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Neko": 819,
+    "Since": 4.4,
     "Remark": ""
   },
   {
@@ -1538,13 +1538,13 @@ osakanas = [
     "To": "",
     "Previous_Weather": "",
     "Weather": "霧",
-    "Fish_Eye": "",
+    "Fish_Eye": "4m",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ザザムシ",
     "Mooch": "",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Neko": 771,
+    "Since": 4.3,
     "Remark": ""
   },
   {
@@ -1557,11 +1557,11 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
-    "Mooch": "",
+    "Bait": "活海老",
+    "Mooch": "紅玉海老",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Neko": 766,
+    "Since": 4.3,
     "Remark": ""
   },
   {
@@ -1574,11 +1574,11 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "アオイソメ",
     "Mooch": "",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Neko": 767,
+    "Since": 4.3,
     "Remark": ""
   },
   {
@@ -1591,11 +1591,11 @@ osakanas = [
     "Weather": "",
     "Fish_Eye": "",
     "Intuition": "",
-    "Bait": "",
+    "Bait": "ドバミミズ",
     "Mooch": "",
     "Hookset": "",
-    "Neko": "",
-    "Since": "",
+    "Neko": 816,
+    "Since": 4.4,
     "Remark": ""
   },
   {

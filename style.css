@@ -147,3 +147,18 @@ tr {
 .invisible {
   display: none;
 }
+
+a {
+  vertical-align: middle;
+}
+
+.hatena {
+  display: inline-block;
+  background-image: url(images/mark_manpu04_question.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 1em;
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+}

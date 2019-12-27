@@ -44,6 +44,7 @@
 
 				var caught = localStorage.getItem(osakana.Fish) == 'Yes';
 				var html = '<tr';
+				html += ' data-osakana="' + osakana.Fish + '"'
 				if (caught) {
 					html += ' class="caught"';
 				}
@@ -57,6 +58,7 @@
 				if (osakana.Neko) {
 					name = '<a target="_blank" href="https://ff14angler.com/fish/' + osakana.Neko + '">' + osakana.Fish + '</a>';
 				}
+				// name += '<span class="hatena"></span>';
 				html += '<td>' + name + '</td>';
 				html += '<td>' + osakana.Spot + '</td>';
 				html += '<td>' + osakana.Zone + '</td>';
