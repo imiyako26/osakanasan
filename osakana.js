@@ -1,5 +1,4 @@
-
-osakanas =[
+osakanas = [
   {
     "Fish": "トラマフィッシュ",
     "Spot": "オークウッド",
@@ -1095,7 +1094,7 @@ osakanas =[
     "From": 16,
     "To": 18,
     "Previous_Weather": "雷雨",
-    "Weather": "",
+    "Weather": "雷雨",
     "Fish_Eye": "有（スカルプター）",
     "Intuition": "スカルプターx2",
     "Bait": "蚕蛹",
