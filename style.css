@@ -1,5 +1,5 @@
 * {
-  font-family: Meiryo,Arial,Helvetica,sans-serif;
+  font-family: -apple-system, "Roboto", "Helvetica Neue", "Droid Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, sans-serif;
 }
 body {
   padding: 0;
@@ -105,6 +105,7 @@ tr {
   line-height: 30px;
   overflow: hidden;
   z-index: 4;
+  background-color: #B4E0FB;
 }
 .header .sun {
   height: 30px;

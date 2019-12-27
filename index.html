@@ -1,5 +1,4 @@
 <html>
-
 <head>
 	<title>おさかな</title>
 	<link rel="shortcut icon" href="umi_kani.ico" />
@@ -26,7 +25,7 @@
 				if (osakana.From !== "") {
 					time = ("0" + osakana.From).slice(-2) + ":00-" + ("0" + osakana.To).slice(-2) + ":00";
 				}
-				console.log(osakana.Fish, osakana.From, osakana.To, time)
+				// console.log(osakana.Fish, osakana.From, osakana.To, time)
 
 				var weather = "";
 				if (osakana.Previous_Weather !== "" && osakana.Weather !== "") {
@@ -83,6 +82,9 @@
 				}
 				if (osakana.Intuition.length > 0) {
 					requirements.push('直観: ' + osakana.Intuition);
+				}
+				if (osakana.Remark.length > 0) {
+					requirements.push(osakana.Remark);
 				}
 				html += '<td>' + requirements.join('<br>') + '</td>';
 
@@ -174,11 +176,11 @@
 			<thead>
 				<tr>
 					<th class="sorter-false"></th>
-					<th>Fish</th>
-					<th>Spot</th>
-					<th>Zone</th>
-					<th>Time/Weather</th>
-					<th>Extra</th>
+					<th>おさかな</th>
+					<th>スポット</th>
+					<th>エリア</th>
+					<th>条件</th>
+					<th>釣り方</th>
 					<th>#1</th>
 					<th>#2</th>
 				</tr>

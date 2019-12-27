@@ -234,7 +234,7 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 	var weatherEndHour = weatherStartHour + 8 // エオルゼア仕様
 	/* 日本語から英名に */
 	var zone = WeatherFinder.zoneJp[zone_]
-	console.log(zone_ + "→" + zone)
+	// console.log(zone_ + "→" + zone)
 	var targetWeathers = makeTranslatedWeatherArray(targetWeather_)
 	var targetPrevWeathers = makeTranslatedWeatherArray(targetPrevWeather_)
 	/* おさかなの開始・終了時間 */
