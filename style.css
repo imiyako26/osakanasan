@@ -162,3 +162,46 @@ a {
   width: 1em;
   vertical-align: middle;
 }
+
+/* 漁師アイコン */
+
+.fisher-icon {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 20px;
+}
+
+.hook {
+  background-image: url(images/hook.png);
+}
+
+.powerful-hookset {
+  background-image: url(images/powerful_hookset.png);
+}
+
+.precision-hookset {
+  background-image: url(images/precision_hookset.png);
+}
+
+.mooch {
+  background-image: url(images/mooch.png);
+}
+
+.intuition {
+  background-image: url(images/intuition.png);
+}
+
+.bait {
+  background-image: url(images/bait.png);
+}
+
+.fisheyes {
+  background-image: url(images/fish_eyes.png);
+}
+
+.unavailable {
+  opacity: 0.5;
+}

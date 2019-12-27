@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<title>おさかな</title>
 	<link rel="shortcut icon" href="umi_kani.ico" />
@@ -21,6 +22,30 @@
 			for (var i = 0; i < osakanas.length; i++) {
 				var osakana = osakanas[i];
 
+				var row = $('<tr>').attr('data-osakana', osakana.Fish);
+
+				var caught = localStorage.getItem(osakana.Fish) == 'Yes';
+				if (caught) {
+					row.addClass('caught');
+				}
+
+				var checkbox = $('<input type="checkbox" class="caught">')
+					.attr('value', osakana.Fish)
+					.prop('checked', caught);
+				row.append($('<td>').append(checkbox))
+				
+
+				var osakanaLink = $('<a></a>');
+				if (osakana.Neko) {
+					osakanaLink.attr('target', '_blank');
+					osakanaLink.attr('href', 'https://ff14angler.com/fish/' + osakana.Neko);
+				}
+				osakanaLink.html(osakana.Fish)
+				row.append($('<td>').append(osakanaLink))
+
+				row.append($('<td>').append(osakana.Spot))
+				row.append($('<td>').append(osakana.Zone))
+
 				var time = "";
 				if (osakana.From !== "") {
 					time = ("0" + osakana.From).slice(-2) + ":00-" + ("0" + osakana.To).slice(-2) + ":00";
@@ -38,11 +63,53 @@
 					/* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
 					weather = osakana.Previous_Weather + " → なんでも";
 				}
+				var wa = [];
+				if (time.length) {
+					wa.push(time);
+				}
+				if (weather.length) {
+					wa.push(weather)
+				}
+				row.append($('<td>').html(wa.join('<br>')))
+
+				var hints = $('<td>')
+				function bakeIcon(className, text, unavailable) {
+					var icon = $('<span></span>')
+						.attr('class', 'fisher-icon ' + className)
+						.attr('title', text)
+					if (unavailable) {
+						icon.addClass('unavailable')
+					}
+					return icon
+				}
+
+				hints.append(bakeIcon('bait', '餌: ' + osakana.Bait, osakana.Bait.length === 0))
+				
+				if (osakana.Mooch.length > 0) {
+					hints.append(bakeIcon('mooch', '泳がせ: ' + osakana.Mooch))
+				} else {
+					hints.append(bakeIcon('mooch', '', true))
+				}
+
+				if (osakana.Fish_Eye.length > 0) {
+					hints.append(bakeIcon('fisheyes', 'フィッシュアイ: ' + osakana.Fish_Eye))
+				} else {
+					hints.append(bakeIcon('fisheyes', '', true))
+				}
+
+				if (osakana.Intuition.length > 0) {
+					hints.append(bakeIcon('intuition', '漁師の直感: ' + osakana.Intuition))
+				} else {
+					hints.append(bakeIcon('intuition', '', true))
+				}
+				row.append(hints)
 
 				/* おさかなチャンス 2個 */
 				var chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
-
-				var caught = localStorage.getItem(osakana.Fish) == 'Yes';
+				for (var x = 0; x < chances.length; x++) {
+					row.append($('<td></td>').html(chances[x]))
+				}
+				/*
 				var html = '<tr';
 				html += ' data-osakana="' + osakana.Fish + '"'
 				if (caught) {
@@ -94,7 +161,8 @@
 				html += '<td>' + chances[1] + '</td>';
 				// html += '<td>' + chances[2] + '</td>';
 				html += '</tr>'
-				$("#osakana_list tbody").append(html);
+				*/
+				$("#osakana_list tbody").append(row);
 			}
 
 			$("#osakana_list").tablesorter({
