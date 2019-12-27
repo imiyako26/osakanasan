@@ -225,6 +225,14 @@ function makeTranslatedWeatherArray(weathers) {
 	return eng;
 }
 
+function formatDateAndTime(date) {
+  var month = ("0" + (date.getMonth() + 1)).slice(-2);
+  var day = ("0" + date.getDate()).slice(-2);
+  var hour = ("0"+(date.getHours())).slice(-2);
+  var minutes = ("0"+(date.getMinutes())).slice(-2);  
+  return month + "/" + day + " " + hour + ":" + minutes;
+}
+
 function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, startTime_, endTime_) { 
 	/* 地球時間をET0,8,16に合わせる (Floor = 下合わせ？) */
 	var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
@@ -290,14 +298,10 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 			}			
 			
 			var weatherDate = new Date(windowStartTime);
-			var month = ("0" + (weatherDate.getMonth() + 1)).slice(-2);
-			var day = ("0" + weatherDate.getDate()).slice(-2);
-			var hour = ("0"+(weatherDate.getHours())).slice(-2);
-			var minutes = ("0"+(weatherDate.getMinutes())).slice(-2);
 			var EorzeaHour = ("0" + windowStartET).slice(-2) +':00';
 
 			//var tmp = [matches, prevWeather, weather, month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
-			var tmp = [month + '/' + day + ' ' + hour + ':' + minutes, '(ET'+ EorzeaHour + ')'].join(' ')
+			var tmp = [formatDateAndTime(weatherDate), '(ET'+ EorzeaHour + ')'].join(' ')
 			result.push(tmp)
 			matches++;
 		}

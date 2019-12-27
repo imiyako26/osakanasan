@@ -14,6 +14,15 @@ tr {
   border-bottom: 1px solid rgba(31, 45, 60, .1);
 }
 
+#osakana_list td,
+#osakana_list th {
+  height: 45px;
+  vertical-align: middle;
+}
+td.hints {
+  white-space: nowrap;
+}
+
 .bg {
   /*位置の設定*/
   width: 100%;
