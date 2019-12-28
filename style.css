@@ -104,7 +104,7 @@ table {
 .same {
   background-image: url(images/fish_shark.png);
   background-repeat: no-repeat;
-  background-position: bottom right;
+  background-position: right center;
   background-size: 350px;
   width: 350px;
   left: 0px;
