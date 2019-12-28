@@ -106,6 +106,7 @@ var WeatherFinder ={
     "高地ラノシア":"Upper La Noscea",
     "外地ラノシア":"Outer La Noscea",
     "ミスト":"Mist",
+    "ミスト・ヴィレッジ":"Mist",
     "グリダニア：旧市街":"Gridania",
     "グリダニア：新市街":"Gridania",
     "グリダニア":"Gridania",
