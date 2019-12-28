@@ -620,7 +620,7 @@ osakanas = [
     "Previous_Weather": "",
     "Weather": "快晴",
     "Fish_Eyes": "",
-    "Intuition": "",
+    "Intuition": "スカイフェアリー・セレネx３　スコーピオンフライx３",
     "Bait": "ジャンボガガンボ",
     "Mooch": "",
     "Hookset": "プレシジョン",
