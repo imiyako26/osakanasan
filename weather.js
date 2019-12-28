@@ -227,7 +227,8 @@ function makeTranslatedWeatherArray(weathers) {
 
 function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, startTime_, endTime_) { 
 	/* 地球時間をET0,8,16に合わせる (Floor = 下合わせ？) */
-	var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
+  var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
+  // console.log(WeatherFinder.getEorzeaHour(weatherStartTime))
 	/* ET */
 	var weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
 	/* ETのおわ */
@@ -245,7 +246,7 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 	/* ひとつ前の天気 */
 	var prevWeather = WeatherFinder.getWeather(weatherStartTime-1, zone);
 	/* おさかな時間のArray From=5 To=8 だったら [5,6,7] */
-	var targetFishHours = WeatherFinder.getTargetHourArray(startTime, endTime)
+  var targetFishHours = WeatherFinder.getTargetHourArray(startTime, endTime)
 	
 	/* おさかなチャンスリスト */
 	var result = [];
@@ -269,8 +270,11 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 		}
 
 		/* 試行中の時間アレイ [0,1,2,3,4,5,6,7] */
-		var weatherHours = WeatherFinder.getTargetHourArray(weatherStartHour, weatherEndHour)
+    var weatherHours = WeatherFinder.getTargetHourArray(weatherStartHour, weatherEndHour)
 		/* おさかな時間とかぶってるかを確認 */
+    // if (startTime === 21) {
+    //   console.log(targetFishHours, weatherHours, WeatherFinder.isDuplicate(targetFishHours, weatherHours))
+    // }
 		if (WeatherFinder.isDuplicate(targetFishHours, weatherHours)){
 			timeMatch = true;
 		}

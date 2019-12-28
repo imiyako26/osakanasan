@@ -17,12 +17,12 @@
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
 	<script type="text/javascript">
+		/* お魚予測 (おさかな名　→ 時間Array) */
+		var forecasts = {};
+		/* (おさかな名 → おさかな行 */
+		var details = {};
 
 		$(function () {
-			/* お魚予測 (おさかな名　→ 時間Array) */
-			var forecasts = {};
-			/* (おさかな名 → おさかな行 */
-			var details = {};
 
 			for (var i = 0; i < osakanas.length; i++) {
 				var osakana = osakanas[i];
@@ -40,7 +40,7 @@
 					.attr('value', osakana.Fish)
 					.prop('checked', caught);
 				row.append($('<td>').append(checkbox))
-				
+
 
 				var osakanaLink = $('<a></a>');
 				if (osakana.Neko) {
@@ -81,18 +81,9 @@
 
 
 				var hints = $('<td class="hints">')
-				function bakeIcon(className, text, unavailable) {
-					var icon = $('<span></span>')
-						.attr('class', 'fisher-icon ' + className)
-						.attr('title', text)
-					if (unavailable) {
-						icon.addClass('unavailable')
-					}
-					return icon
-				}
 
 				hints.append(bakeIcon('bait', '餌: ' + osakana.Bait, osakana.Bait.length === 0))
-				
+
 				if (osakana.Mooch.length > 0) {
 					hints.append(bakeIcon('mooch', '泳がせ: ' + osakana.Mooch))
 				} else {
@@ -141,7 +132,7 @@
 					saveSort: true
 				},
 				textExtraction: {
-					".chance": function(node, table, cellIndex) {
+					".chance": function (node, table, cellIndex) {
 						/* チャンスが月/日なので年を跨ぐとやばいので元の日付を使う */
 						var osakana = $(node).parent('tr').attr('data-osakana');
 						var chances = forecasts[osakana];
@@ -169,8 +160,19 @@
 				}
 			})
 
-			activateInvisibleFishFeature()
+			activateInvisibleFishFeature();
+			activateHowTo();
 		})
+		
+		function bakeIcon(className, text, unavailable) {
+			var icon = $('<span></span>')
+				.attr('class', 'fisher-icon ' + className)
+				.attr('title', text)
+			if (unavailable) {
+				icon.addClass('unavailable')
+			}
+			return icon
+		}
 
 		/* 釣ったおさかなさんを全部隠すor見せる機能 */
 		function activateInvisibleFishFeature() {
@@ -207,12 +209,75 @@
 		function shouldHideCaughtFish() {
 			return localStorage.getItem('hidingCaughtFish') === 'Yes'
 		}
+	
+
+		function activateHowTo() {
+			$('#osakana_list').on('click', '.fisher-icon', function() {
+				var osakanaName = $(this).parents('tr').attr('data-osakana');
+				startTeaching(osakanaName);
+			})
+			$('.kanban-close').click(function() {
+				stopTeaching();
+			})
+			describeHowTo();
+		}
+		
+		/* カニさんにおさかなの詳細を表示させる */
+		function describeHowTo() {
+			var osakanaName = localStorage.getItem('kani');
+			var kanban = $('.kanban-content')
+			kanban.empty();
+
+			if (!osakanaName) {
+				$(document.body).removeClass('kanban-visible');
+			} else {
+				$(document.body).addClass('kanban-visible');
+				
+				var osakana = details[osakanaName];
+				$('<header>').html(osakana.Fish).appendTo(kanban);
+
+				var table = $('<table>');
+				table.append('<tr><td>餌</td><td>' + osakana.Bait + '</td></tr>');
+				if (osakana.Mooch) {
+					table.append('<tr><td>泳がせ</td><td>' + osakana.Mooch + '</td></tr>');
+				}
+				if (osakana.Hookset === 'プレシジョン') {
+					table.append('<tr><td>フッキング</td><td>プレシジョンフッキング</td></tr>');
+				} else if (osakana.Hookset === 'ストロング') {
+					table.append('<tr><td>フッキング</td><td>ストロングフッキング</td></tr>');
+				}
+				if (osakana.Fish_Eyes.length > 0) {
+					table.append('<tr><td>フィッシュアイ</td><td>' + osakana.Fish_Eyes + '</td></tr>');
+				}
+				if (osakana.Intuition.length > 0) {
+					table.append('<tr><td colspan="2">漁師の直感:<br>' + osakana.Intuition + '</td></tr>');
+				}
+				if (osakana.Remark.length > 0) {
+					table.append('<tr><td colspan="2">' + osakana.Remark + '</td></tr>');
+				}				
+				table.appendTo(kanban)
+			}
+		}
+
+		function startTeaching(osakana) {
+			localStorage.setItem('kani', osakana);
+			describeHowTo();
+		}
+
+		function stopTeaching() {
+			localStorage.removeItem('kani');
+			describeHowTo();
+		}
 	</script>
-</head>
+</header>
 
 <body>
 	<div class="bg"></div>
 	<div class="kani"></div>
+	<div class="kanban">
+		<div class="kanban-close"></div>
+		<div class="kanban-content"></div>
+	</div>
 	<div class="same"></div>
 	<div class="sun"></div>
 	<div class="frame"></div>
@@ -244,6 +309,6 @@
 		</table>
 	</div>
 
-	<body>
-
+	<div class="kani-space"></div>
+</body>
 </html>

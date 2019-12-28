@@ -1,7 +1,6 @@
-* {
-  font-family: -apple-system, "Roboto", "Helvetica Neue", "Droid Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, sans-serif;
-}
+
 body {
+  font-family: -apple-system, "Roboto", "Helvetica Neue", "Droid Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -9,7 +8,8 @@ table {
   border-collapse: collapse;
 }
 
-tr {
+
+#osakana_list tr {
   font-size: 13px;
   border-bottom: 1px solid rgba(31, 45, 60, .1);
 }
@@ -19,7 +19,7 @@ tr {
   height: 45px;
   vertical-align: middle;
 }
-td.hints {
+#osakana_list td.hints {
   white-space: nowrap;
 }
 
@@ -45,18 +45,60 @@ td.hints {
   z-index: -2;
 }
 
+.kani, .same, .kanban {
+  height: 300px;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: 0px;
+  z-index: -1;
+  box-sizing: border-box;
+}
 
 .kani {
   background-image: url(images/umi_kani.png);
-  background-repeat: no-repeat;
   background-position: center center;
-  background-size: 250px;
-  height: 250px;
-  width: 250px;
-  position: fixed;
+  background-size: 300px;
+  width: 300px;
   right: 0px;
-  bottom: 0px;
-  z-index: -1;
+}
+
+@font-face {
+  font-family: "Azuki";
+  src: url(fonts/azuki.ttf) format("truetype");
+}
+
+.kanban {
+  display: none;
+  background-image: url(images/wood_kanban4.png);
+  background-position: center -25px;
+  background-size: 400px;
+  width: 400px;
+  right: 300px;
+  padding: 60px 30px 100px 50px;
+}
+
+.kanban-close {
+  position: absolute;
+  top: 48px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background-image: url(images/mark_batsu.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.kanban header,
+.kanban table td {
+  font-family: Azuki;
+  color: white;
+  font-size: 15px;
+  padding: 3px 5px;
+}
+.kanban header {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .same {
@@ -64,12 +106,8 @@ td.hints {
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 350px;
-  height: 250px;
   width: 350px;
-  position: fixed;
   left: 0px;
-  bottom: 0px;
-  z-index: -1;
 }
 
 .sun {
@@ -86,7 +124,7 @@ td.hints {
 }
 
 .kani-space {
-  height: 300px;
+  height: 0;
 }
 
 .frame {
@@ -99,6 +137,27 @@ td.hints {
   border-radius: 5px;
   opacity: 0.86;
   z-index: -1;
+}
+
+.kanban-visible .frame {
+  bottom: 315px;
+}
+.kanban-visible .footer {
+  height: 315px;
+}
+.kanban-visible .kani-space {
+  height: 315px;
+}
+.kanban-visible .kanban {
+  display: block;
+  height: 315px;
+}
+.kanban-visible .kani,
+.kanban-visible .same { 
+  z-index: 10;
+}
+.kanban-visible .kanban { 
+  z-index: 11;
 }
 
 .content {
@@ -138,7 +197,7 @@ td.hints {
 
   /*透過の設定*/
   opacity: 1;
-  z-index: 10;
+  z-index: 4;
 }
 
 .tablesorter-default {
