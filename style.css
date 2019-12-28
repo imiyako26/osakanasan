@@ -23,6 +23,11 @@ td.hints {
   white-space: nowrap;
 }
 
+#osakana_list a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
 .bg {
   /*位置の設定*/
   width: 100%;
@@ -32,7 +37,7 @@ td.hints {
   left: 0;
 
   /*背景画像の設定*/
-  background: url(images/bg_natural_umi.jpg) bottom right no-repeat;
+  background: url(images/bg_natural_umi.png) bottom right no-repeat;
   background-color: #B4E0FB;
 
   /*透過の設定*/
@@ -129,7 +134,7 @@ td.hints {
   left: 0;
 
   /*背景画像の設定*/
-  background: url(images/bg_natural_umi.jpg) bottom right no-repeat;
+  background: url(images/bg_natural_umi.png) bottom right no-repeat;
 
   /*透過の設定*/
   opacity: 1;
@@ -146,9 +151,11 @@ td.hints {
   border-bottom: none !important;
 }
 
+/* 釣られたお魚さんは半透明になる */
 .caught td {
   opacity: 0.5;
 }
+/* チェックの列は半透明にしない */
 .caught td:first-child {
   opacity: 1;
 }
@@ -172,8 +179,7 @@ a {
   vertical-align: middle;
 }
 
-/* 漁師アイコン */
-
+/* 釣り方ヒント　漁師アイコン */
 .fisher-icon {
   display: inline-block;
   height: 20px;
@@ -212,5 +218,16 @@ a {
 }
 
 .unavailable {
-  opacity: 0.5;
+  opacity: 0.3;
+}
+
+/* チャンス表示 */
+.local-time,
+.eorzea-time {
+  display: inline-block;
+  vertical-align: middle;
+}
+.eorzea-time {
+  margin-left: 5px;
+  color: gray;
 }

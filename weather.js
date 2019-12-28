@@ -225,14 +225,6 @@ function makeTranslatedWeatherArray(weathers) {
 	return eng;
 }
 
-function formatDateAndTime(date) {
-  var month = ("0" + (date.getMonth() + 1)).slice(-2);
-  var day = ("0" + date.getDate()).slice(-2);
-  var hour = ("0"+(date.getHours())).slice(-2);
-  var minutes = ("0"+(date.getMinutes())).slice(-2);  
-  return month + "/" + day + " " + hour + ":" + minutes;
-}
-
 function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, startTime_, endTime_) { 
 	/* 地球時間をET0,8,16に合わせる (Floor = 下合わせ？) */
 	var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
@@ -297,12 +289,12 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 				windowStartTime += (startTime % 8) * 175 * 1000;
 			}			
 			
-			var weatherDate = new Date(windowStartTime);
-			var EorzeaHour = ("0" + windowStartET).slice(-2) +':00';
+			// var weatherDate = new Date(windowStartTime);
+			// var EorzeaHour = ("0" + windowStartET).slice(-2) +':00';
 
 			//var tmp = [matches, prevWeather, weather, month+'/'+day+' '+hour + ':' + minutes, 'ET'+EorzeaHour ].join('_')
-			var tmp = [formatDateAndTime(weatherDate), '(ET'+ EorzeaHour + ')'].join(' ')
-			result.push(tmp)
+			// var tmp = [formatDateAndTime(weatherDate), '(ET'+ EorzeaHour + ')'].join(' ')
+			result.push(windowStartTime)
 			matches++;
 		}
 		
@@ -315,30 +307,32 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
 		tries++;  
 	}
 
-	return result
-};
+	return result;
+}
 
-// Todo: リファクタリング
-function getFish(){
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('シート1');
-  //Logger.log(sheet.getName());
-  var lastRow = sheet.getRange(1, 1).getNextDataCell(SpreadsheetApp.Direction.DOWN).getRow();
-  //Logger.log(lastRow);
-  
-  // ヘッダ行は飛ばして全行見る
-  for (var i = 2; i <= lastRow; i++){
-    var zone = sheet.getRange(i, 2).getValue();
-    var start = sheet.getRange(i, 3).getValue();
-    var end = sheet.getRange(i, 4).getValue();
-    var preWeather = sheet.getRange(i, 5).getValue();
-    var Weather = sheet.getRange(i, 6).getValue();
-    
-    Logger.log(zone);
-    chances = getFishChance(zone, Weather, preWeather, start, end);
-    
-    // 次回候補日をべたに出す
-    sheet.getRange(i, 7).setValue(chances[0]);
-    sheet.getRange(i, 8).setValue(chances[1]);
-    sheet.getRange(i, 9).setValue(chances[2]);
-  }
-};
+function dateToYearMonthDayHoursMinutes(date) {
+  var year = ("0000" + (date.getFullYear())).slice(-4);
+  var month = ("0" + (date.getMonth() + 1)).slice(-2);
+  var day = ("0" + date.getDate()).slice(-2);
+  var hour = ("0"+(date.getHours())).slice(-2);
+  var minutes = ("0"+(date.getMinutes())).slice(-2);  
+  return year + "/" + month + "/" + day + " " + hour + ":" + minutes;
+}
+
+function formatDateAndTime(date) {
+  var month = ("0" + (date.getMonth() + 1)).slice(-2);
+  var day = ("0" + date.getDate()).slice(-2);
+  var hour = ("0"+(date.getHours())).slice(-2);
+  var minutes = ("0"+(date.getMinutes())).slice(-2);  
+  return month + "/" + day + " " + hour + ":" + minutes;
+}
+
+function getFormattedLocalTime(timeMillis) {
+  var date = new Date(timeMillis);
+  return formatDateAndTime(date);
+}
+
+function getFormattedEorzeaTime(timeMillis) {
+  var hours = WeatherFinder.getEorzeaHour(timeMillis);
+  return "ET" + ("0" + hours).slice(-2) + ":00";
+}
