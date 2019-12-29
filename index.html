@@ -19,100 +19,11 @@
 	<script type="text/javascript">
 		/* お魚予測 (おさかな名　→ 時間Array) */
 		var forecasts = {};
-		/* (おさかな名 → おさかな行 */
+		/* おさかな名 → おさかな行 */
 		var details = {};
 
-		$.get( "https://xivapi.com/servers/dc", function( data ) {
-			// $( ".result" ).html( data );
-			// alert( "Load was performed." );
-			console.log(data)
-		});
-
-		$(function () {
-
-			for (var i = 0; i < osakanas.length; i++) {
-				var osakana = osakanas[i];
-
-				details[osakana.Fish] = osakana;
-
-				var row = $('<tr>').attr('data-osakana', osakana.Fish);
-
-				var caught = localStorage.getItem(osakana.Fish) == 'Yes';
-				if (caught) {
-					row.addClass('caught');
-				}
-
-				var checkbox = $('<input type="checkbox" class="caught">')
-					.attr('value', osakana.Fish)
-					.prop('checked', caught);
-				row.append($('<td>').append(checkbox))
-
-
-				var osakanaLink = bakeOsakanaLink(osakana)
-				row.append($('<td>').append(osakanaLink))
-
-				row.append($('<td>').append(osakana.Spot))
-				row.append($('<td>').append(osakana.Zone))
-
-				var time = formatTimeSpan(osakana.From, osakana.To);
-				var weather = formatWeatherTransition(osakana.Previous_Weather, osakana.Weather);
-
-				var wa = [];
-				if (time.length) {
-					wa.push(time);
-				}
-				if (weather.length) {
-					wa.push(weather)
-				}
-				row.append($('<td>').html(wa.join('<br>')))
-
-
-				var hints = $('<td class="hints">')
-
-				hints.append(bakeIcon('bait', '餌: ' + osakana.Bait, osakana.Bait.length === 0))
-
-				if (osakana.Mooch.length > 0) {
-					hints.append(bakeIcon('mooch', '泳がせ: ' + osakana.Mooch))
-				} else {
-					hints.append(bakeIcon('mooch', '', true))
-				}
-
-				if (osakana.Hookset === 'プレシジョン') {
-					hints.append(bakeIcon('precision-hookset', 'フッキング: プレシジョンフッキング'))
-				} else if (osakana.Hookset === 'ストロング') {
-					hints.append(bakeIcon('powerful-hookset', 'フッキング: ストロングフッキング'))
-				} else {
-					hints.append(bakeIcon('hook', '', true))
-				}
-
-				if (osakana.Fish_Eyes.length > 0) {
-					hints.append(bakeIcon('fisheyes', 'フィッシュアイ: ' + osakana.Fish_Eyes))
-				} else {
-					hints.append(bakeIcon('fisheyes', '', true))
-				}
-
-				if (osakana.Intuition.length > 0) {
-					hints.append(bakeIcon('intuition', '漁師の直感: ' + osakana.Intuition))
-				} else {
-					hints.append(bakeIcon('intuition', '', true))
-				}
-				row.append(hints)
-
-				/* おさかなチャンス 2個 */
-				var chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
-				forecasts[osakana.Fish] = chances;
-
-				for (var x = 0; x < chances.length; x++) {
-					var chance = chances[x];
-					var start = getFormattedLocalTime(chance) + ' ' + getFormattedEorzeaTime(chance);
-					var td = $('<td>');
-					$('<span class="local-time">').append(getFormattedLocalTime(chance)).appendTo(td);
-					$('<span class="eorzea-time">').append(getFormattedEorzeaTime(chance)).appendTo(td);
-					td.appendTo(row);
-				}
-				$("#osakana_list tbody").append(row);
-			}
-
+		function initializeOsakanaList() {
+			/* 先にtablesorterを作成 */
 			$("#osakana_list").tablesorter({
 				widgets: ['saveSort'],
 				widgetOptions: {
@@ -130,24 +41,163 @@
 				}
 			});
 
+			for (var i = 0; i < osakanas.length; i++) {
+				var osakana = osakanas[i];
+				details[osakana.Fish] = osakana;
+			}
+			updateOsakanaRows();
+		}
+
+		function updateOsakanaRows() {
+			for (var i = 0; i < osakanas.length; i++) {
+				var osakana = osakanas[i];
+				var present = isOsakanaRowPresent(osakana);
+				var toShow = shouldShowOsakana(osakana);
+				// console.log(osakana.Fish, present, toShow)
+				if (present) {
+					if (!toShow) {
+						removeOsakanaRow(osakana)
+					}
+				} else {
+					if (toShow) {
+						addOsakanaRow(osakana)
+					}
+				}
+			}
+			
+			$('#osakana_list').trigger('update', [ true, function() { 
+				console.log('update')
+			}])
+		}
+
+		/* 釣られたおさかなか？ */
+		function wasCaughtOsakana(osakana) {
+			return localStorage.getItem(osakana.Fish) == 'Yes';
+		}
+
+		/* おさかなは表示すべき？ */
+		function shouldShowOsakana(osakana) {
+			var caught = wasCaughtOsakana(osakana);
+			return !caught || !shouldHideCaughtFish();
+		}
+
+		function isOsakanaRowPresent(osakana) {
+			return $('tr[data-osakana="' + osakana.Fish + '"]').length >= 1;
+		}
+
+		function removeOsakanaRow(osakana) {
+			var tr = $('tr[data-osakana="' + osakana.Fish + '"]');
+			tr.remove();
+		}
+
+		function addOsakanaRow(osakana) {
+			var row = $('<tr>').attr('data-osakana', osakana.Fish);
+
+			/* 既に釣れてるおさかなマーク */
+			var caught = localStorage.getItem(osakana.Fish) == 'Yes';
+			if (wasCaughtOsakana(osakana)) {
+				row.addClass('caught');
+			}
+
+			var checkbox = $('<input type="checkbox" class="caught">')
+				.prop('checked', caught);
+			row.append($('<td>').append(checkbox))
+
+			var osakanaLink = bakeOsakanaLink(osakana)
+			row.append($('<td>').append(osakanaLink))
+			row.append($('<td>').append(osakana.Spot))
+			row.append($('<td>').append(osakana.Zone))
+
+			var time = formatTimeSpan(osakana.From, osakana.To);
+			var weather = formatWeatherTransition(osakana.Previous_Weather, osakana.Weather);
+			var wa = [];
+			if (time.length) {
+				wa.push(time);
+			}
+			if (weather.length) {
+				wa.push(weather);
+			}
+			row.append($('<td>').html(wa.join('<br>')));
+
+
+			var hints = $('<td class="hints">');
+			hints.append(bakeIcon('bait', '餌: ' + osakana.Bait, osakana.Bait.length === 0))
+
+			if (osakana.Mooch.length > 0) {
+				hints.append(bakeIcon('mooch', '泳がせ: ' + osakana.Mooch))
+			} else {
+				hints.append(bakeIcon('mooch', '', true))
+			}
+
+			if (osakana.Hookset === 'プレシジョン') {
+				hints.append(bakeIcon('precision-hookset', 'フッキング: プレシジョンフッキング'))
+			} else if (osakana.Hookset === 'ストロング') {
+				hints.append(bakeIcon('powerful-hookset', 'フッキング: ストロングフッキング'))
+			} else {
+				hints.append(bakeIcon('hook', '', true))
+			}
+
+			if (osakana.Fish_Eyes.length > 0) {
+				hints.append(bakeIcon('fisheyes', 'フィッシュアイ: ' + osakana.Fish_Eyes))
+			} else {
+				hints.append(bakeIcon('fisheyes', '', true))
+			}
+
+			if (osakana.Intuition.length > 0) {
+				hints.append(bakeIcon('intuition', '漁師の直感: ' + osakana.Intuition))
+			} else {
+				hints.append(bakeIcon('intuition', '', true))
+			}
+			row.append(hints)
+
+			/* おさかなチャンス 2個 */
+			var chances = forecasts[osakana.Fish];
+			if (!chances) {
+				chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
+				forecasts[osakana.Fish] = chances;
+			}
+
+			for (var x = 0; x < chances.length; x++) {
+				var chance = chances[x];
+				var start = getFormattedLocalTime(chance) + ' ' + getFormattedEorzeaTime(chance);
+				var td = $('<td>');
+				$('<span class="local-time">').append(getFormattedLocalTime(chance)).appendTo(td);
+				$('<span class="eorzea-time">').append(getFormattedEorzeaTime(chance)).appendTo(td);
+				td.appendTo(row);
+			}
+			$("#osakana_list tbody").append(row);
+		}
+
+		$(function () {
+			initializeOsakanaList();
+
 			$(document).on("click", ".caught", function () {
 				var checked = $(this).prop("checked");
-				var fish = $(this).attr("value");
 				var tr = $(this).parents('tr')
+				var fish = tr.attr('data-osakana')
 				if (checked) {
 					tr.addClass('caught');
-					if (shouldHideCaughtFish()) {
-						tr.addClass('invisible');
-					}
 					localStorage.setItem(fish, 'Yes');
 				} else {
 					tr.removeClass('caught');
-					tr.removeClass('invisible')
 					localStorage.removeItem(fish);
 				}
-			})
 
-			activateInvisibleFishFeature();
+				updateOsakanaRows();
+			})
+			
+			$('#hidingCaughtFish').on('change', function () {
+				if ($(this).prop('checked')) {
+					/* チェックが入ってたらlocalStorageにYes、半透明のおさかなさんたちをサヨナラ */
+					localStorage.setItem('hidingCaughtFish', 'Yes');
+				} else {
+					/* 逆 */
+					localStorage.removeItem('hidingCaughtFish');
+				}
+				updateOsakanaRows();
+			})
+			$('#hidingCaughtFish').prop('checked', shouldHideCaughtFish())
+
 			activateHowTo();
 		})
 		
@@ -193,36 +243,15 @@
 			return osakanaLink;
 		}
 
-		/* 釣ったおさかなさんを全部隠すor見せる機能 */
-		function activateInvisibleFishFeature() {
-			$('#hidingCaughtFish').on('change', function () {
-				if ($(this).prop('checked')) {
-					/* チェックが入ってたらlocalStorageにYes、半透明のおさかなさんたちをサヨナラ */
-					localStorage.setItem('hidingCaughtFish', 'Yes');
-					updateCaughtFishVisibility(false);
-				} else {
-					/* 逆 */
-					localStorage.removeItem('hidingCaughtFish');
-					updateCaughtFishVisibility(true);
-				}
-			})
-
-			/* 初回はlocalStorageから */
-			if (shouldHideCaughtFish()) {
-				updateCaughtFishVisibility(false);
-				$('#hidingCaughtFish').prop('checked', true)
-			}
-		}
-
 		/* 隠したり見せたり */
-		function updateCaughtFishVisibility(visible) {
-			var tr = $('tr.caught');
-			if (visible) {
-				tr.removeClass('invisible')
-			} else {
-				tr.addClass('invisible')
-			}
-		}
+		//function updateCaughtFishVisibility(visible) {
+		//	var tr = $('tr.caught');
+		//	if (visible) {
+		//		tr.removeClass('invisible')
+		//	} else {
+		//		tr.addClass('invisible')
+		//	}
+		//}
 
 		/* 釣ったおさかなさんは隠すべき？ */
 		function shouldHideCaughtFish() {
