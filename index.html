@@ -16,6 +16,7 @@
 	<!-- 追加機能(widgets)を使用する場合は次も追加する -->
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
 		/* お魚予測 (おさかな名　→ 時間Array) */
 		var forecasts = {};
@@ -66,7 +67,6 @@
 			}
 			
 			$('#osakana_list').trigger('update', [ true, function() { 
-				console.log('update')
 			}])
 		}
 
@@ -168,38 +168,6 @@
 			$("#osakana_list tbody").append(row);
 		}
 
-		$(function () {
-			initializeOsakanaList();
-
-			$(document).on("click", ".caught", function () {
-				var checked = $(this).prop("checked");
-				var tr = $(this).parents('tr')
-				var fish = tr.attr('data-osakana')
-				if (checked) {
-					tr.addClass('caught');
-					localStorage.setItem(fish, 'Yes');
-				} else {
-					tr.removeClass('caught');
-					localStorage.removeItem(fish);
-				}
-
-				updateOsakanaRows();
-			})
-			
-			$('#hidingCaughtFish').on('change', function () {
-				if ($(this).prop('checked')) {
-					/* チェックが入ってたらlocalStorageにYes、半透明のおさかなさんたちをサヨナラ */
-					localStorage.setItem('hidingCaughtFish', 'Yes');
-				} else {
-					/* 逆 */
-					localStorage.removeItem('hidingCaughtFish');
-				}
-				updateOsakanaRows();
-			})
-			$('#hidingCaughtFish').prop('checked', shouldHideCaughtFish())
-
-			activateHowTo();
-		})
 		
 		function formatTimeSpan(from, to) {
 			if (from !== "") {
@@ -242,16 +210,6 @@
 			osakanaLink.html(osakana.Fish)
 			return osakanaLink;
 		}
-
-		/* 隠したり見せたり */
-		//function updateCaughtFishVisibility(visible) {
-		//	var tr = $('tr.caught');
-		//	if (visible) {
-		//		tr.removeClass('invisible')
-		//	} else {
-		//		tr.addClass('invisible')
-		//	}
-		//}
 
 		/* 釣ったおさかなさんは隠すべき？ */
 		function shouldHideCaughtFish() {
@@ -331,6 +289,39 @@
 			localStorage.removeItem('kani');
 			describeHowTo();
 		}
+		
+		$(function () {
+			initializeOsakanaList();
+
+			$(document).on("click", ".caught", function () {
+				var checked = $(this).prop("checked");
+				var tr = $(this).parents('tr')
+				var fish = tr.attr('data-osakana')
+				if (checked) {
+					tr.addClass('caught');
+					localStorage.setItem(fish, 'Yes');
+				} else {
+					tr.removeClass('caught');
+					localStorage.removeItem(fish);
+				}
+
+				updateOsakanaRows();
+			})
+			
+			$('#hidingCaughtFish').on('change', function () {
+				if ($(this).prop('checked')) {
+					/* チェックが入ってたらlocalStorageにYes、半透明のおさかなさんたちをサヨナラ */
+					localStorage.setItem('hidingCaughtFish', 'Yes');
+				} else {
+					/* 逆 */
+					localStorage.removeItem('hidingCaughtFish');
+				}
+				updateOsakanaRows();
+			})
+			$('#hidingCaughtFish').prop('checked', shouldHideCaughtFish())
+
+			activateHowTo();
+		})
 	</script>
 </head>
 
@@ -343,7 +334,9 @@
 	</div>
 	<div class="same"></div>
 	<div class="sun"></div>
-	<div class="frame"></div>
+	<div class="frame">
+
+	</div>
 
 	<div class="header">
 		<div class="sun"></div>
