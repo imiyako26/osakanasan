@@ -16,6 +16,8 @@
 	<!-- 追加機能(widgets)を使用する場合は次も追加する -->
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
 	<script type="text/javascript">
 		/* お魚予測 (おさかな名　→ 時間Array) */
 		var forecasts = {};
@@ -119,33 +121,33 @@
 			row.append($('<td>').html(wa.join('<br>')));
 
 
-			var hints = $('<td class="hints">');
-			hints.append(bakeIcon('bait', '餌: ' + osakana.Bait, osakana.Bait.length === 0))
+			var hints = document.createElement('td');
+			hints.appendChild(bakeIcon('bait', '餌: ' + osakana.Bait, osakana.Bait.length === 0))
 
 			if (osakana.Mooch.length > 0) {
-				hints.append(bakeIcon('mooch', '泳がせ: ' + osakana.Mooch))
+				hints.appendChild(bakeIcon('mooch', '泳がせ: ' + osakana.Mooch))
 			} else {
-				hints.append(bakeIcon('mooch', '', true))
+				hints.appendChild(bakeIcon('mooch', '', true))
 			}
 
 			if (osakana.Hookset === 'プレシジョン') {
-				hints.append(bakeIcon('precision-hookset', 'フッキング: プレシジョンフッキング'))
+				hints.appendChild(bakeIcon('precision-hookset', 'フッキング: プレシジョンフッキング'))
 			} else if (osakana.Hookset === 'ストロング') {
-				hints.append(bakeIcon('powerful-hookset', 'フッキング: ストロングフッキング'))
+				hints.appendChild(bakeIcon('powerful-hookset', 'フッキング: ストロングフッキング'))
 			} else {
-				hints.append(bakeIcon('hook', '', true))
+				hints.appendChild(bakeIcon('hook', '', true))
 			}
 
 			if (osakana.Fish_Eyes.length > 0) {
-				hints.append(bakeIcon('fisheyes', 'フィッシュアイ: ' + osakana.Fish_Eyes))
+				hints.appendChild(bakeIcon('fisheyes', 'フィッシュアイ: ' + osakana.Fish_Eyes))
 			} else {
-				hints.append(bakeIcon('fisheyes', '', true))
+				hints.appendChild(bakeIcon('fisheyes', '', true))
 			}
 
 			if (osakana.Intuition.length > 0) {
-				hints.append(bakeIcon('intuition', '漁師の直感: ' + osakana.Intuition))
+				hints.appendChild(bakeIcon('intuition', '漁師の直感: ' + osakana.Intuition))
 			} else {
-				hints.append(bakeIcon('intuition', '', true))
+				hints.appendChild(bakeIcon('intuition', '', true))
 			}
 			row.append(hints)
 
@@ -191,28 +193,29 @@
 		}
 
 		function bakeIcon(className, text, unavailable) {
-			var icon = $('<span></span>')
-				.attr('class', 'fisher-icon ' + className)
-				.attr('title', text)
-			if (unavailable) {
-				icon.addClass('unavailable')
-			}
+			var classes = ['fisher-icon', className];
+			if (unavailable) 
+				classes.push('unavailable');
+
+			var icon = document.createElement('span');
+			icon.setAttribute('class', classes.join(' '));
+			icon.setAttribute('title', text)
 			return icon
 		}
 
 		function bakeOsakanaLink(osakana) {
-			var osakanaLink = $('<a></a>');
+			var a = document.createElement('a')
 			if (osakana.Neko) {
-				osakanaLink.attr('target', '_blank');
-				osakanaLink.attr('href', 'https://ff14angler.com/fish/' + osakana.Neko);
+				a.setAttribute('target', '_blank');
+				a.setAttribute('href', 'https://ff14angler.com/fish/' + osakana.Neko);
 			}
-			osakanaLink.html(osakana.Fish)
-			return osakanaLink;
+			a.innerHTML = osakana.Fish;
+			return a;
 		}
 
 		/* 釣ったおさかなさんは隠すべき？ */
 		function shouldHideCaughtFish() {
-			return localStorage.getItem('hidingCaughtFish') === 'Yes'
+			return headerVM.caughtFishHidden;
 		}
 	
 		function activateHowTo() {
@@ -288,7 +291,26 @@
 			describeHowTo();
 		}
 		
+		var headerVM;
 		$(function () {
+			headerVM = new Vue({
+				el: '.header',
+				data: {
+					caughtFishHidden: localStorage.getItem('hidingCaughtFish') === 'Yes',
+				},
+				watch: {
+					/* 洋ナシスイッチON/OFFをlocalStorageに保存 */
+					caughtFishHidden: function(newYesNo, oldYesNo) {
+						if (newYesNo) {
+							localStorage.setItem('hidingCaughtFish', 'Yes');
+						} else {
+							localStorage.removeItem('hidingCaughtFish');
+						}
+						updateOsakanaRows();
+					}
+				}
+			});
+
 			initializeOsakanaList();
 
 			$(document).on("click", ".caught", function () {
@@ -306,18 +328,6 @@
 				updateOsakanaRows();
 			})
 			
-			$('#hidingCaughtFish').on('change', function () {
-				if ($(this).prop('checked')) {
-					/* チェックが入ってたらlocalStorageにYes、半透明のおさかなさんたちをサヨナラ */
-					localStorage.setItem('hidingCaughtFish', 'Yes');
-				} else {
-					/* 逆 */
-					localStorage.removeItem('hidingCaughtFish');
-				}
-				updateOsakanaRows();
-			})
-			$('#hidingCaughtFish').prop('checked', shouldHideCaughtFish())
-
 			activateHowTo();
 		})
 	</script>
@@ -332,15 +342,14 @@
 	</div>
 	<div class="same"></div>
 	<div class="sun"></div>
-	<div class="frame">
-
-	</div>
+	<div class="frame"></div>
 
 	<div class="header">
 		<div class="sun"></div>
-		<input type="checkbox" id="hidingCaughtFish">
+		<input type="checkbox" id="hidingCaughtFish" v-model="caughtFishHidden">
 		<label for="hidingCaughtFish">釣れた魚に用はない</label>
 	</div>
+
 	<div class="footer">
 	</div>
 	<div class="copyright">		
