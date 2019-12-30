@@ -2,10 +2,9 @@
 
 <head>
 	<title>おさかな</title>
-	<link rel="shortcut icon" href="umi_kani.ico" />
-
-	<link rel="stylesheet"
-		href="tablesorter.default.css">
+	<link rel="shortcut icon" href="umi_kani.ico">
+	<link rel="preload" href="fonts/azuki.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="stylesheet" href="tablesorter.default.css">
 	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript" src="weather.js"></script>
 	<script type="text/javascript" src="osakana.js"></script>
@@ -291,9 +290,8 @@
 				}
 			})
 			
-			$('#osakana_list').on('click', '.fisher-icon', function() {
-				var osakanaName = $(this).parents('tr').attr('data-osakana');
-				// startTeaching(osakanaName);
+			$('#osakana_list').on('click', 'tbody tr', function() {
+				var osakanaName = $(this).attr('data-osakana');
 				kaniVM.targetHowTo = osakanaName;
 			})
 			
