@@ -8,7 +8,9 @@ table {
   border-collapse: collapse;
 }
 
-
+#osakana_list {
+  width: 100%;
+}
 #osakana_list tr {
   font-size: 13px;
   border-bottom: 1px solid rgba(31, 45, 60, .1);
@@ -18,6 +20,7 @@ table {
 #osakana_list th {
   height: 45px;
   vertical-align: middle;
+  text-align: left;
 }
 #osakana_list td.hints {
   white-space: nowrap;
@@ -30,6 +33,55 @@ table {
 
 #osakana_list .highlight td {
   background-color: rgba(255, 217, 0, 0.431);
+}
+
+#osakana_list td.chance {
+  text-align: center;
+}
+#osakana_list .time,
+#osakana_list .weather,
+#osakana_list .local-time,
+#osakana_list .eorzea-time {
+  display: block;
+}
+#osakana_list .checkbox-cell {
+  width: 24px;
+  text-align: center;
+}
+#osakana_list thead th {
+  position: sticky;
+  top: 30px;
+}
+
+/* ソートできる列のヘッダー */
+.sort-column,
+.sort-column-ascending,
+.sort-column-descending {
+  cursor: pointer;
+  background-position: right 5px center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.sort-column {
+  background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+}
+.sort-column-ascending {
+  background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+}
+.sort-column-descending {
+  background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+}
+.sort-column-ascending:after,
+.sort-column-descending:after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  /* thの線に重ねる */
+  bottom: -1px;
+  left: 0px;
 }
 
 .copyright {
@@ -297,6 +349,9 @@ a {
 }
 
 /* 釣り方ヒント　漁師アイコン */
+.hints {
+  letter-spacing: -.4em; /* 文字間を詰めて隙間をなくす */
+}
 .fisher-icon {
   display: inline-block;
   height: 20px;

@@ -1,20 +1,20 @@
 <html>
-
 <head>
 	<title>おさかな</title>
 	<link rel="shortcut icon" href="umi_kani.ico">
 	<link rel="preload" href="fonts/azuki.woff" as="font" type="font/woff" crossorigin>
-	<link rel="stylesheet" href="tablesorter.default.css">
 	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript" src="weather.js"></script>
 	<script type="text/javascript" src="osakana.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!--
+	<link rel="stylesheet" href="tablesorter.default.css">
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
-	<!-- 追加機能(widgets)を使用する場合は次も追加する -->
+	 追加機能(widgets)を使用する場合は次も追加する 
 	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>-->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	
 	<script type="text/javascript">
@@ -22,149 +22,7 @@
 		var forecasts = {};
 		/* おさかな名 → おさかな行 */
 		var details = {};
-
-		function initializeOsakanaList() {
-			/* 先にtablesorterを作成 */
-			$("#osakana_list").tablesorter({
-				widgets: ['saveSort'],
-				widgetOptions: {
-					saveSort: true
-				},
-				textExtraction: {
-					".chance": function (node, table, cellIndex) {
-						/* チャンスが月/日なので年を跨ぐとやばいので元の日付を使う */
-						var osakana = $(node).parent('tr').attr('data-osakana');
-						var chances = forecasts[osakana];
-						/* cellIndex = 6 が #1 */
-						var chance = chances[cellIndex - 6];
-						return dateToYearMonthDayHoursMinutes(new Date(chance))
-					}
-				}
-			});
-
-			updateOsakanaRows();
-		}
-
-		function updateOsakanaRows() {
-			for (var i = 0; i < osakanas.length; i++) {
-				var osakana = osakanas[i];
-				var present = isOsakanaRowPresent(osakana);
-				var toShow = shouldShowOsakana(osakana);
-				// console.log(osakana.Fish, present, toShow)
-				if (present) {
-					if (!toShow) {
-						removeOsakanaRow(osakana)
-					}
-				} else {
-					if (toShow) {
-						addOsakanaRow(osakana)
-					}
-				}
-			}
-			
-			$('#osakana_list').trigger('update', [ true, function() { 
-			}])
-		}
-
-		/* 釣られたおさかなか？ */
-		function wasCaughtOsakana(osakana) {
-			return localStorage.getItem(osakana.Fish) == 'Yes';
-		}
-
-		/* おさかなは表示すべき？ */
-		function shouldShowOsakana(osakana) {
-			var caught = wasCaughtOsakana(osakana);
-			return !caught || !shouldHideCaughtFish();
-		}
-
-		function isOsakanaRowPresent(osakana) {
-			return $('tr[data-osakana="' + osakana.Fish + '"]').length >= 1;
-		}
-
-		function removeOsakanaRow(osakana) {
-			var tr = $('tr[data-osakana="' + osakana.Fish + '"]');
-			tr.remove();
-		}
-
-		function addOsakanaRow(osakana) {
-			var row = $('<tr>').attr('data-osakana', osakana.Fish);
-
-			/* 既に釣れてるおさかなマーク */
-			var caught = localStorage.getItem(osakana.Fish) == 'Yes';
-			if (wasCaughtOsakana(osakana)) {
-				row.addClass('caught');
-			}
-
-			var checkbox = $('<input type="checkbox" class="caught">')
-				.prop('checked', caught);
-			row.append($('<td>').append(checkbox))
-
-			var osakanaLink = bakeOsakanaLink(osakana)
-			row.append($('<td>').append(osakanaLink))
-			row.append($('<td>').append(osakana.Spot))
-			row.append($('<td>').append(osakana.Zone))
-
-			var time = formatTimeSpan(osakana.From, osakana.To);
-			var weather = formatWeatherTransition(osakana.Previous_Weather, osakana.Weather);
-			var wa = [];
-			if (time.length) {
-				wa.push(time);
-			}
-			if (weather.length) {
-				wa.push(weather);
-			}
-			row.append($('<td>').html(wa.join('<br>')));
-
-
-			var hints = document.createElement('td');
-			hints.appendChild(bakeIcon('bait', '餌: ' + osakana.Bait, osakana.Bait.length === 0))
-
-			if (osakana.Mooch.length > 0) {
-				hints.appendChild(bakeIcon('mooch', '泳がせ: ' + osakana.Mooch))
-			} else {
-				hints.appendChild(bakeIcon('mooch', '', true))
-			}
-
-			if (osakana.Hookset === 'プレシジョン') {
-				hints.appendChild(bakeIcon('precision-hookset', 'フッキング: プレシジョンフッキング'))
-			} else if (osakana.Hookset === 'ストロング') {
-				hints.appendChild(bakeIcon('powerful-hookset', 'フッキング: ストロングフッキング'))
-			} else {
-				hints.appendChild(bakeIcon('hook', '', true))
-			}
-
-			if (osakana.Fish_Eyes.length > 0) {
-				hints.appendChild(bakeIcon('fisheyes', 'フィッシュアイ: ' + osakana.Fish_Eyes))
-			} else {
-				hints.appendChild(bakeIcon('fisheyes', '', true))
-			}
-
-			if (osakana.Intuition.length > 0) {
-				hints.appendChild(bakeIcon('intuition', '漁師の直感: ' + osakana.Intuition))
-			} else {
-				hints.appendChild(bakeIcon('intuition', '', true))
-			}
-			row.append(hints)
-
-			/* おさかなチャンス 2個 */
-			var chances = forecasts[osakana.Fish];
-			if (!chances) {
-				chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
-				forecasts[osakana.Fish] = chances;
-			}
-
-			for (var x = 0; x < chances.length; x++) {
-				var chance = chances[x];
-				var start = getFormattedLocalTime(chance) + ' ' + getFormattedEorzeaTime(chance);
-				var td = $('<td>');
-				$('<span class="local-time">').append(getFormattedLocalTime(chance)).appendTo(td);
-				$('<span class="eorzea-time">').append(getFormattedEorzeaTime(chance)).appendTo(td);
-				td.appendTo(row);
-			}
-			$("#osakana_list tbody").append(row);
-		}
-
-		
+				
 		function formatTimeSpan(from, to) {
 			if (from !== "") {
 				return ("0" + from).slice(-2) + ":00-" + ("0" + to).slice(-2) + ":00";
@@ -186,32 +44,6 @@
 				return '';
 			}
 		}
-
-		function bakeIcon(className, text, unavailable) {
-			var classes = ['fisher-icon', className];
-			if (unavailable) 
-				classes.push('unavailable');
-
-			var icon = document.createElement('span');
-			icon.setAttribute('class', classes.join(' '));
-			icon.setAttribute('title', text)
-			return icon
-		}
-
-		function bakeOsakanaLink(osakana) {
-			var a = document.createElement('a')
-			if (osakana.Neko) {
-				a.setAttribute('target', '_blank');
-				a.setAttribute('href', 'https://ff14angler.com/fish/' + osakana.Neko);
-			}
-			a.innerHTML = osakana.Fish;
-			return a;
-		}
-
-		/* 釣ったおさかなさんは隠すべき？ */
-		function shouldHideCaughtFish() {
-			return headerVM.caughtFishHidden;
-		}
 			
 		function formatHookset(value) {
 			if (value === 'プレシジョン') {
@@ -223,15 +55,16 @@
 			}
 		}
 		
-		var headerVM, kaniVM;
 		$(function () {			
 			for (var i = 0; i < osakanas.length; i++) {
 				var osakana = osakanas[i];
+				/* 釣れたかどうかのデータを追加 */
+				osakana['Caught'] = localStorage.getItem(osakana.Fish) === 'Yes';
 				details[osakana.Fish] = osakana;
 			}
 
 			/* 用はない！ */
-			headerVM = new Vue({
+			var headerVM = new Vue({
 				el: '.header',
 				data: {
 					caughtFishHidden: localStorage.getItem('hidingCaughtFish') === 'Yes',
@@ -244,13 +77,13 @@
 						} else {
 							localStorage.removeItem('hidingCaughtFish');
 						}
-						updateOsakanaRows();
+						// updateOsakanaRows();
 					}
 				}
 			});
 
 			/* 教えて！カニさん */
-			kaniVM = new Vue({
+			var kaniVM = new Vue({
 				el: '.senpai',
 				data: {
 					targetHowTo: localStorage.getItem('kani')
@@ -259,7 +92,7 @@
 					this.informBody();
 				},
 				watch: {
-					targetHowTo: function(newTarget, oldTarget) {						
+					targetHowTo: function(newTarget, oldTarget) {
 						if (newTarget) {
 							localStorage.setItem('kani', newTarget);
 						} else {
@@ -290,27 +123,144 @@
 				}
 			})
 			
-			$('#osakana_list').on('click', 'tbody tr', function() {
-				var osakanaName = $(this).attr('data-osakana');
-				kaniVM.targetHowTo = osakanaName;
-			})
-			
-			initializeOsakanaList();
+			/* おさかなさんリスト */
+			var listVM = new Vue({
+				el: '.content',
+				data: {
+					osakanas: osakanas,
+					sortBy: localStorage.getItem('sortBy'),
+					reversed: localStorage.getItem('sortByReversed') === 'Yes'
+				},
+				watch: {
+					sortBy: function(newSortBy) {
+						localStorage.setItem('sortBy', newSortBy)
+					},
+					reversed: function(newReversed) {
+						localStorage.setItem('sortByReversed', newReversed ? 'Yes' : 'No')
+					}
+				},
+				computed: {
+					/* リストはソートされてるお魚さんを表示 */
+					sortedOsakanas: function() {
+						var copy = [];
+						for (var i = 0; i < this.osakanas.length; i++) {
+							copy.push(this.osakanas[i]);
+						}
 
-			$(document).on("click", ".caught", function () {
-				var checked = $(this).prop("checked");
-				var tr = $(this).parents('tr')
-				var fish = tr.attr('data-osakana')
-				if (checked) {
-					tr.addClass('caught');
-					localStorage.setItem(fish, 'Yes');
-				} else {
-					tr.removeClass('caught');
-					localStorage.removeItem(fish);
+						var self = this;
+						var factor = this.sortBy;
+						copy.sort(function(a, b) {
+							var comparison;
+							switch (factor) {
+								case 'chance1': {
+									/* chanceは日付の数値 */
+									var chanceA = self.getChance(a, 0);
+									var chanceB = self.getChance(b, 0);
+									comparison = chanceA - chanceB;
+									break;
+								}
+								case 'chance2': {
+									var chanceA = self.getChance(a, 1);
+									var chanceB = self.getChance(b, 1);
+									comparison = chanceA - chanceB;
+									break;
+								}
+								case 'spot': {
+									comparison = a.Spot.localeCompare(b.Spot);
+									break;
+								}
+								case 'zone': {
+									comparison = a.Zone.localeCompare(b.Zone);
+									break;
+								}
+								case 'name':
+								default:
+									comparison = a.Fish.localeCompare(b.Fish)
+									break;
+							}
+
+							if (self.reversed) {
+								comparison = -comparison;
+							}
+							return comparison;
+						});
+						return copy;
+					},
+				},
+				methods: {
+					formatTimeSpan: formatTimeSpan,
+					formatWeatherTransition: formatWeatherTransition,
+					formatHookset: formatHookset,
+					getOsakanaLink: function(osakana) {
+						return 'https://ff14angler.com/fish/' + osakana.Neko;
+					},
+					shouldList: function(osakana) {
+						return !osakana.Caught || !headerVM.caughtFishHidden;
+					},
+					getChances: function(osakana) {
+						/* チャンス計算は一回だけ */
+						var chances = forecasts[osakana.Fish];
+						if (!chances) {
+							chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
+							forecasts[osakana.Fish] = chances;
+						}
+						return chances;
+					},
+					getChance: function(osakana, nth) {
+						return this.getChances(osakana)[nth];
+					},
+					getChanceLT: function(osakana, nth) {
+						return getFormattedLocalTime(this.getChance(osakana, nth));
+					},
+					getChanceET: function(osakana, nth) {
+						return getFormattedEorzeaTime(this.getChance(osakana, nth));
+					},
+					getHooksetClass: function(osakana) {
+						if (osakana.Hookset === 'プレシジョン') {
+							return 'precision-hookset';
+						} else if (osakana.Hookset === 'ストロング') {
+							return 'powerful-hookset';
+						} else {
+							return 'hook';
+						}
+					},
+					/* カニさんに教えを乞う */
+					teachMe: function(osakana) {
+						kaniVM.targetHowTo = osakana.Fish;
+					},
+					catchFish: function(osakana) {
+						osakana.Caught = !osakana.Caught;
+						if (osakana.Caught) {
+							localStorage.setItem(osakana.Fish, 'Yes');
+						} else {
+							localStorage.removeItem(osakana.Fish);
+						}
+					},
+					
+					changeSortBy: function(sortBy) {
+						if (this.sortBy === sortBy) {
+							/* 現在の並び替えファクタをクリックしたら順を逆に */
+							this.sortBy = sortBy;
+							this.reversed = !this.reversed;
+						} else {
+							/* 別のソート対象だったら昇順 */
+							this.sortBy = sortBy;
+							this.reversed = false;
+						}
+					},
+					sortColumnClass: function(sortBy) {
+						if (this.sortBy === sortBy) {
+							if (this.reversed) {
+								return 'sort-column-descending';
+							} else {
+								return 'sort-column-ascending';
+							}
+						} else {
+							return 'sort-column';
+						}
+					}
 				}
-
-				updateOsakanaRows();
-			})
+			});
 		})
 	</script>
 </head>
@@ -362,6 +312,7 @@
 		<div class="kani"></div>
 		<div class="same"></div>
 	</div>
+
 	<div class="footer"></div>
 
 	<div class="sun"></div>
@@ -381,18 +332,61 @@
 		<table id="osakana_list">
 			<thead>
 				<tr>
-					<th class="sorter-false"></th>
-					<th>おさかな</th>
-					<th>スポット</th>
-					<th>エリア</th>
+					<th class="checkbox-cell"></th>
+					<th @click="changeSortBy('name')" :class="sortColumnClass('name')">おさかな</th>
+					<th @click="changeSortBy('spot')" :class="sortColumnClass('spot')">スポット</th>
+					<th @click="changeSortBy('zone')" :class="sortColumnClass('zone')">エリア</th>
 					<th>条件</th>
 					<th>釣り方</th>
-					<th class="chance" data-chance-index="0">#1</th>
-					<th class="chance" data-chance-index="1">#2</th>
+					<th @click="changeSortBy('chance1')" :class="sortColumnClass('chance1')">#1</th>
+					<th @click="changeSortBy('chance2')" :class="sortColumnClass('chance2')">#2</th>
 				</tr>
 			</thead>
 			<tbody>
 				<!-- ここにお魚さん -->
+				<!-- <a>や<input>にはv-on:click.stopが必須。ないとクリックしたときにカニさんがお節介を焼いてしまう -->
+				<tr v-for="osakana in sortedOsakanas" v-if="shouldList(osakana)" v-on:click="teachMe(osakana)">
+					<td class="checkbox-cell">
+						<!-- v-model使うとwatchの仕方が分からない -->
+						<input type="checkbox" :checked="osakana.Caught" v-on:change="catchFish(osakana)" v-on:click.stop/>
+					</td>
+					<td><a target="_blank" :href="getOsakanaLink(osakana)" v-on:click.stop>{{ osakana.Fish }}</a></td>
+					<td>{{ osakana.Spot }}</td>
+					<td>{{ osakana.Zone }}</td>
+					<td>
+						<span class="time" v-if="osakana.To !== ''">
+							{{ formatTimeSpan(osakana.From, osakana.To) }}
+						</span>
+						<span class="weather" v-if="osakana.Weather !== '' || osakana.Previous_Weather !== ''">
+							{{ formatWeatherTransition(osakana.Previous_Weather, osakana.Weather) }}
+						</span>
+					</td>
+					<td class="hints">
+						<span 
+							class="fisher-icon bait" 
+							:title="osakana.Bait"></span>
+						<span 
+							:class="['fisher-icon', 'mooch', osakana.Mooch.length === 0 ? 'unavailable' : '']" 
+							:title="osakana.Mooch"></span>
+						<span 
+							:class="['fisher-icon',	getHooksetClass(osakana), getHooksetClass(osakana) === 'hook' ? 'unavailable' : '']" 
+							:title="formatHookset(osakana.Hookset)"></span>
+						<span 
+							:class="['fisher-icon', 'fisheyes', osakana.Fish_Eyes.length === 0 ? 'unavailable' : '']" 
+							:title="osakana.Fish_Eyes"></span>
+						<span 
+							:class="['fisher-icon', 'intuition', osakana.Intuition.length === 0 ? 'unavailable' : '']" 
+							:title="osakana.Intuition"></span>
+					</td>
+					<td class="chance">
+						<span class="local-time">{{ getChanceLT(osakana, 0) }}</span>
+						<span class="eorzea-time">{{ getChanceET(osakana, 0) }}</span>
+					</td>
+					<td class="chance">
+						<span class="local-time">{{ getChanceLT(osakana, 1) }}</span>
+						<span class="eorzea-time">{{ getChanceET(osakana, 1) }}</span>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
