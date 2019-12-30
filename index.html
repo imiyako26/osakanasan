@@ -254,13 +254,13 @@
 			kaniVM = new Vue({
 				el: '.senpai',
 				data: {
-					howToTarget: localStorage.getItem('kani')
+					targetHowTo: localStorage.getItem('kani')
 				},
 				created: function() {
 					this.informBody();
 				},
 				watch: {
-					howToTarget: function(newTarget, oldTarget) {						
+					targetHowTo: function(newTarget, oldTarget) {						
 						if (newTarget) {
 							localStorage.setItem('kani', newTarget);
 						} else {
@@ -271,10 +271,10 @@
 				},
 				computed: {
 					osakana: function() {
-						if (!this.howToTarget) {
+						if (!this.targetHowTo) {
 							return null;
 						}
-						return details[this.howToTarget];
+						return details[this.targetHowTo];
 					}
 				},
 				methods: {
@@ -282,7 +282,7 @@
 					formatWeatherTransition: formatWeatherTransition,
 					formatHookset: formatHookset,
 					informBody: function() {
-						if (this.howToTarget) {
+						if (this.targetHowTo) {
 							$(document.body).addClass('senpai-visible');
 						} else {
 							$(document.body).removeClass('senpai-visible');
@@ -294,7 +294,7 @@
 			$('#osakana_list').on('click', '.fisher-icon', function() {
 				var osakanaName = $(this).parents('tr').attr('data-osakana');
 				// startTeaching(osakanaName);
-				kaniVM.howToTarget = osakanaName;
+				kaniVM.targetHowTo = osakanaName;
 			})
 			
 			initializeOsakanaList();
@@ -322,7 +322,7 @@
 
 	<div class="senpai">
 		<div class="kanban">
-			<div class="kanban-close" @click="howToTarget = null"></div>
+			<div class="kanban-close" @click="targetHowTo = null"></div>
 			<div class="kanban-content" v-if="osakana">
 				<h1>{{ osakana.Fish }}</h1>
 				<div>{{ osakana.Spot }} {{ osakana.Zone }}</div>
