@@ -39,6 +39,12 @@ table {
   z-index: 10;
   font-size: 12px;
 }
+
+.bg, .senpai, .footer {
+  background: url(images/bg_natural_umi.png) bottom right no-repeat;
+  background-color: #B4E0FB;
+}
+
 .bg {
   /*位置の設定*/
   width: 100%;
@@ -47,13 +53,28 @@ table {
   top: 0;
   left: 0;
 
-  /*背景画像の設定*/
-  background: url(images/bg_natural_umi.png) bottom right no-repeat;
-  background-color: #B4E0FB;
-
   /*透過の設定*/
   opacity: 1;
   z-index: -2;
+}
+
+.senpai {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  /* 基本はリストの下 */
+  z-index: -1;
+}
+
+/* カニセンパイが表示されてないとき用 */
+.footer {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  height: 15px;
+  z-index: 3;
 }
 
 .kani, .same, .kanban {
@@ -131,6 +152,37 @@ table {
   margin-top: 5px;
 }
 
+
+
+.kani-space {
+  height: 0;
+}
+.senpai-visible .frame {
+  bottom: 315px;
+}
+.senpai-visible .footer {
+  display: none;
+}
+.senpai-visible .senpai {
+  height: 315px;
+  z-index: 3;
+}
+.senpai-visible .kani-space {
+  height: 315px;
+}
+.senpai-visible .kanban {
+  display: block;
+  height: 315px;
+}
+.senpai-visible .kani,
+.senpai-visible .same { 
+  z-index: 10;
+}
+.senpai-visible .kanban { 
+  z-index: 11;
+}
+
+
 .same {
   background-image: url(images/fish_shark.png);
   background-repeat: no-repeat;
@@ -153,10 +205,6 @@ table {
   z-index: -1;
 }
 
-.kani-space {
-  height: 0;
-}
-
 .frame {
   position: fixed;
   left: 15px;
@@ -168,27 +216,6 @@ table {
   border-radius: 5px;
   opacity: 0.86;
   z-index: -1;
-}
-
-.kanban-visible .frame {
-  bottom: 315px;
-}
-.kanban-visible .footer {
-  height: 315px;
-}
-.kanban-visible .kani-space {
-  height: 315px;
-}
-.kanban-visible .kanban {
-  display: block;
-  height: 315px;
-}
-.kanban-visible .kani,
-.kanban-visible .same { 
-  z-index: 10;
-}
-.kanban-visible .kanban { 
-  z-index: 11;
 }
 
 .content {

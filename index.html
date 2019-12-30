@@ -43,10 +43,6 @@
 				}
 			});
 
-			for (var i = 0; i < osakanas.length; i++) {
-				var osakana = osakanas[i];
-				details[osakana.Fish] = osakana;
-			}
 			updateOsakanaRows();
 		}
 
@@ -217,82 +213,25 @@
 		function shouldHideCaughtFish() {
 			return headerVM.caughtFishHidden;
 		}
-	
-		function activateHowTo() {
-			$('#osakana_list').on('click', '.fisher-icon', function() {
-				var osakanaName = $(this).parents('tr').attr('data-osakana');
-				startTeaching(osakanaName);
-			})
-			$('.kanban-close').click(function() {
-				stopTeaching();
-			})
-			describeHowTo();
-		}
-		
-		/* カニさんにおさかなの詳細を表示させる */
-		function describeHowTo() {
-			var osakanaName = localStorage.getItem('kani');
-
-			$('tr[data-osakana]').removeClass('highlight')
-			$('tr[data-osakana="' + osakanaName + '"]').addClass('highlight')
-
-			var kanban = $('.kanban-content')
-			kanban.empty();
-
-			if (!osakanaName) {
-				$(document.body).removeClass('kanban-visible');
+			
+		function formatHookset(value) {
+			if (value === 'プレシジョン') {
+				return 'プレシジョンフッキング';
+			} else if (value === 'ストロング') {
+				return 'ストロングフッキング';
 			} else {
-				$(document.body).addClass('kanban-visible');
-				
-				var osakana = details[osakanaName];
-				var osakanaLink = $('<a>').html(osakana.Fish).attr('href', )
-				$('<h1>').append(bakeOsakanaLink(osakana)).appendTo(kanban);
-				$('<div>').html(osakana.Spot + ' (' + osakana.Zone + ')').appendTo(kanban)
-
-				var table = $('<table>');
-				var time = formatTimeSpan(osakana.From, osakana.To)
-				if (time) {
-					table.append('<tr><th>時間</th><td>' + time + '</td></tr>');
-				}
-				var weather = formatWeatherTransition(osakana.Previous_Weather, osakana.Weather)
-				if (weather) {
-					table.append('<tr><th>天候</th><td>' + weather + '</td></tr>');
-				}
-
-				table.append('<tr><th>餌</th><td>' + osakana.Bait + '</td></tr>');
-				if (osakana.Mooch) {
-					table.append('<tr><th>泳がせ</th><td>' + osakana.Mooch + '</td></tr>');
-				}
-				if (osakana.Hookset === 'プレシジョン') {
-					table.append('<tr><th>フッキング</th><td>プレシジョンフッキング</td></tr>');
-				} else if (osakana.Hookset === 'ストロング') {
-					table.append('<tr><th>フッキング</th><td>ストロングフッキング</td></tr>');
-				}
-				if (osakana.Fish_Eyes.length > 0) {
-					table.append('<tr><th>フィッシュアイ</th><td>' + osakana.Fish_Eyes + '</td></tr>');
-				}
-				if (osakana.Intuition.length > 0) {
-					table.append('<tr><th>漁師の直感</th><td>' + osakana.Intuition + '</th></tr>');
-				}
-				if (osakana.Remark.length > 0) {
-					table.append('<tr><td colspan="2">' + osakana.Remark + '</td></tr>');
-				}				
-				table.appendTo(kanban)
+				return '';
 			}
 		}
-
-		function startTeaching(osakana) {
-			localStorage.setItem('kani', osakana);
-			describeHowTo();
-		}
-
-		function stopTeaching() {
-			localStorage.removeItem('kani');
-			describeHowTo();
-		}
 		
-		var headerVM;
-		$(function () {
+		var headerVM, kaniVM;
+		$(function () {			
+			for (var i = 0; i < osakanas.length; i++) {
+				var osakana = osakanas[i];
+				details[osakana.Fish] = osakana;
+			}
+
+			/* 用はない！ */
 			headerVM = new Vue({
 				el: '.header',
 				data: {
@@ -311,6 +250,53 @@
 				}
 			});
 
+			/* 教えて！カニさん */
+			kaniVM = new Vue({
+				el: '.senpai',
+				data: {
+					howToTarget: localStorage.getItem('kani')
+				},
+				created: function() {
+					this.informBody();
+				},
+				watch: {
+					howToTarget: function(newTarget, oldTarget) {						
+						if (newTarget) {
+							localStorage.setItem('kani', newTarget);
+						} else {
+							localStorage.removeItem('kani');
+						}
+						this.informBody();
+					}
+				},
+				computed: {
+					osakana: function() {
+						if (!this.howToTarget) {
+							return null;
+						}
+						return details[this.howToTarget];
+					}
+				},
+				methods: {
+					formatTimeSpan: formatTimeSpan,
+					formatWeatherTransition: formatWeatherTransition,
+					formatHookset: formatHookset,
+					informBody: function() {
+						if (this.howToTarget) {
+							$(document.body).addClass('senpai-visible');
+						} else {
+							$(document.body).removeClass('senpai-visible');
+						}
+					}
+				}
+			})
+			
+			$('#osakana_list').on('click', '.fisher-icon', function() {
+				var osakanaName = $(this).parents('tr').attr('data-osakana');
+				// startTeaching(osakanaName);
+				kaniVM.howToTarget = osakanaName;
+			})
+			
 			initializeOsakanaList();
 
 			$(document).on("click", ".caught", function () {
@@ -327,20 +313,59 @@
 
 				updateOsakanaRows();
 			})
-			
-			activateHowTo();
 		})
 	</script>
 </head>
 
 <body>
 	<div class="bg"></div>
-	<div class="kani"></div>
-	<div class="kanban">
-		<div class="kanban-close"></div>
-		<div class="kanban-content"></div>
+
+	<div class="senpai">
+		<div class="kanban">
+			<div class="kanban-close" @click="howToTarget = null"></div>
+			<div class="kanban-content" v-if="osakana">
+				<h1>{{ osakana.Fish }}</h1>
+				<div>{{ osakana.Spot }} {{ osakana.Zone }}</div>
+				<table>
+					<tr v-if="osakana.To">
+						<th>時間</th>
+						<td>{{ formatTimeSpan(osakana.From, osakana.To) }}</td>
+					</tr>
+					<tr v-if="osakana.Weather || osakana.Previous_Weather">
+						<th>天候</th>
+						<td>{{ formatWeatherTransition(osakana.Previous_Weather, osakana.Weather) }}</td>
+					</tr>
+					<tr v-if="osakana.Bait">
+						<th>エサ</th>
+						<td>{{ osakana.Bait }}</td>
+					</tr>
+					<tr v-if="osakana.Mooch">
+						<th>泳がせ</th>
+						<td>{{ osakana.Mooch }}</td>
+					</tr>
+					<tr v-if="formatHookset(osakana.Hookset)">
+						<th>フッキング</th>
+						<td>{{ formatHookset(osakana.Hookset) }}</td>
+					</tr>
+					<tr v-if="osakana.Fish_Eyes">
+						<th>フィッシュアイ</th>
+						<td>{{ osakana.Fish_Eyes }}</td>
+					</tr>
+					<tr v-if="osakana.Intuition">
+						<th>漁師の直観</th>
+						<td>{{ osakana.Intuition }}</td>
+					</tr>
+					<tr v-if="osakana.Remark">
+						<td colspan="2">{{ osakana.Remark }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="kani"></div>
+		<div class="same"></div>
 	</div>
-	<div class="same"></div>
+	<div class="footer"></div>
+
 	<div class="sun"></div>
 	<div class="frame"></div>
 
@@ -350,8 +375,6 @@
 		<label for="hidingCaughtFish">釣れた魚に用はない</label>
 	</div>
 
-	<div class="footer">
-	</div>
 	<div class="copyright">		
 		Copyright (C) 2010 - 2020 SQUARE ENIX CO., LTD. All Rights Reserved.
 	</div>
