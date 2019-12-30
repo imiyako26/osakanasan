@@ -1,4 +1,4 @@
-osakanas =[
+osakanas = [
   {
     "Fish": "トラマフィッシュ",
     "Spot": "オークウッド",
@@ -15,7 +15,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "スウィートニュート",
@@ -33,7 +34,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ファットパース",
@@ -51,7 +53,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ヘイルイーター",
@@ -69,7 +72,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "フレアフィッシュ",
@@ -87,7 +91,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ラ・レアル",
@@ -105,7 +110,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "イエティキラー",
@@ -123,7 +129,8 @@ osakanas =[
     "Remark": "引っ掛け 50s+",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "氷の巫女",
@@ -141,7 +148,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "2m20s",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ネモ",
@@ -159,7 +167,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ビショップフィッシュ",
@@ -177,7 +186,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "3m",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シャリベネ",
@@ -195,7 +205,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "ハルオネx5",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "アクムノタネ",
@@ -213,7 +224,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "スケイルリッパー",
@@ -231,7 +243,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "フォークタン",
@@ -249,7 +262,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "サンダースケイル",
@@ -267,7 +281,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "リドル",
@@ -285,7 +300,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "5m",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "メテオトータス",
@@ -303,7 +319,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "聖竜の涙",
@@ -321,7 +338,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "2m+ 2択ガチャ（2m→1mはハズレ）",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "溶岩帝王",
@@ -339,7 +357,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "5m (3択ガチャ)",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "プロブレマティカス",
@@ -357,7 +376,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "アロワナx3 カニx5",
     "Fish_Eyes": "3m (アロワナ)",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "水瓶王",
@@ -375,7 +395,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "マダムバタフライ",
@@ -393,7 +414,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": "グリルダロパは弱震(8-11s)"
+    "Advice": "グリルダロパは弱震(8-11s)",
+    "Load": "Yes"
   },
   {
     "Fish": "万能のゴブリバス",
@@ -411,7 +433,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "スピーカー",
@@ -429,7 +452,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "鎧魚",
@@ -447,7 +471,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ハイアラガンクラブ改",
@@ -465,7 +490,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "魔科学物質666",
@@ -483,7 +509,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "有",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "セティ",
@@ -501,7 +528,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "3m",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "バイオガピラルク",
@@ -519,7 +547,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ハンドレッドアイ",
@@ -537,7 +566,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "クリスタルピジョン",
@@ -555,7 +585,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "3m",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "アラガンブレード・シャーク",
@@ -573,7 +604,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "オパビニア",
@@ -591,7 +623,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "オプロプケンx3",
     "Fish_Eyes": "2m (オプロプケン)",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ザ・セカンドワン",
@@ -609,7 +642,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シーロストラタスモトロ",
@@ -627,7 +661,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "クラウドバタフライ",
@@ -645,7 +680,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "スカイフェアリー・セレネx３、スコーピオンフライx３",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "バスキングシャーク",
@@ -663,7 +699,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "パイッサキラー",
@@ -681,7 +718,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "水墨魚",
@@ -699,7 +737,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "有",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ラタトスクソウル",
@@ -717,7 +756,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ヴィゾーヴニル",
@@ -735,7 +775,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ディモルフォドン",
@@ -753,7 +794,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "モグルグポンポン",
@@ -771,7 +813,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ボサボサ",
@@ -789,7 +832,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "有",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ストームブラッドライダー",
@@ -807,7 +851,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "1m20s",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ランデロプテルス",
@@ -825,7 +870,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "スカイハイフィッシュx5",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "フックスティーラー",
@@ -843,7 +889,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シデンナマズ",
@@ -861,7 +908,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "レッドテイルゾンビー",
@@ -879,7 +927,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "サーメットヘッド",
@@ -897,7 +946,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "クセナカンサス",
@@ -915,7 +965,8 @@ osakanas =[
     "Remark": "ヌシ泳がせ",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "サファイアファン",
@@ -933,7 +984,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "アークビショップフィッシュ",
@@ -951,7 +1003,8 @@ osakanas =[
     "Remark": "晴れ・快晴・雷にホネトカシをトレードすると100%",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "タニクダリ",
@@ -969,7 +1022,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "コープスチャブ",
@@ -987,7 +1041,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ヘモン",
@@ -1005,7 +1060,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ボンドスプリッター",
@@ -1023,7 +1079,8 @@ osakanas =[
     "Remark": "ヌシ泳がせ",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ドレパナスピス",
@@ -1041,7 +1098,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "ボンドスプリッターx2",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ナガレクダリ",
@@ -1059,7 +1117,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ラストティアー",
@@ -1077,7 +1136,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "解脱魚",
@@ -1095,7 +1155,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "アラミガンベール",
@@ -1113,7 +1174,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ダイヤモンドアイ",
@@ -1131,7 +1193,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "4m",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ステタカントゥス",
@@ -1149,7 +1212,8 @@ osakanas =[
     "Remark": "気象条件はないが、スカルプターが雷しか釣れないため",
     "Intuition": "スカルプターx2",
     "Fish_Eyes": "有（スカルプター）",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ベジースキッパー",
@@ -1167,7 +1231,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "明けの旗魚",
@@ -1185,7 +1250,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ブレードスキッパー",
@@ -1203,7 +1269,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "暮れの魚",
@@ -1221,7 +1288,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シンタクヤブリ",
@@ -1239,7 +1307,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ヤトカガン",
@@ -1257,7 +1326,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ナーマの愛寵",
@@ -1275,7 +1345,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "神々の愛",
@@ -1293,7 +1364,8 @@ osakanas =[
     "Remark": "ナーマの恵みをトレードで１００％",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "バリマンボン",
@@ -1311,7 +1383,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ウミダイジャ",
@@ -1329,7 +1402,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "春不知",
@@ -1347,7 +1421,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ソクシツキ",
@@ -1365,7 +1440,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "菜食王",
@@ -1383,7 +1459,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ナナツボシ",
@@ -1401,7 +1478,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "クアル",
@@ -1419,7 +1497,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "紅龍",
@@ -1437,7 +1516,8 @@ osakanas =[
     "Remark": "紅蓮ラスボス",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "オニニラミ",
@@ -1455,7 +1535,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ザクロウミ",
@@ -1473,7 +1554,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "有",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "仙寿の翁",
@@ -1491,7 +1573,8 @@ osakanas =[
     "Remark": "トレード有効",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "七彩天主",
@@ -1509,7 +1592,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "藍彩魚x3(ET00-04) 橙彩魚x3(ET04~08) 緑彩魚x5(ET00-16)",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ニジノヒトスジ",
@@ -1527,7 +1611,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ボクデン",
@@ -1545,7 +1630,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "水天一碧",
@@ -1563,7 +1649,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シャジクノミ",
@@ -1581,7 +1668,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "羽衣美女",
@@ -1599,7 +1687,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "羽衣鯉",
@@ -1617,7 +1706,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "4m",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ノボリリュウ",
@@ -1635,7 +1725,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "バクチウチ",
@@ -1653,7 +1744,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ヒメダカ",
@@ -1671,7 +1763,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ゴールデンフィン",
@@ -1689,7 +1782,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "メガオクトパス",
@@ -1707,7 +1801,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ザルエラ",
@@ -1725,7 +1820,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ギガシャーク",
@@ -1743,7 +1839,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "トリックスター",
@@ -1761,7 +1858,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "スナガクレ",
@@ -1779,7 +1877,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ハイパーチ",
@@ -1797,7 +1896,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "クリスタルパーチ",
@@ -1815,7 +1915,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "オオゴエナマズ",
@@ -1833,7 +1934,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "オシュオンプリント",
@@ -1851,7 +1953,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シルドラ",
@@ -1869,7 +1972,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ザ・リッパー",
@@ -1887,7 +1991,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シルバーソブリン",
@@ -1905,7 +2010,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "メテオサバイバー",
@@ -1923,7 +2029,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "サーベルタイガーコッド",
@@ -1941,7 +2048,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "フェアリークイーン",
@@ -1959,7 +2067,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "オヤジウオ",
@@ -1977,7 +2086,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ビアナックブーン",
@@ -1995,7 +2105,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シャークトゥーナ",
@@ -2013,7 +2124,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ボンバードフィッシュ",
@@ -2031,7 +2143,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ソルター",
@@ -2049,7 +2162,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ドラウンドスナイパー",
@@ -2067,7 +2181,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "テレプシコレアン",
@@ -2085,7 +2200,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ミラースケイル",
@@ -2103,7 +2219,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "黄金魚",
@@ -2121,7 +2238,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "オールドマーリン",
@@ -2139,7 +2257,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ネプトの竜",
@@ -2157,7 +2276,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "リトルサラオスx3",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "スケーリーフット",
@@ -2175,7 +2295,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ジャンクモンガー",
@@ -2193,7 +2314,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ローンリッパー",
@@ -2211,7 +2333,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ヘルムズマンズハンド",
@@ -2229,7 +2352,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "コエラカントゥス",
@@ -2247,7 +2371,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "エンドセラス",
@@ -2265,7 +2390,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "リムレーンズソード",
@@ -2283,7 +2409,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ラブカ",
@@ -2301,7 +2428,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "キャプテンズチャリス",
@@ -2319,7 +2447,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "シーハッグ",
@@ -2337,7 +2466,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ジャンヌ・トラウト",
@@ -2355,7 +2485,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "スプリングキング",
@@ -2373,7 +2504,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "ワーム・オブ・ニーム",
@@ -2391,7 +2523,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "サンダーガット",
@@ -2409,7 +2542,8 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
   },
   {
     "Fish": "トゥイッチビアード",
@@ -2427,6 +2561,824 @@ osakanas =[
     "Remark": "",
     "Intuition": "",
     "Fish_Eyes": "",
-    "Advice": ""
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "招嵐王",
+    "Spot": "グリダニア：翡翠湖畔",
+    "Zone": "グリダニア：新市街",
+    "From": 17,
+    "To": 2,
+    "Previous_Weather": "",
+    "Weather": "雨",
+    "Bait": "テッポウムシ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 236,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ブラッディブルワー",
+    "Spot": "グリダニア：紅茶川水系下流",
+    "Zone": "グリダニア：新市街",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "ザリガニボール",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 219,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "マトロンカープ",
+    "Spot": "グリダニア：囁きの渓谷",
+    "Zone": "グリダニア：旧市街",
+    "From": 15,
+    "To": 21,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "ブラッドワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 231,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "意地ブナ",
+    "Spot": "グリダニア：紅茶川水系上流",
+    "Zone": "グリダニア：旧市街",
+    "From": 9,
+    "To": 14,
+    "Previous_Weather": "",
+    "Weather": "霧・曇り",
+    "Bait": "クロウフライ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 224,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "カイラージョン",
+    "Spot": "葉脈水系",
+    "Zone": "黒衣森：中央森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "モスプパ",
+    "Mooch": "ゼブラゴビー",
+    "Hookset": "ストロング",
+    "Neko": 228,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "人面魚",
+    "Spot": "鏡池",
+    "Zone": "黒衣森：中央森林",
+    "From": 21,
+    "To": 3,
+    "Previous_Weather": "",
+    "Weather": "雨",
+    "Bait": "バターワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 223,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "レヴィンライト",
+    "Spot": "エバーシェイド",
+    "Zone": "黒衣森：中央森林",
+    "From": 18,
+    "To": 23,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "ハナアブ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 256,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "グリーンジェスター",
+    "Spot": "芽吹きの池",
+    "Zone": "黒衣森：中央森林",
+    "From": 18,
+    "To": 21,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "ハニーワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 270,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ブラッドバス",
+    "Spot": "ハウケタ御用邸",
+    "Zone": "黒衣森：中央森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "雷",
+    "Bait": "ハニーワーム",
+    "Mooch": "銀魚",
+    "Hookset": "",
+    "Neko": 271,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ダークアンブッシャー",
+    "Spot": "花蜜桟橋",
+    "Zone": "黒衣森：東部森林",
+    "From": 21,
+    "To": 3,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "モスプパ",
+    "Mooch": "ゼブラゴビー",
+    "Hookset": "プレシジョン",
+    "Neko": 217,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "シルフズベーン",
+    "Spot": "青翠の奈落",
+    "Zone": "黒衣森：東部森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "雨",
+    "Bait": "バターワーム",
+    "Mooch": "銅魚",
+    "Hookset": "",
+    "Neko": 248,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "モルバ",
+    "Spot": "さざなみ小川",
+    "Zone": "黒衣森：東部森林",
+    "From": 18,
+    "To": 2,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "ユスリカ",
+    "Mooch": "グラディエーターペタ",
+    "Hookset": "プレシジョン",
+    "Neko": 206,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "マジック・マッシュルームクラブ",
+    "Spot": "シルフランド渓谷",
+    "Zone": "黒衣森：東部森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "曇り・霧",
+    "Bait": "スピナーベイト",
+    "Mooch": "スカルピン",
+    "Hookset": "プレシジョン",
+    "Neko": 309,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ターミネーター",
+    "Spot": "十二神大聖堂",
+    "Zone": "黒衣森：東部森林",
+    "From": 21,
+    "To": 23,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "バターワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 243,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ビッグバイパー",
+    "Spot": "ハズーバ支流：上流",
+    "Zone": "黒衣森：南部森林",
+    "From": 18,
+    "To": 19,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "バターワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 244,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "シンカー",
+    "Spot": "ハズーバ支流：中流",
+    "Zone": "黒衣森：南部森林",
+    "From": 21,
+    "To": 3,
+    "Previous_Weather": "",
+    "Weather": "晴れ・快晴",
+    "Bait": "シンキングミノー",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 257,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "フローティングボルダー",
+    "Spot": "ハズーバ支流：下流",
+    "Zone": "黒衣森：南部森林",
+    "From": 0,
+    "To": 8,
+    "Previous_Weather": "",
+    "Weather": "曇り・霧",
+    "Bait": "バスボール",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 249,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "グリナー",
+    "Spot": "ハズーバ支流：東",
+    "Zone": "黒衣森：南部森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "ハナアブ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 250,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ゴブスレイヤー",
+    "Spot": "ゴブリン族の生簀",
+    "Zone": "黒衣森：南部森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "雷・雷雨",
+    "Bait": "ハニーワーム",
+    "Mooch": "銀魚",
+    "Hookset": "",
+    "Neko": 258,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "雷皇子",
+    "Spot": "根渡り沼",
+    "Zone": "黒衣森：南部森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "雷雨",
+    "Bait": "ガディスラーヴァ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 272,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "オオタキタロ",
+    "Spot": "ウルズの恵み",
+    "Zone": "黒衣森：南部森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "雷・雷雨",
+    "Bait": "グロウワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 310,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ナミタロ",
+    "Spot": "ウルズの恵み",
+    "Zone": "黒衣森：南部森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "雷・雷雨",
+    "Bait": "トップウォーターフロッグ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 311,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "オオタキタロ",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ブルーウィドー",
+    "Spot": "さざめき川",
+    "Zone": "黒衣森：北部森林",
+    "From": 9,
+    "To": 14,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "フローティングミノー",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 222,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ジャッジレイ",
+    "Spot": "フォールゴウド秋瓜湖畔",
+    "Zone": "黒衣森：北部森林",
+    "From": 17,
+    "To": 21,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "フェザントフライ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 218,
+    "Since": 2.2,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "シャドーストリーク",
+    "Spot": "プラウドクリーク",
+    "Zone": "黒衣森：北部森林",
+    "From": 4,
+    "To": 10,
+    "Previous_Weather": "",
+    "Weather": "霧",
+    "Bait": "トップウォーターフロッグ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 283,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "コーネリア",
+    "Spot": "タホトトル湖畔",
+    "Zone": "黒衣森：北部森林",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "レインボースプーン",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 296,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ダナフェンズマーク",
+    "Spot": "クルザス川",
+    "Zone": "クルザス中央高地",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "吹雪",
+    "Bait": "フェザントフライ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 268,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "マハール",
+    "Spot": "ウィッチドロップ",
+    "Zone": "クルザス中央高地",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "吹雪",
+    "Bait": "ホバーワーム",
+    "Mooch": "スプリットクラウド",
+    "Hookset": "ストロング",
+    "Neko": 307,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ショニサウルス",
+    "Spot": "ウィッチドロップ",
+    "Zone": "クルザス中央高地",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "晴れ・快晴",
+    "Weather": "吹雪",
+    "Bait": "ホバーワーム",
+    "Mooch": "マハール",
+    "Hookset": "ストロング",
+    "Neko": 308,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "スターブライト",
+    "Spot": "剣ヶ峰山麓",
+    "Zone": "クルザス中央高地",
+    "From": 20,
+    "To": 4,
+    "Previous_Weather": "",
+    "Weather": "晴れ・快晴",
+    "Bait": "ツチグモ",
+    "Mooch": "アバラシアスメルト",
+    "Hookset": "ストロング",
+    "Neko": 281,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ダークスター",
+    "Spot": "聖ダナフェンの落涙",
+    "Zone": "クルザス中央高地",
+    "From": 19,
+    "To": 4,
+    "Previous_Weather": "",
+    "Weather": "雪・吹雪",
+    "Bait": "ツチグモ",
+    "Mooch": "アバラシアスメルト",
+    "Hookset": "ストロング",
+    "Neko": 305,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ドーンメイデン",
+    "Spot": "キャンプ・ドラゴンヘッド溜池",
+    "Zone": "クルザス中央高地",
+    "From": 5,
+    "To": 7,
+    "Previous_Weather": "",
+    "Weather": "晴れ・快晴",
+    "Bait": "フェザントフライ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 280,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "カローンズランタン",
+    "Spot": "聖ダナフェンの旅程",
+    "Zone": "クルザス中央高地",
+    "From": 0,
+    "To": 4,
+    "Previous_Weather": "",
+    "Weather": "雪・吹雪",
+    "Bait": "グロウワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 269,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "メイトリアーク",
+    "Spot": "調査隊の氷穴",
+    "Zone": "クルザス中央高地",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "ツチグモ",
+    "Mooch": "アバラシアスメルト",
+    "Hookset": "プレシジョン",
+    "Neko": 282,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ブルーコープス",
+    "Spot": "スノークローク大氷壁",
+    "Zone": "クルザス中央高地",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "晴れ・快晴",
+    "Bait": "ガディスラーヴァ",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 306,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "アノマロカリス",
+    "Spot": "イシュガルド大雲海",
+    "Zone": "クルザス中央高地",
+    "From": 10,
+    "To": 15,
+    "Previous_Weather": "",
+    "Weather": "晴れ・快晴",
+    "Bait": "ホバーワーム",
+    "Mooch": "スプリットクラウド",
+    "Hookset": "ストロング",
+    "Neko": 285,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "エーテルラウス",
+    "Spot": "銀泪湖北岸",
+    "Zone": "モードゥナ",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "妖霧",
+    "Bait": "グロウワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 287,
+    "Since": 2.3,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ヴォイドバス",
+    "Spot": "早霜峠",
+    "Zone": "モードゥナ",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "妖霧",
+    "Bait": "グロウワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 295,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ニンジャベタ",
+    "Spot": "タングル湿林",
+    "Zone": "モードゥナ",
+    "From": 18,
+    "To": 9,
+    "Previous_Weather": "",
+    "Weather": "妖霧",
+    "Bait": "ユスリカ",
+    "Mooch": "グラディエーターベタ→アサシンベタ",
+    "Hookset": "ストロング",
+    "Neko": 297,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "インフェルノホーン",
+    "Spot": "タングル湿林源流",
+    "Zone": "モードゥナ",
+    "From": "",
+    "To": "",
+    "Previous_Weather": "",
+    "Weather": "晴れ・快晴",
+    "Bait": "グロウワーム",
+    "Mooch": "",
+    "Hookset": "",
+    "Neko": 294,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "血紅龍",
+    "Spot": "唄う裂谷",
+    "Zone": "モードゥナ",
+    "From": 4,
+    "To": 12,
+    "Previous_Weather": "晴れ",
+    "Weather": "霧",
+    "Bait": "ハニーワーム",
+    "Mooch": "銀魚",
+    "Hookset": "ストロング",
+    "Neko": 312,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "ジャノ",
+    "Spot": "唄う裂谷北部",
+    "Zone": "モードゥナ",
+    "From": 8,
+    "To": 18,
+    "Previous_Weather": "",
+    "Weather": "",
+    "Bait": "ハニーワーム",
+    "Mooch": "銀魚→金魚",
+    "Hookset": "ストロング",
+    "Neko": 298,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
+  },
+  {
+    "Fish": "クノ・ザ・キラー",
+    "Spot": "唄う裂谷北部",
+    "Zone": "モードゥナ",
+    "From": 8,
+    "To": 22,
+    "Previous_Weather": "",
+    "Weather": "妖霧",
+    "Bait": "ハニーワーム",
+    "Mooch": "銀魚→アサシンベタ",
+    "Hookset": "ストロング",
+    "Neko": 299,
+    "Since": 2.4,
+    "Remark": "",
+    "Intuition": "",
+    "Fish_Eyes": "",
+    "Advice": "",
+    "Load": "Yes"
   }
 ]

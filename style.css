@@ -52,8 +52,15 @@ table {
   position: sticky;
   top: 30px;
 }
+
 .scrolled #osakana_list thead th {
   background-color: white;
+}
+.scrolled #osakana_list thead th:first-child {
+  border-top-left-radius: 5px;
+}
+.scrolled #osakana_list thead th:last-child {
+  border-top-right-radius: 5px;
 }
 
 /* ソートできる列のヘッダー */
