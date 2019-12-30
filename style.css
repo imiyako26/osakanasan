@@ -96,7 +96,7 @@ table {
 
 @font-face {
   font-family: "Azuki";
-  src: url(fonts/azuki.ttf) format("truetype");
+  src: url(fonts/azuki.woff) format("woff");
 }
 
 .kanban {
