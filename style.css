@@ -52,6 +52,9 @@ table {
   position: sticky;
   top: 30px;
 }
+.scrolled #osakana_list thead th {
+  background-color: white;
+}
 
 /* ソートできる列のヘッダー */
 .sort-column,
