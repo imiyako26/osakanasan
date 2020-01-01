@@ -286,22 +286,89 @@ table {
   z-index: 1;
 }
 
-.header {
+#header {
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 30px;
   text-align: right;
-  padding-right: 15px;
   box-sizing: border-box;
   line-height: 30px;
-  overflow: hidden;
   z-index: 4;
   background-color: #B4E0FB;
 }
-.header .sun {
+#header .sun {
   height: 30px;
+}
+#header .basic {
+  height: 30px;
+  position: absolute;
+  top: 0px;
+  right: 30px;
+}
+#header .mini-kani {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 30px;
+  width: 30px;
+  background-image: url(images/ocean_kani.png);
+  background-size: 30px;
+  background-repeat: no-repeat;
+}
+
+#mola {
+  display: none;
+  position: fixed;
+  right: 0px;
+  top: 30px;
+  width: 200px;
+  height: 400px;
+  z-index: 20;
+  font-family: Azuki;
+  color: #EEEEEE;
+}
+#mola.open {
+  display: block;
+}
+#mola:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -120px;
+  width: 350px;
+  height: 350px;
+  background-size: 350px;
+  z-index: -1;
+  background-image: url(images/fish_mola2.png);
+  background-repeat: no-repeat;
+}
+#mola h1 {
+  font-weight: normal;
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+}
+#mola ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+#mola ul li {
+  margin: 0px;
+  padding: 0px;
+}
+.since,
+.kind {
+  width: 70px;
+}
+#mola .filters {
+  position: relative;
+  top: 100px;
+  left: -30px;
+  display: grid;
+  grid-template-columns: 50fr 50fr;
 }
 
 .footer {

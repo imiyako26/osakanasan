@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<title>おさかな</title>
 	<link rel="shortcut icon" href="umi_kani.ico">
@@ -7,8 +8,8 @@
 	<script type="text/javascript" src="weather.js"></script>
 	<script type="text/javascript" src="osakana.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!--
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="tablesorter.default.css">
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
@@ -16,21 +17,21 @@
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>-->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	
+
 	<script type="text/javascript">
 		/* お魚予測 (おさかな名　→ 時間Array) */
 		var forecasts = {};
 		/* おさかな名 → おさかな行 */
 		var details = {};
-				
+
 		function formatTimeSpan(from, to) {
 			if (from !== "") {
 				return ("0" + from).slice(-2) + ":00-" + ("0" + to).slice(-2) + ":00";
 			}
 			return '';
 		}
-		
-		function formatWeatherTransition(previousWeather, weather) {			
+
+		function formatWeatherTransition(previousWeather, weather) {
 			if (previousWeather !== "" && weather !== "") {
 				/* 移ろいﾌｨｯｼｭ */
 				return previousWeather + " → " + weather;
@@ -44,7 +45,7 @@
 				return '';
 			}
 		}
-			
+
 		function formatHookset(value) {
 			if (value === 'プレシジョン') {
 				return 'プレシジョンフッキング';
@@ -54,8 +55,8 @@
 				return '';
 			}
 		}
-		
-		$(function () {			
+
+		$(function () {
 			for (var i = 0; i < osakanas.length; i++) {
 				var osakana = osakanas[i];
 				/* 釣れたかどうかのデータを追加 */
@@ -63,21 +64,57 @@
 				details[osakana.Fish] = osakana;
 			}
 
+			var molaVM = new Vue({
+				el: '#mola',
+				data: {
+					open: false,
+					/* 規定値はYes */
+					realmreborn: localStorage.getItem('realmreborn') === null || localStorage.getItem('realmreborn') === 'Yes',
+					heavensward: localStorage.getItem('heavensward') === null || localStorage.getItem('heavensward') === 'Yes',
+					stormblood: localStorage.getItem('stormblood') === null || localStorage.getItem('stormblood') === 'Yes',
+					shadowbringers: localStorage.getItem('shadowbringers') === null || localStorage.getItem('shadowbringers') === 'Yes',
+					/* ヌシ */
+					lord: localStorage.getItem('load') === null || localStorage.getItem('load') === 'Yes',
+					/* 雑魚 規定値はNo */
+					zako: localStorage.getItem('zako') === 'Yes'
+				},
+				watch: {
+					realmreborn: function (newYesNo) {
+						localStorage.setItem('realmreborn', newYesNo ? 'Yes' : 'No');
+					},
+					heavensward: function (newYesNo) {
+						localStorage.setItem('heavensward', newYesNo ? 'Yes' : 'No');
+					},
+					stormblood: function (newYesNo) {
+						localStorage.setItem('stormblood', newYesNo ? 'Yes' : 'No');
+					},
+					shadowbringers: function (newYesNo) {
+						localStorage.setItem('shadowbringers', newYesNo ? 'Yes' : 'No');
+					},
+					lord: function (newYesNo) {
+						localStorage.setItem('lord', newYesNo ? 'Yes' : 'No');
+					},
+					zako: function (newYesNo) {
+						localStorage.setItem('zako', newYesNo ? 'Yes' : 'No');
+					}
+				}
+			})
+
 			/* 用はない！ */
 			var headerVM = new Vue({
-				el: '.header',
+				el: '#header',
 				data: {
-					caughtFishHidden: localStorage.getItem('hidingCaughtFish') === 'Yes',
+					molaVM: molaVM,
+					caughtFishHidden: localStorage.getItem('hidingCaughtFish') === 'Yes'
 				},
 				watch: {
 					/* 洋ナシスイッチON/OFFをlocalStorageに保存 */
-					caughtFishHidden: function(newYesNo, oldYesNo) {
+					caughtFishHidden: function (newYesNo, oldYesNo) {
 						if (newYesNo) {
 							localStorage.setItem('hidingCaughtFish', 'Yes');
 						} else {
 							localStorage.removeItem('hidingCaughtFish');
 						}
-						// updateOsakanaRows();
 					}
 				}
 			});
@@ -88,11 +125,11 @@
 				data: {
 					targetHowTo: localStorage.getItem('kani')
 				},
-				created: function() {
+				created: function () {
 					this.informBody();
 				},
 				watch: {
-					targetHowTo: function(newTarget, oldTarget) {
+					targetHowTo: function (newTarget, oldTarget) {
 						if (newTarget) {
 							localStorage.setItem('kani', newTarget);
 						} else {
@@ -102,7 +139,7 @@
 					}
 				},
 				computed: {
-					osakana: function() {
+					osakana: function () {
 						if (!this.targetHowTo) {
 							return null;
 						}
@@ -113,7 +150,7 @@
 					formatTimeSpan: formatTimeSpan,
 					formatWeatherTransition: formatWeatherTransition,
 					formatHookset: formatHookset,
-					informBody: function() {
+					informBody: function () {
 						if (this.targetHowTo) {
 							$(document.body).addClass('senpai-visible');
 						} else {
@@ -122,7 +159,7 @@
 					}
 				}
 			})
-			
+
 			/* おさかなさんリスト */
 			var listVM = new Vue({
 				el: '.content',
@@ -132,24 +169,26 @@
 					reversed: localStorage.getItem('sortByReversed') === 'Yes'
 				},
 				watch: {
-					sortBy: function(newSortBy) {
+					sortBy: function (newSortBy) {
 						localStorage.setItem('sortBy', newSortBy)
 					},
-					reversed: function(newReversed) {
+					reversed: function (newReversed) {
 						localStorage.setItem('sortByReversed', newReversed ? 'Yes' : 'No')
 					}
 				},
 				computed: {
 					/* リストはソートされてるお魚さんを表示 */
-					sortedOsakanas: function() {
+					sortedOsakanas: function () {
 						var copy = [];
 						for (var i = 0; i < this.osakanas.length; i++) {
-							copy.push(this.osakanas[i]);
+							if (this.shouldList(this.osakanas[i])) {
+								copy.push(this.osakanas[i]);
+							}
 						}
 
 						var self = this;
 						var factor = this.sortBy;
-						copy.sort(function(a, b) {
+						copy.sort(function (a, b) {
 							var comparison;
 							switch (factor) {
 								case 'chance1': {
@@ -191,13 +230,35 @@
 					formatTimeSpan: formatTimeSpan,
 					formatWeatherTransition: formatWeatherTransition,
 					formatHookset: formatHookset,
-					getOsakanaLink: function(osakana) {
+					getOsakanaLink: function (osakana) {
 						return 'https://ff14angler.com/fish/' + osakana.Neko;
 					},
-					shouldList: function(osakana) {
-						return !osakana.Caught || !headerVM.caughtFishHidden;
+					checkVersion: function (osakana) {
+						if (!osakana.Since)
+							return true;
+						if (osakana.Since < 3) {
+							return molaVM.realmreborn;
+						} else if (osakana.Since < 4) {
+							return molaVM.heavensward;
+						} else if (osakana.Since < 5) {
+							return molaVM.stormblood;
+						} else if (osakana.Since < 6) {
+							return molaVM.shadowbringers;
+						} else {
+							return true;
+						}
 					},
-					getChances: function(osakana) {
+					checkKind: function (osakana) {
+						if (osakana.Lord === 'Yes') {
+							return molaVM.lord;
+						} else {
+							return molaVM.zako;
+						}
+					},
+					shouldList: function (osakana) {
+						return (!osakana.Caught || !headerVM.caughtFishHidden) && this.checkVersion(osakana) && this.checkKind(osakana);
+					},
+					getChances: function (osakana) {
 						/* チャンス計算は一回だけ */
 						var chances = forecasts[osakana.Fish];
 						if (!chances) {
@@ -206,16 +267,16 @@
 						}
 						return chances;
 					},
-					getChance: function(osakana, nth) {
+					getChance: function (osakana, nth) {
 						return this.getChances(osakana)[nth];
 					},
-					getChanceLT: function(osakana, nth) {
+					getChanceLT: function (osakana, nth) {
 						return getFormattedLocalTime(this.getChance(osakana, nth));
 					},
-					getChanceET: function(osakana, nth) {
+					getChanceET: function (osakana, nth) {
 						return getFormattedEorzeaTime(this.getChance(osakana, nth));
 					},
-					getHooksetClass: function(osakana) {
+					getHooksetClass: function (osakana) {
 						if (osakana.Hookset === 'プレシジョン') {
 							return 'precision-hookset';
 						} else if (osakana.Hookset === 'ストロング') {
@@ -225,10 +286,10 @@
 						}
 					},
 					/* カニさんに教えを乞う */
-					teachMe: function(osakana) {
+					teachMe: function (osakana) {
 						kaniVM.targetHowTo = osakana.Fish;
 					},
-					catchFish: function(osakana) {
+					catchFish: function (osakana) {
 						osakana.Caught = !osakana.Caught;
 						if (osakana.Caught) {
 							localStorage.setItem(osakana.Fish, 'Yes');
@@ -236,8 +297,8 @@
 							localStorage.removeItem(osakana.Fish);
 						}
 					},
-					
-					changeSortBy: function(sortBy) {
+
+					changeSortBy: function (sortBy) {
 						if (this.sortBy === sortBy) {
 							/* 現在の並び替えファクタをクリックしたら順を逆に */
 							this.sortBy = sortBy;
@@ -248,7 +309,7 @@
 							this.reversed = false;
 						}
 					},
-					sortColumnClass: function(sortBy) {
+					sortColumnClass: function (sortBy) {
 						if (this.sortBy === sortBy) {
 							if (this.reversed) {
 								return 'sort-column-descending';
@@ -274,11 +335,11 @@
 				}
 			}
 
-			window.addEventListener('scroll', function(e) {
+			window.addEventListener('scroll', function (e) {
 				last_known_scroll_position = window.scrollY;
 
 				if (!ticking) {
-					window.requestAnimationFrame(function() {
+					window.requestAnimationFrame(function () {
 						doSomething(last_known_scroll_position);
 						ticking = false;
 					});
@@ -294,6 +355,8 @@
 	<div class="bg"></div>
 
 	<div class="senpai">
+		<div class="kani"></div>
+		<div class="same"></div>
 		<div class="kanban">
 			<div class="kanban-close" @click="targetHowTo = null"></div>
 			<div class="kanban-content" v-if="osakana">
@@ -334,8 +397,6 @@
 				</table>
 			</div>
 		</div>
-		<div class="kani"></div>
-		<div class="same"></div>
 	</div>
 
 	<div class="footer"></div>
@@ -343,13 +404,55 @@
 	<div class="sun"></div>
 	<div class="frame"></div>
 
-	<div class="header">
+	<div id="header">
 		<div class="sun"></div>
-		<input type="checkbox" id="hidingCaughtFish" v-model="caughtFishHidden">
-		<label for="hidingCaughtFish">釣れた魚に用はない</label>
+		<div class="mini-kani" @click="molaVM.open = !molaVM.open"></div>
+		<div class="basic">
+			<input type="checkbox" id="hidingCaughtFish" v-model="caughtFishHidden">
+			<label for="hidingCaughtFish">釣れた魚に用はない</label>
+		</div>
 	</div>
 
-	<div class="copyright">		
+	<div id="mola" :class="[open ? 'open' : null]">
+		<div class="filters">
+			<div class="kind">
+				<h1>種類</h1>
+				<ul>
+					<li>
+						<input type="checkbox" v-model="lord" id="lord" />
+						<label for="lord">ヌシ</label>
+					</li>
+					<li>
+						<input type="checkbox" v-model="zako" id="zako" />
+						<label for="zako">雑魚</label>
+					</li>
+				</ul>
+			</div>
+			<div class="since">
+				<h1>いつ？</h1>
+				<ul>
+					<li>
+						<input type="checkbox" v-model="realmreborn" id="realmreborn" />
+						<label for="realmreborn">新生</label>
+					</li>
+					<li>
+						<input type="checkbox" v-model="heavensward" id="heavensward" />
+						<label for="heavensward">蒼天</label>
+					</li>
+					<li>
+						<input type="checkbox" v-model="stormblood" id="stormblood" />
+						<label for="stormblood">紅蓮</label>
+					</li>
+					<li>
+						<input type="checkbox" v-model="shadowbringers" id="shadowbringers" />
+						<label for="shadowbringers">漆黒</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="copyright">
 		Copyright (C) 2010 - 2020 SQUARE ENIX CO., LTD. All Rights Reserved.
 	</div>
 
@@ -370,10 +473,10 @@
 			<tbody>
 				<!-- ここにお魚さん -->
 				<!-- <a>や<input>にはv-on:click.stopが必須。ないとクリックしたときにカニさんがお節介を焼いてしまう -->
-				<tr v-for="osakana in sortedOsakanas" v-if="shouldList(osakana)" v-on:click="teachMe(osakana)">
+				<tr v-for="osakana in sortedOsakanas" v-on:click="teachMe(osakana)">
 					<td class="checkbox-cell">
 						<!-- v-model使うとwatchの仕方が分からない -->
-						<input type="checkbox" :checked="osakana.Caught" v-on:change="catchFish(osakana)" v-on:click.stop/>
+						<input type="checkbox" :checked="osakana.Caught" v-on:change="catchFish(osakana)" v-on:click.stop />
 					</td>
 					<td><a target="_blank" :href="getOsakanaLink(osakana)" v-on:click.stop>{{ osakana.Fish }}</a></td>
 					<td>{{ osakana.Spot }}</td>
@@ -387,20 +490,15 @@
 						</span>
 					</td>
 					<td class="hints">
-						<span 
-							class="fisher-icon bait" 
-							:title="osakana.Bait"></span>
-						<span 
-							:class="['fisher-icon', 'mooch', osakana.Mooch.length === 0 ? 'unavailable' : '']" 
+						<span class="fisher-icon bait" :title="osakana.Bait"></span>
+						<span :class="['fisher-icon', 'mooch', osakana.Mooch.length === 0 ? 'unavailable' : '']"
 							:title="osakana.Mooch"></span>
-						<span 
-							:class="['fisher-icon',	getHooksetClass(osakana), getHooksetClass(osakana) === 'hook' ? 'unavailable' : '']" 
+						<span
+							:class="['fisher-icon',	getHooksetClass(osakana), getHooksetClass(osakana) === 'hook' ? 'unavailable' : '']"
 							:title="formatHookset(osakana.Hookset)"></span>
-						<span 
-							:class="['fisher-icon', 'fisheyes', osakana.Fish_Eyes.length === 0 ? 'unavailable' : '']" 
+						<span :class="['fisher-icon', 'fisheyes', osakana.Fish_Eyes.length === 0 ? 'unavailable' : '']"
 							:title="osakana.Fish_Eyes"></span>
-						<span 
-							:class="['fisher-icon', 'intuition', osakana.Intuition.length === 0 ? 'unavailable' : '']" 
+						<span :class="['fisher-icon', 'intuition', osakana.Intuition.length === 0 ? 'unavailable' : '']"
 							:title="osakana.Intuition"></span>
 					</td>
 					<td class="chance">
@@ -418,4 +516,5 @@
 
 	<div class="kani-space"></div>
 </body>
+
 </html>

@@ -16,7 +16,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "スウィートニュート",
@@ -35,7 +35,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ファットパース",
@@ -54,7 +54,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ヘイルイーター",
@@ -73,7 +73,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "フレアフィッシュ",
@@ -92,7 +92,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ラ・レアル",
@@ -111,7 +111,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "イエティキラー",
@@ -130,7 +130,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "氷の巫女",
@@ -149,7 +149,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "2m20s",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ネモ",
@@ -168,7 +168,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ビショップフィッシュ",
@@ -187,7 +187,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "3m",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シャリベネ",
@@ -206,7 +206,7 @@ osakanas = [
     "Intuition": "ハルオネx5",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "アクムノタネ",
@@ -225,7 +225,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "スケイルリッパー",
@@ -244,7 +244,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "フォークタン",
@@ -263,7 +263,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "サンダースケイル",
@@ -282,7 +282,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "リドル",
@@ -301,7 +301,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "5m",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "メテオトータス",
@@ -320,7 +320,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "聖竜の涙",
@@ -339,7 +339,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "2m+ 2択ガチャ（2m→1mはハズレ）",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "溶岩帝王",
@@ -358,7 +358,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "5m (3択ガチャ)",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "プロブレマティカス",
@@ -377,7 +377,7 @@ osakanas = [
     "Intuition": "アロワナx3 カニx5",
     "Fish_Eyes": "3m (アロワナ)",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "水瓶王",
@@ -396,7 +396,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "マダムバタフライ",
@@ -415,7 +415,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "グリルダロパは弱震(8-11s)",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "万能のゴブリバス",
@@ -434,7 +434,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "スピーカー",
@@ -453,7 +453,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "鎧魚",
@@ -472,7 +472,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ハイアラガンクラブ改",
@@ -491,7 +491,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "魔科学物質666",
@@ -510,7 +510,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "有",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "セティ",
@@ -529,7 +529,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "3m",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "バイオガピラルク",
@@ -548,7 +548,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ハンドレッドアイ",
@@ -567,7 +567,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "クリスタルピジョン",
@@ -586,7 +586,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "3m",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "アラガンブレード・シャーク",
@@ -605,7 +605,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "オパビニア",
@@ -624,7 +624,7 @@ osakanas = [
     "Intuition": "オプロプケンx3",
     "Fish_Eyes": "2m (オプロプケン)",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ザ・セカンドワン",
@@ -643,7 +643,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シーロストラタスモトロ",
@@ -662,7 +662,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "クラウドバタフライ",
@@ -681,7 +681,7 @@ osakanas = [
     "Intuition": "スカイフェアリー・セレネx３、スコーピオンフライx３",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "バスキングシャーク",
@@ -700,7 +700,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "パイッサキラー",
@@ -719,7 +719,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "水墨魚",
@@ -738,7 +738,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "有",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ラタトスクソウル",
@@ -757,7 +757,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ヴィゾーヴニル",
@@ -776,7 +776,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ディモルフォドン",
@@ -795,7 +795,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "モグルグポンポン",
@@ -814,7 +814,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ボサボサ",
@@ -833,7 +833,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "有",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ストームブラッドライダー",
@@ -852,7 +852,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "1m20s",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ランデロプテルス",
@@ -871,7 +871,7 @@ osakanas = [
     "Intuition": "スカイハイフィッシュx5",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "フックスティーラー",
@@ -890,7 +890,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シデンナマズ",
@@ -909,7 +909,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "レッドテイルゾンビー",
@@ -928,7 +928,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "サーメットヘッド",
@@ -947,7 +947,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "クセナカンサス",
@@ -966,7 +966,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "サファイアファン",
@@ -985,7 +985,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "アークビショップフィッシュ",
@@ -1004,7 +1004,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "タニクダリ",
@@ -1023,7 +1023,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "コープスチャブ",
@@ -1042,7 +1042,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ヘモン",
@@ -1061,7 +1061,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ボンドスプリッター",
@@ -1080,7 +1080,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ドレパナスピス",
@@ -1099,7 +1099,7 @@ osakanas = [
     "Intuition": "ボンドスプリッターx2",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ナガレクダリ",
@@ -1118,7 +1118,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ラストティアー",
@@ -1137,7 +1137,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "解脱魚",
@@ -1156,7 +1156,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "アラミガンベール",
@@ -1175,7 +1175,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ダイヤモンドアイ",
@@ -1194,7 +1194,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "4m",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ステタカントゥス",
@@ -1213,7 +1213,7 @@ osakanas = [
     "Intuition": "スカルプターx2",
     "Fish_Eyes": "有（スカルプター）",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ベジースキッパー",
@@ -1232,7 +1232,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "明けの旗魚",
@@ -1251,7 +1251,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ブレードスキッパー",
@@ -1270,7 +1270,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "暮れの魚",
@@ -1289,7 +1289,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シンタクヤブリ",
@@ -1308,7 +1308,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ヤトカガン",
@@ -1327,7 +1327,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ナーマの愛寵",
@@ -1346,7 +1346,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "神々の愛",
@@ -1365,7 +1365,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "バリマンボン",
@@ -1384,7 +1384,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ウミダイジャ",
@@ -1403,7 +1403,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "春不知",
@@ -1422,7 +1422,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ソクシツキ",
@@ -1441,7 +1441,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "菜食王",
@@ -1460,7 +1460,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ナナツボシ",
@@ -1479,7 +1479,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "クアル",
@@ -1498,7 +1498,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "紅龍",
@@ -1517,7 +1517,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "オニニラミ",
@@ -1536,7 +1536,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ザクロウミ",
@@ -1555,7 +1555,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "有",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "仙寿の翁",
@@ -1574,14 +1574,14 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "七彩天主",
     "Spot": "七彩溝",
     "Zone": "ヤンサ",
-    "From": "",
-    "To": "",
+    "From": 0,
+    "To": 16,
     "Previous_Weather": "晴れ",
     "Weather": "晴れ・快晴",
     "Bait": "ザザムシ",
@@ -1593,7 +1593,7 @@ osakanas = [
     "Intuition": "藍彩魚x3(ET00-04)　ザザムシ→紫彩魚泳がせ\n橙彩魚x3(ET04-08)　ザザムシ→赤彩魚泳がせ\n緑彩魚x5(ET00-16)　ザザムシ　移ろい",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ニジノヒトスジ",
@@ -1612,7 +1612,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ボクデン",
@@ -1631,7 +1631,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "水天一碧",
@@ -1650,7 +1650,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シャジクノミ",
@@ -1669,7 +1669,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "羽衣美女",
@@ -1688,7 +1688,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "羽衣鯉",
@@ -1707,7 +1707,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "4m",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ノボリリュウ",
@@ -1726,7 +1726,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "バクチウチ",
@@ -1745,7 +1745,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ヒメダカ",
@@ -1764,7 +1764,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ゴールデンフィン",
@@ -1783,7 +1783,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "メガオクトパス",
@@ -1802,7 +1802,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ザルエラ",
@@ -1821,7 +1821,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ギガシャーク",
@@ -1840,7 +1840,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "トリックスター",
@@ -1859,7 +1859,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "スナガクレ",
@@ -1878,7 +1878,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ハイパーチ",
@@ -1897,7 +1897,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "クリスタルパーチ",
@@ -1916,7 +1916,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "オオゴエナマズ",
@@ -1935,7 +1935,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "オシュオンプリント",
@@ -1954,7 +1954,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シルドラ",
@@ -1973,7 +1973,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ザ・リッパー",
@@ -1992,7 +1992,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シルバーソブリン",
@@ -2011,7 +2011,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "メテオサバイバー",
@@ -2030,7 +2030,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "サーベルタイガーコッド",
@@ -2049,7 +2049,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "フェアリークイーン",
@@ -2068,7 +2068,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "オヤジウオ",
@@ -2087,7 +2087,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ビアナックブーン",
@@ -2106,7 +2106,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シャークトゥーナ",
@@ -2125,7 +2125,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ボンバードフィッシュ",
@@ -2144,7 +2144,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ソルター",
@@ -2163,7 +2163,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ドラウンドスナイパー",
@@ -2182,7 +2182,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "テレプシコレアン",
@@ -2201,7 +2201,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ミラースケイル",
@@ -2220,7 +2220,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "黄金魚",
@@ -2239,7 +2239,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "オールドマーリン",
@@ -2258,7 +2258,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ネプトの竜",
@@ -2277,7 +2277,7 @@ osakanas = [
     "Intuition": "リトルサラオスx3",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "スケーリーフット",
@@ -2296,7 +2296,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ジャンクモンガー",
@@ -2315,7 +2315,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ローンリッパー",
@@ -2334,7 +2334,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ヘルムズマンズハンド",
@@ -2353,7 +2353,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "コエラカントゥス",
@@ -2372,7 +2372,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "エンドセラス",
@@ -2391,7 +2391,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "リムレーンズソード",
@@ -2410,7 +2410,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ラブカ",
@@ -2429,7 +2429,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "キャプテンズチャリス",
@@ -2448,7 +2448,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シーハッグ",
@@ -2467,7 +2467,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ジャンヌ・トラウト",
@@ -2486,7 +2486,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "スプリングキング",
@@ -2505,7 +2505,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ワーム・オブ・ニーム",
@@ -2524,7 +2524,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "サンダーガット",
@@ -2543,7 +2543,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "トゥイッチビアード",
@@ -2562,7 +2562,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "招嵐王",
@@ -2581,7 +2581,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ブラッディブルワー",
@@ -2600,7 +2600,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "マトロンカープ",
@@ -2619,7 +2619,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "意地ブナ",
@@ -2638,7 +2638,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "カイラージョン",
@@ -2657,7 +2657,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "人面魚",
@@ -2676,7 +2676,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "レヴィンライト",
@@ -2695,7 +2695,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "グリーンジェスター",
@@ -2714,7 +2714,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ブラッドバス",
@@ -2733,7 +2733,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ダークアンブッシャー",
@@ -2752,7 +2752,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シルフズベーン",
@@ -2771,7 +2771,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "モルバ",
@@ -2790,7 +2790,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "マジック・マッシュルームクラブ",
@@ -2809,7 +2809,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ターミネーター",
@@ -2828,7 +2828,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ビッグバイパー",
@@ -2847,7 +2847,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シンカー",
@@ -2866,7 +2866,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "フローティングボルダー",
@@ -2885,7 +2885,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "グリナー",
@@ -2904,7 +2904,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ゴブスレイヤー",
@@ -2923,7 +2923,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "雷皇子",
@@ -2942,7 +2942,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "オオタキタロ",
@@ -2961,7 +2961,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ナミタロ",
@@ -2980,7 +2980,7 @@ osakanas = [
     "Intuition": "オオタキタロ",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ブルーウィドー",
@@ -2999,7 +2999,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ジャッジレイ",
@@ -3018,7 +3018,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "シャドーストリーク",
@@ -3037,7 +3037,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "コーネリア",
@@ -3056,7 +3056,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ダナフェンズマーク",
@@ -3075,7 +3075,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "マハール",
@@ -3094,7 +3094,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ショニサウルス",
@@ -3113,7 +3113,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "スターブライト",
@@ -3132,7 +3132,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ダークスター",
@@ -3151,7 +3151,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ドーンメイデン",
@@ -3170,7 +3170,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "カローンズランタン",
@@ -3189,7 +3189,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "メイトリアーク",
@@ -3208,7 +3208,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ブルーコープス",
@@ -3227,7 +3227,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "アノマロカリス",
@@ -3246,7 +3246,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "エーテルラウス",
@@ -3265,7 +3265,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ヴォイドバス",
@@ -3284,7 +3284,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ニンジャベタ",
@@ -3303,7 +3303,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "インフェルノホーン",
@@ -3322,7 +3322,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "血紅龍",
@@ -3341,7 +3341,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "ジャノ",
@@ -3360,7 +3360,7 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   },
   {
     "Fish": "クノ・ザ・キラー",
@@ -3379,6 +3379,6 @@ osakanas = [
     "Intuition": "",
     "Fish_Eyes": "",
     "Advice": "",
-    "Load": "Yes"
+    "Lord": "Yes"
   }
 ]
