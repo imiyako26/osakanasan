@@ -407,7 +407,7 @@
 
 	<div id="header">
 		<div class="sun"></div>
-		<div class="mini-kani" @click="molaVM.open = !molaVM.open"></div>
+		<!-- <div class="mini-kani" @click="molaVM.open = !molaVM.open"></div> -->
 		<div class="basic">
 			<input type="checkbox" id="hidingCaughtFish" v-model="caughtFishHidden">
 			<label for="hidingCaughtFish">釣れた魚に用はない</label>
@@ -415,6 +415,7 @@
 	</div>
 
 	<div id="mola" :class="[open ? 'open' : null]">
+		<div class="appearance-hook" @click="open = !open"></div>
 		<div class="filters">
 			<div class="kind">
 				<h1>種類</h1>

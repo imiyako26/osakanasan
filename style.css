@@ -319,30 +319,39 @@ table {
 }
 
 #mola {
-  display: none;
   position: fixed;
-  right: 0px;
-  top: 30px;
-  width: 200px;
-  height: 400px;
+  width: 308px;
+  height: 350px;
   z-index: 20;
   font-family: Azuki;
   color: #EEEEEE;
+  top: 30px;
+  right: -286px;
+  animation: pulse 1s infinite;
 }
 #mola.open {
-  display: block;
+  right: 0px;
 }
 #mola:before {
   content: "";
   position: absolute;
   top: 0px;
-  left: -120px;
-  width: 350px;
+  left: 0;
+  width: 308px;
   height: 350px;
-  background-size: 350px;
   z-index: -1;
   background-image: url(images/fish_mola2.png);
   background-repeat: no-repeat;
+  background-size: 360px;
+  background-position: -28px center;
+}
+#mola .appearance-hook {
+  position: absolute;
+  left: 0px;
+  height: 100%;
+  width: 22px;
+  top: 0px;
+  z-index: 20;
 }
 #mola h1 {
   font-weight: normal;
@@ -364,9 +373,7 @@ table {
   width: 70px;
 }
 #mola .filters {
-  position: relative;
-  top: 100px;
-  left: -30px;
+  margin: 100px 80px;
   display: grid;
   grid-template-columns: 50fr 50fr;
 }
