@@ -313,7 +313,7 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
   /* 挑戦回数・ヒット回数 */
   var tries = 0;
   var matches = 0;
-  while (tries < 1000 && matches < maximum) {
+  while (tries < 3000 && matches < maximum) {
     /* nullのときは天気指定なし */
     var weatherMatch = targetWeathers == null;
     var prevWeatherMatch = targetPrevWeathers == null;
