@@ -415,7 +415,7 @@
 	</div>
 
 	<div id="mola" :class="[open ? 'open' : null]">
-		<div class="appearance-hook" @click="open = !open"></div>
+		<div class="appearance-hook" @click="open = !open" :title="open ? 'リリース！' : 'ストロングフッキング！'"></div>
 		<div class="filters">
 			<div class="kind">
 				<h1>種類</h1>
