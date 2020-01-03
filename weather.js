@@ -39,7 +39,7 @@ var WeatherFinder = {
   getWeatherTimeFloor: function (date) {
     var unixSeconds = parseInt(date.getTime() / 1000);
     // Get Eorzea hour for weather start
-    var bell = (unixSeconds / 175) % 24;
+    var bell = Math.floor(unixSeconds / 175) % 24;
     var startBell = bell - (bell % 8);
     var startUnixSeconds = unixSeconds - (175 * (bell - startBell));
     return new Date(startUnixSeconds * 1000);
