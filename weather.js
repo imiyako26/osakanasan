@@ -63,8 +63,9 @@ var WeatherFinder = {
   getEorzeaTime: function (timeMillis) {
     // https://www.reddit.com/r/ffxiv/comments/2pbl8p/eorzea_time_formula/?st=k4zlmbq1&sh=3a4de6d2
     var epoch = timeMillis * 20.571428571428573;
-    var minutes = parseInt((epoch / (1000 * 60)) % 60);
-    var hours = parseInt((epoch / (1000 * 60 * 60)) % 24);
+    /* floorだと1分遅れて見える？ */
+    var minutes = Math.ceil((epoch / (1000 * 60)) % 60);
+    var hours = Math.floor((epoch / (1000 * 60 * 60)) % 24);
     var date = new Date();
     date.setHours(hours);
     date.setMinutes(minutes);
