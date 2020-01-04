@@ -25,6 +25,10 @@
 		/* おさかな名 → おさかな行 */
 		var details = {};
 
+		function formatTime(date) {
+			return ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
+		}
+
 		function formatTimeSpan(from, to) {
 			if (from !== "") {
 				return ("0" + from).slice(-2) + ":00-" + ("0" + to).slice(-2) + ":00";
@@ -58,12 +62,6 @@
 		}
 
 		$(function () {
-			//var now = new Date()
-			//var time = now.getTime();
-			//var floor = WeatherFinder.getWeatherTimeFloor(now)
-			//console.log(now, 
-			//	time, WeatherFinder.getEorzeaHour(floor.getTime()), WeatherFinder.calculateForecastTarget(floor.getTime())
-			//	)
 			for (var i = 0; i < osakanas.length; i++) {
 				var osakana = osakanas[i];
 				/* 釣れたかどうかのデータを追加 */
@@ -71,6 +69,7 @@
 				details[osakana.Fish] = osakana;
 			}
 
+			/* 設定マンボウ */
 			var molaVM = new Vue({
 				el: '#mola',
 				data: {
@@ -107,24 +106,79 @@
 				}
 			})
 
-			/* 用はない！ */
-			var headerVM = new Vue({
+			/* 太陽奴 */
+			var sunVM = new Vue({
 				el: '#header',
 				data: {
-					molaVM: molaVM,
-					caughtFishHidden: localStorage.getItem('hidingCaughtFish') === 'Yes'
+					current: new Date(),
+					where: localStorage.getItem('where'),
+					caughtFishHidden: localStorage.getItem('caughtFishHidden') === 'Yes'
 				},
 				watch: {
 					/* 洋ナシスイッチON/OFFをlocalStorageに保存 */
 					caughtFishHidden: function (newYesNo, oldYesNo) {
 						if (newYesNo) {
-							localStorage.setItem('hidingCaughtFish', 'Yes');
+							localStorage.setItem('caughtFishHidden', 'Yes');
 						} else {
-							localStorage.removeItem('hidingCaughtFish');
+							localStorage.removeItem('caughtFishHidden');
 						}
+					},
+					where: function (newWhere) {
+						localStorage.setItem('where', newWhere);
+					}
+				},
+				computed: {
+					/* 過去2個、現在、未来2個の天気 */
+					weathers: function() {
+						/* 場所が設定されていないときはなし */
+						if (!this.where) {
+							return [];
+						}
+
+						var where = this.where;
+						var zone = WeatherFinder.zoneJp[where];
+
+						function calculateWindowWheather(millis) {
+							var date = new Date(millis);
+							var weather = WeatherFinder.getWeather(millis, zone);
+							var eorzeaTime = WeatherFinder.getEorzeaTime(millis);
+							eorzeaTime.setMinutes(0);
+							/* 空白入りはclassに使えないよ */
+							var weatherClassName = weather.replace(' ', '_')
+
+							return {
+								weather: weather,
+								weatherJp: weatherEnToJp[weather],
+								weatherClassName: weatherClassName,
+								eorzeaTime: formatTime(eorzeaTime),
+								localTime: formatTime(date)
+							};
+						}
+
+						/* 8合わせ */
+						var millis = WeatherFinder.getWeatherTimeFloor(this.current).getTime()
+						return [
+							calculateWindowWheather(millis - (175 * 16 * 1000)),
+							calculateWindowWheather(millis - (175 * 8 * 1000)),
+							calculateWindowWheather(millis),
+							calculateWindowWheather(millis + (175 * 8 * 1000)),
+							calculateWindowWheather(millis + (175 * 16 * 1000))
+						];
+					},
+					eorzeaTime: function() {
+						var time = WeatherFinder.getEorzeaTime(this.current.getTime());
+						return formatTime(time);
+					},
+					zones: function() {
+						return Object.keys(WeatherFinder.zoneJp);
 					}
 				}
 			});
+
+			/* 3秒毎に更新だよ */
+			setInterval(function() {
+				sunVM.current = new Date();
+			}, 3000)
 
 			/* 教えて！カニさん */
 			var kaniVM = new Vue({
@@ -263,7 +317,7 @@
 						}
 					},
 					shouldList: function (osakana) {
-						return (!osakana.Caught || !headerVM.caughtFishHidden) && this.checkVersion(osakana) && this.checkKind(osakana);
+						return (!osakana.Caught || !sunVM.caughtFishHidden) && this.checkVersion(osakana) && this.checkKind(osakana);
 					},
 					getChances: function (osakana) {
 						/* チャンス計算は一回だけ */
@@ -413,10 +467,29 @@
 
 	<div id="header">
 		<div class="sun"></div>
-		<!-- <div class="mini-kani" @click="molaVM.open = !molaVM.open"></div> -->
-		<div class="basic">
-			<input type="checkbox" id="hidingCaughtFish" v-model="caughtFishHidden">
-			<label for="hidingCaughtFish">釣れた魚に用はない</label>
+		<div class="header-content">
+			<div class="where">
+				<select v-model="where">
+					<option :value="null">どこにいる？</option>
+					<option v-for="zone in zones" :key="zone" :value="zone">{{ zone }}</option>
+				</select>
+			</div>
+			<div class="forecasts">
+				<!-- v-for → v-ifの順らしい -->
+				<template v-if="where">
+					<span v-for="(weatherWindow, nth) in weathers"
+						:class="['weather', weatherWindow.weatherClassName, nth === 2 ? 'present' : null, nth < 2 ? 'backcast' : null]"
+						:title="weatherWindow.weatherJp + ' ET' + weatherWindow.eorzeaTime"
+						:key="nth"></span>
+				</template>
+			</div>
+			<div class="current-time">
+				ET{{ eorzeaTime }}
+			</div>
+			<div class="nashi">
+				<input type="checkbox" id="caughtFishHidden" v-model="caughtFishHidden">
+				<label for="caughtFishHidden">釣れた魚に用はない</label>
+			</div>
 		</div>
 	</div>
 

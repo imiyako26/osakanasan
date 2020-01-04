@@ -301,21 +301,66 @@ table {
 #header .sun {
   height: 30px;
 }
-#header .basic {
-  height: 30px;
+
+.header-content {
   position: absolute;
   top: 0px;
-  right: 30px;
+  right: 15px;
+  height: 30px;
+  text-align: right;
 }
-#header .mini-kani {
-  position: absolute;
-  right: 0px;
-  top: 0px;
+.header-content > * {
+  display: inline-block;
   height: 30px;
-  width: 30px;
-  background-image: url(images/ocean_kani.png);
-  background-size: 30px;
+  text-align: left;
+  vertical-align: middle;
+}
+.header-content select {
+  box-sizing: border-box;
+  margin: 2px 0px;
+  height: 26px;
+}
+.forecasts .weather {
+  display: inline-block;
+  height: 26px;
+  width: 26px;
+  margin: 2px 1px;
+  background-position: center center;
   background-repeat: no-repeat;
+  background-size: 26px;
+  box-sizing: border-box;
+}
+.forecasts .weather.backcast {
+  opacity: 0.5;
+}
+.forecasts .weather.present {
+  border-bottom: solid 2px black;
+}
+.forecasts .weather.Clear_Skies {
+  background-image: url(images/tenki_mark01_hare.png);
+}
+.forecasts .weather.Fair_Skies {
+  background-image: url(images/fair_skies.png);
+}
+.forecasts .weather.Heat_Waves {
+  background-image: url(images/sun_red3_sunglasses.png);
+}
+.forecasts .weather.Clouds {
+  background-image: url(images/tenki_mark05_kumori.png);
+}
+.forecasts .weather.Rain {
+  background-image: url(images/tenki_mark02_ame.png);
+}
+.forecasts .weather.Thunder,
+.forecasts .weather.Thunderstorms {
+  background-image: url(images/tenki_mark07_kaminari.png);
+}
+.forecasts .weather.Fog,
+.forecasts .weather.Gloom {
+  background-image: url(images/fog.png);
+}
+.forecasts .weather.Gales {
+  background-image: url(images/tenki_mark10_taifuu.png);
 }
 
 #mola {

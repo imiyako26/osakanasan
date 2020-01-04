@@ -1,3 +1,27 @@
+var weatherJpToEn = {
+  "晴れ": "Fair Skies",
+  "快晴": "Clear Skies",
+  "曇り": "Clouds",
+  "霧": "Fog",
+  "雨": "Rain",
+  "風": "Wind",
+  "雷": "Thunder",
+  "雷雨": "Thunderstorms",
+  "暴雨": "Showers",
+  "砂塵": "Dust Storms",
+  "灼熱波": "Heat Waves",
+  "雪": "Snow",
+  "吹雪": "Blizzards",
+  "妖霧": "Gloom",
+  "暴風": "Gales",
+  "霊風": "Umbral Wind",
+  "放電": "Umbral Static",
+  "なし": "",
+};
+var weatherEnToJp = { };
+for (var jp in weatherJpToEn) 
+  weatherEnToJp[weatherJpToEn[jp]] = jp;
+
 var WeatherFinder = {
   getWeather: function (timeMillis, zone) {
     return this.weatherChances[zone](this.calculateForecastTarget(timeMillis));
@@ -36,6 +60,17 @@ var WeatherFinder = {
     return Math.floor(bell);
   },
 
+  getEorzeaTime: function (timeMillis) {
+    // https://www.reddit.com/r/ffxiv/comments/2pbl8p/eorzea_time_formula/?st=k4zlmbq1&sh=3a4de6d2
+    var epoch = timeMillis * 20.571428571428573;
+    var minutes = parseInt((epoch / (1000 * 60)) % 60);
+    var hours = parseInt((epoch / (1000 * 60 * 60)) % 24);
+    var date = new Date();
+    date.setHours(hours);
+    date.setMinutes(minutes);
+    return date;
+  },
+
   getWeatherTimeFloor: function (date) {
     var unixSeconds = parseInt(date.getTime() / 1000);
     // Get Eorzea hour for weather start
@@ -45,55 +80,36 @@ var WeatherFinder = {
     return new Date(startUnixSeconds * 1000);
   },
 
-  getTargetHourArray: function (start, end) {
-    var retVal = []
+  // getTargetHourArray: function (start, end) {
+  //   var retVal = []
 
-    if (start > end) {
-      // 日付またぎ
-      for (var i = start; i < 24; i++) {
-        retVal.push(i);
-      }
-      for (var j = 0; j < end; j++) {
-        retVal.push(j);
-      }
-    }
-    else {
-      for (var i = start; i < end; i++) {
-        retVal.push(i);
-      }
-    }
-    return retVal;
-  },
+  //   if (start > end) {
+  //     // 日付またぎ
+  //     for (var i = start; i < 24; i++) {
+  //       retVal.push(i);
+  //     }
+  //     for (var j = 0; j < end; j++) {
+  //       retVal.push(j);
+  //     }
+  //   }
+  //   else {
+  //     for (var i = start; i < end; i++) {
+  //       retVal.push(i);
+  //     }
+  //   }
+  //   return retVal;
+  // },
 
-  isDuplicate: function (array1, array2) {
-    for (var i = 0; i < array1.length; i++) {
-      for (var j = 0; j < array2.length; j++) {
-        if (array1[i] == array2[j]) { return true; }
-      }
-    }
-    return false;
-  },
+  // isDuplicate: function (array1, array2) {
+  //   for (var i = 0; i < array1.length; i++) {
+  //     for (var j = 0; j < array2.length; j++) {
+  //       if (array1[i] == array2[j]) { return true; }
+  //     }
+  //   }
+  //   return false;
+  // },
 
-  weatherJp: {
-    "晴れ": "Fair Skies",
-    "快晴": "Clear Skies",
-    "曇り": "Clouds",
-    "霧": "Fog",
-    "雨": "Rain",
-    "風": "Wind",
-    "雷": "Thunder",
-    "雷雨": "Thunderstorms",
-    "暴雨": "Showers",
-    "砂塵": "Dust Storms",
-    "灼熱波": "Heat Waves",
-    "雪": "Snow",
-    "吹雪": "Blizzards",
-    "妖霧": "Gloom",
-    "暴風": "Gales",
-    "霊風": "Umbral Wind",
-    "放電": "Umbral Static",
-    "なし": "",
-  },
+  weatherJp: weatherJpToEn,
 
   zoneJp: {
     "リムサ・ロミンサ：下甲板層": "Limsa Lominsa",
