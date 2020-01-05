@@ -111,7 +111,14 @@
 				el: '#header',
 				data: {
 					current: new Date(),
-					where: localStorage.getItem('where'),
+					where: function() { 
+						/* 間違えて'null'を保存してしまったマン */
+						var stored = localStorage.getItem('where');
+						if (stored === 'null' || stored === null) {
+							return '';
+						}
+						return stored;
+					}(),
 					caughtFishHidden: localStorage.getItem('caughtFishHidden') === 'Yes'
 				},
 				watch: {
@@ -471,7 +478,7 @@
 		<div class="header-content">
 			<div class="where">
 				<select v-model="where">
-					<option :value="null">どこにいる？</option>
+					<option :value="''">どこにいる？</option>
 					<option v-for="zone in zones" :key="zone" :value="zone">{{ zone }}</option>
 				</select>
 			</div>
