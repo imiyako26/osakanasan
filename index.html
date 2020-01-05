@@ -554,10 +554,20 @@
 			<tbody>
 				<!-- ここにお魚さん -->
 				<!-- <a>や<input>にはv-on:click.stopが必須。ないとクリックしたときにカニさんがお節介を焼いてしまう -->
-				<tr v-for="osakana in sortedOsakanas" v-on:click="teachMe(osakana)">
+				<tr v-for="osakana in sortedOsakanas" v-on:click="teachMe(osakana)" :key="osakana.Neko">
 					<td class="checkbox-cell">
 						<!-- v-model使うとwatchの仕方が分からない -->
-						<input type="checkbox" :checked="osakana.Caught" v-on:change="catchFish(osakana)" v-on:click.stop :key="osakana.Neko"/>
+						<input 
+							type="checkbox" 
+							:id="'caught-' + osakana.Neko"
+							:checked="osakana.Caught" 
+							v-on:change="catchFish(osakana)"
+							v-on:click.stop
+							class="large-checkbox">
+						<label 
+							class="large-checkbox-deco" 
+							:for="'caught-' + osakana.Neko"
+							v-on:click.stop></label>
 					</td>
 					<td><a target="_blank" :href="getOsakanaLink(osakana)" v-on:click.stop>{{ osakana.Fish }}</a></td>
 					<td>{{ osakana.Spot }}</td>
