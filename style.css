@@ -362,6 +362,12 @@ table {
 .forecasts .weather.Gales {
   background-image: url(images/tenki_mark10_taifuu.png);
 }
+.forecasts .weather.Snow {
+  background-image: url(images/tenki_mark08_yuki.png);
+}
+.forecasts .weather.Blizzards {
+  background-image: url(images/tenki_mark09_gousetsu.png);
+}
 
 #mola {
   position: fixed;
