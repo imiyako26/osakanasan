@@ -1,0 +1,131 @@
+
+.header-content {
+  right: 2px;
+  left: 2px;
+}
+.content {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.frame {
+  left: 2px;
+  right: 2px;
+}
+.forecasts > *:first-child,
+.forecasts > *:last-child {
+  display: none;
+}
+
+#osakana_list tr.highlight {
+  background-color: rgba(255, 217, 0, 0.331);
+}
+#osakana_list tr.highlight td {
+  background-color: transparent;
+}
+#osakana_list table {
+  display: block;
+}
+#osakana_list tr {
+  display: grid;
+  grid-template-columns: 32px 1fr 1fr 90px;
+  grid-template-rows: 18px 18px 18px;
+  padding: 3px 0px;
+}
+#osakana_list .checkbox-cell {
+  grid-column-start: 1; 
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  vertical-align: middle;
+  position: relative;
+}
+#osakana_list .checkbox-cell label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+#osakana_list .osakana {
+  grid-column-start: 2; 
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+#osakana_list .spot {
+  grid-column-start: 2; 
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+#osakana_list .zone {
+  grid-column-start: 3; 
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+#osakana_list .when {
+  grid-column-start: 2; 
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+#osakana_list .when > * {
+  display: inline-block;
+}
+#osakana_list .chance1 {
+  grid-column-start: 4; 
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+#osakana_list td,
+#osakana_list th {
+  height: auto;
+}
+
+/* アイコンと二つ目のチャンスは表示しない */
+#osakana_list .how,
+#osakana_list .chance2 {
+  display: none;
+}
+
+/* ヘッダーの洋ナシボタンは表示しない */
+#header .nashi {
+  display: none;
+}
+
+.senpai-visible .kanban {
+  right: 0px;
+  width: 100vw;
+  height: 77vw;
+  background-size: 105%;
+  padding-top: 13vw;
+  padding-bottom: 0x;
+}
+.senpai-visible .kanban-close {
+  top: 14vw;
+}
+.senpai-visible .senpai {
+  height: 77vw;
+}
+.kani-space {
+  height: 77vw;
+}
+.senpai-visible .frame {
+  bottom: 77vw;
+}
+
+.kani {
+  width: 140px;
+  height: 140px;
+  background-size: 140px;
+}
+.same {
+  width: 140px;
+  height: 140px;
+  background-size: 140px;
+}
+.senpai-visible .kani,
+.senpai-visible .same {
+  z-index: 100;
+}

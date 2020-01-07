@@ -7,6 +7,7 @@
 	<link rel="preload" href="fonts/azuki.woff" as="font" type="font/woff" crossorigin>
 	<link rel="preload" href="images/fish_mola2.png" as="image" type="image/png">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="phone.css" media="screen and (max-width:600px)">
 	<script type="text/javascript" src="weather.js"></script>
 	<script type="text/javascript" src="osakana.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -83,7 +84,9 @@
 					/* ヌシ */
 					lord: localStorage.getItem('lord') === null || localStorage.getItem('lord') === 'Yes',
 					/* 雑魚 規定値はNo */
-					zako: localStorage.getItem('zako') === 'Yes'
+					zako: localStorage.getItem('zako') === 'Yes',
+					/* 釣れた魚は洋ナシ */
+					caughtFishHidden: localStorage.getItem('caughtFishHidden') === 'Yes'
 				},
 				watch: {
 					realmreborn: function (newYesNo) {
@@ -103,6 +106,9 @@
 					},
 					zako: function (newYesNo) {
 						localStorage.setItem('zako', newYesNo ? 'Yes' : 'No');
+					},
+					caughtFishHidden: function (newYesNo) {
+						localStorage.setItem('caughtFishHidden', newYesNo ? 'Yes' : 'No');
 					}
 				}
 			})
@@ -112,6 +118,7 @@
 				el: '#header',
 				data: {
 					current: new Date(),
+					molaVM: molaVM,
 					where: function() { 
 						/* 間違えて'null'を保存してしまったマン */
 						var stored = localStorage.getItem('where');
@@ -120,17 +127,8 @@
 						}
 						return stored;
 					}(),
-					caughtFishHidden: localStorage.getItem('caughtFishHidden') === 'Yes'
 				},
 				watch: {
-					/* 洋ナシスイッチON/OFFをlocalStorageに保存 */
-					caughtFishHidden: function (newYesNo, oldYesNo) {
-						if (newYesNo) {
-							localStorage.setItem('caughtFishHidden', 'Yes');
-						} else {
-							localStorage.removeItem('caughtFishHidden');
-						}
-					},
 					where: function (newWhere) {
 						localStorage.setItem('where', newWhere);
 					}
@@ -326,7 +324,7 @@
 						}
 					},
 					shouldList: function (osakana) {
-						return (!osakana.Caught || !sunVM.caughtFishHidden) && this.checkVersion(osakana) && this.checkKind(osakana);
+						return (!osakana.Caught || !molaVM.caughtFishHidden) && this.checkVersion(osakana) && this.checkKind(osakana);
 					},
 					getChances: function (osakana) {
 						/* チャンス計算は一回だけ */
@@ -496,7 +494,7 @@
 				ET{{ eorzeaTime }}
 			</div>
 			<div class="nashi">
-				<input type="checkbox" id="caughtFishHidden" v-model="caughtFishHidden">
+				<input type="checkbox" id="caughtFishHidden" v-model="molaVM.caughtFishHidden">
 				<label for="caughtFishHidden">釣れた魚に用はない</label>
 			</div>
 		</div>
@@ -505,6 +503,10 @@
 	<div id="mola" :class="[open ? 'open' : null]">
 		<div class="appearance-hook" @click="open = !open" :title="open ? 'リリース！' : 'ストロングフッキング！'"></div>
 		<div class="filters">
+			<div class="nashi">
+				<input type="checkbox" id="caughtFishHidden-2" v-model="caughtFishHidden">
+				<label for="caughtFishHidden-2">釣れた魚に用はない</label>
+			</div>
 			<div class="kind">
 				<h1>種類</h1>
 				<ul>
@@ -551,13 +553,13 @@
 			<thead>
 				<tr>
 					<th class="checkbox-cell"></th>
-					<th @click="changeSortBy('name')" :class="sortColumnClass('name')">おさかな</th>
-					<th @click="changeSortBy('spot')" :class="sortColumnClass('spot')">スポット</th>
-					<th @click="changeSortBy('zone')" :class="sortColumnClass('zone')">エリア</th>
-					<th>条件</th>
-					<th>釣り方</th>
-					<th @click="changeSortBy('chance1')" :class="sortColumnClass('chance1')">#1</th>
-					<th @click="changeSortBy('chance2')" :class="sortColumnClass('chance2')">#2</th>
+					<th @click="changeSortBy('name')" :class="['osakana', sortColumnClass('name')]">おさかな</th>
+					<th @click="changeSortBy('spot')" :class="['spot', sortColumnClass('spot')]">スポット</th>
+					<th @click="changeSortBy('zone')" :class="['zone', sortColumnClass('zone')]">エリア</th>
+					<th class="when">条件</th>
+					<th class="how">釣り方</th>
+					<th @click="changeSortBy('chance1')" :class="['chance1', sortColumnClass('chance1')]">#1</th>
+					<th @click="changeSortBy('chance2')" :class="['chance2', sortColumnClass('chance2')]">#2</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -580,10 +582,10 @@
 							:for="'caught-' + osakana.Neko"
 							v-on:click.stop></label>
 					</td>
-					<td><a target="_blank" :href="getOsakanaLink(osakana)" v-on:click.stop>{{ osakana.Fish }}</a></td>
-					<td>{{ osakana.Spot }}</td>
-					<td>{{ osakana.Zone }}</td>
-					<td>
+					<td class="osakana"><a target="_blank" :href="getOsakanaLink(osakana)" v-on:click.stop>{{ osakana.Fish }}</a></td>
+					<td class="spot">{{ osakana.Spot }}</td>
+					<td class="zone">{{ osakana.Zone }}</td>
+					<td class="when">
 						<span class="time" v-if="osakana.To !== ''">
 							{{ formatTimeSpan(osakana.From, osakana.To) }}
 						</span>
@@ -591,7 +593,7 @@
 							{{ formatWeatherTransition(osakana.Previous_Weather, osakana.Weather) }}
 						</span>
 					</td>
-					<td class="hints">
+					<td class="how">
 						<span class="fisher-icon bait" :title="osakana.Bait"></span>
 						<span :class="['fisher-icon', 'mooch', osakana.Mooch.length === 0 ? 'unavailable' : '']"
 							:title="osakana.Mooch"></span>
@@ -603,11 +605,11 @@
 						<span :class="['fisher-icon', 'intuition', osakana.Intuition.length === 0 ? 'unavailable' : '']"
 							:title="osakana.Intuition"></span>
 					</td>
-					<td class="chance">
+					<td class="chance chance1">
 						<span class="local-time">{{ getChanceLT(osakana, 0) }}</span>
 						<span class="eorzea-time">{{ getChanceET(osakana, 0) }}</span>
 					</td>
-					<td class="chance">
+					<td class="chance chance2">
 						<span class="local-time">{{ getChanceLT(osakana, 1) }}</span>
 						<span class="eorzea-time">{{ getChanceET(osakana, 1) }}</span>
 					</td>

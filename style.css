@@ -22,7 +22,7 @@ table {
   vertical-align: middle;
   text-align: left;
 }
-#osakana_list td.hints {
+#osakana_list td.how {
   white-space: nowrap;
 }
 
@@ -31,7 +31,7 @@ table {
   text-decoration: none;
 }
 
-#osakana_list .highlight td {
+#osakana_list tr.highlight td {
   background-color: rgba(255, 217, 0, 0.331);
 }
 
@@ -344,12 +344,12 @@ input:checked + .large-checkbox-deco:before {
 }
 .forecasts .weather {
   display: inline-block;
-  height: 26px;
-  width: 26px;
-  margin: 2px 1px;
+  height: 24px;
+  width: 24px;
+  margin: 3px 1px;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 26px;
+  background-size: 24px;
   box-sizing: border-box;
 }
 .forecasts .weather.backcast {
@@ -441,14 +441,17 @@ input:checked + .large-checkbox-deco:before {
   margin: 0px;
   padding: 0px;
 }
-.since,
-.kind {
-  width: 70px;
-}
+
 #mola .filters {
-  margin: 100px 80px;
+  margin: 100px 60px 0 60px;
   display: grid;
   grid-template-columns: 50fr 50fr;
+  grid-template-rows: 24px 1fr;
+}
+#mola .filters .nashi {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  vertical-align: middle;
 }
 
 .footer {
@@ -506,7 +509,7 @@ a {
 }
 
 /* 釣り方ヒント　漁師アイコン */
-.hints {
+.how {
   letter-spacing: -.4em; /* 文字間を詰めて隙間をなくす */
 }
 .fisher-icon {
