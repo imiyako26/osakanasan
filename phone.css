@@ -97,29 +97,25 @@
 .senpai-visible .kanban {
   right: 0px;
   width: 100vw;
-  height: 77vw;
-  background-size: 105%;
+  height: 68vw;
+  background-size: 100%;
   padding-top: 13vw;
   padding-bottom: 0x;
 }
 .senpai-visible .kanban-close {
-  top: 14vw;
+  top: 15vw;
 }
 .senpai-visible .senpai {
-  height: 77vw;
+  height: 68vw;
 }
 .kani-space {
-  height: 77vw;
+  height: 68vw;
 }
 .senpai-visible .frame {
-  bottom: 77vw;
+  bottom: 68vw;
 }
 
-.kani {
-  width: 140px;
-  height: 140px;
-  background-size: 140px;
-}
+.kani,
 .same {
   width: 140px;
   height: 140px;
@@ -128,4 +124,5 @@
 .senpai-visible .kani,
 .senpai-visible .same {
   z-index: 100;
+  opacity: 0.7;
 }
