@@ -86,7 +86,15 @@
 					/* 雑魚 規定値はNo */
 					zako: localStorage.getItem('zako') === 'Yes',
 					/* 釣れた魚は洋ナシ */
-					caughtFishHidden: localStorage.getItem('caughtFishHidden') === 'Yes'
+					caughtFishHidden: localStorage.getItem('caughtFishHidden') === 'Yes',
+					where: function() { 
+						/* 間違えて'null'を保存してしまったマン */
+						var stored = localStorage.getItem('where');
+						if (stored === 'null' || stored === null) {
+							return '';
+						}
+						return stored;
+					}(),
 				},
 				watch: {
 					realmreborn: function (newYesNo) {
@@ -109,6 +117,9 @@
 					},
 					caughtFishHidden: function (newYesNo) {
 						localStorage.setItem('caughtFishHidden', newYesNo ? 'Yes' : 'No');
+					},
+					where: function (newWhere) {
+						localStorage.setItem('where', newWhere);
 					}
 				}
 			})
@@ -118,30 +129,17 @@
 				el: '#header',
 				data: {
 					current: new Date(),
-					molaVM: molaVM,
-					where: function() { 
-						/* 間違えて'null'を保存してしまったマン */
-						var stored = localStorage.getItem('where');
-						if (stored === 'null' || stored === null) {
-							return '';
-						}
-						return stored;
-					}(),
-				},
-				watch: {
-					where: function (newWhere) {
-						localStorage.setItem('where', newWhere);
-					}
+					molaVM: molaVM
 				},
 				computed: {
 					/* 過去2個、現在、未来2個の天気 */
 					weathers: function() {
 						/* 場所が設定されていないときはなし */
-						if (!this.where) {
+						if (!molaVM.where) {
 							return [];
 						}
 
-						var where = this.where;
+						var where = molaVM.where;
 						var zone = WeatherFinder.zoneJp[where];
 
 						function calculateWindowWheather(millis) {
@@ -323,8 +321,14 @@
 							return molaVM.zako;
 						}
 					},
+					checkLocation: function (osakana) {
+						return !molaVM.where || molaVM.where === osakana.Zone;
+					},
 					shouldList: function (osakana) {
-						return (!osakana.Caught || !molaVM.caughtFishHidden) && this.checkVersion(osakana) && this.checkKind(osakana);
+						return (!osakana.Caught || !molaVM.caughtFishHidden) 
+							&& this.checkVersion(osakana) 
+							&& this.checkKind(osakana)
+							&& this.checkLocation(osakana);
 					},
 					getChances: function (osakana) {
 						/* チャンス計算は一回だけ */
@@ -476,14 +480,14 @@
 		<div class="sun"></div>
 		<div class="header-content">
 			<div class="where">
-				<select v-model="where">
+				<select v-model="molaVM.where">
 					<option :value="''">どこにいる？</option>
 					<option v-for="zone in zones" :key="zone" :value="zone">{{ zone }}</option>
 				</select>
 			</div>
 			<div class="forecasts">
 				<!-- v-for → v-ifの順らしい -->
-				<template v-if="where">
+				<template v-if="molaVM.where">
 					<span v-for="(weatherWindow, nth) in weathers"
 						:class="['weather', weatherWindow.weatherClassName, nth === 2 ? 'present' : null, nth < 2 ? 'backcast' : null]"
 						:title="weatherWindow.weatherJp + ' ET' + weatherWindow.eorzeaTime"
