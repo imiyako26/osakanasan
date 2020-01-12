@@ -140,6 +140,7 @@
 				mola['lord'] = molaVM.lord;
 				mola['zako'] = molaVM.zako;
 				mola['caughtFishHidden'] = molaVM.caughtFishHidden;
+				mola['where'] = molaVM.where;
 				all['mola'] = mola;
 
 				var fish = {};
@@ -168,6 +169,7 @@
 				molaVM.shadowbringers = undefinedTo(mola.shadowbringers, true);
 				molaVM.lord = undefinedTo(mola.lord, true);
 				molaVM.zako = undefinedTo(mola.zako, false);
+				molaVM.where = undefinedTo(mola.where, '');
 				molaVM.caughtFishHidden = undefinedTo(mola.caughtFishHidden, false);
 
 				var fish = undefinedTo(json['catch'], {});
