@@ -443,7 +443,7 @@ input:checked + .large-checkbox-deco:before {
 }
 
 #mola .filters {
-  margin: 110px 40px 0 54px;
+  margin: 118px 40px 0 54px;
   display: grid;
   grid-template-columns: 50fr 50fr;
   grid-template-rows: 24px 1fr 24px;
