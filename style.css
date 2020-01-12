@@ -422,7 +422,7 @@ input:checked + .large-checkbox-deco:before {
   position: absolute;
   left: 0px;
   height: 100%;
-  width: 22px;
+  width: 40px;
   top: 0px;
   z-index: 20;
 }
