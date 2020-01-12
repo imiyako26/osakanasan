@@ -517,6 +517,87 @@ input:checked + .large-checkbox-deco:before {
   z-index: 4;
 }
 
+#tobi {
+  position: fixed;
+  top: 100px;
+  left: -180px;
+  width: 454px;
+  height: 386px;
+  display: none;
+  z-index: 100;
+}
+.tobi-fish {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 300px;
+  height: 300px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-image: url(images/fish_tobiuo2.png);
+}
+.tobi-note {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 240px;
+  height: 240px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 240px;
+  background-image: url(images/fukidashi03.png);
+  padding: 80px 40px 50px 40px;
+  text-shadow: 1px 1px 2px rgb(2, 4, 90);
+  color: white;
+  text-decoration: none;
+  display: none;
+}
+.tobi-close {
+  position: absolute;
+  top: 66px;
+  right: 24px;
+  width: 20px;
+  height: 20px;
+  background-image: url(images/mark_batsu.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+#tobi.say {
+  display: block;
+  animation: tobi-appear 0.8s;
+}
+#tobi.say .tobi-note {
+  display: block;
+  animation: tobi-appear-note 0.8s;
+}
+
+@keyframes tobi-appear {
+  from {
+    left: -454px;
+  }
+  to {
+    left: -180px;
+  }
+}
+
+@keyframes tobi-appear-note {
+  from {
+    display: none;
+  }
+}
+
+@keyframes tobi-disappear {
+  from {
+    left: -180px;
+  }
+  to {
+    left: -454px;
+  }
+}
+
 /* .tablesorter-default {
   background-color: transparent !important;
 }

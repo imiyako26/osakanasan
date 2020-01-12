@@ -182,6 +182,42 @@
 				}
 			}
 
+			/* お知らせトビウオ */
+			var tobiVM = new Vue({
+				el: '#tobi',
+
+				data: {
+					message: null,
+					timerId: null
+				},
+
+				methods: {
+					bye: function() {
+						this.message = null;
+						if (this.timerId !== null) {
+							clearTimeout(this.timerId);
+							this.timerId = null;
+						}
+					},
+					speak: function(message, seconds) {
+						this.message = message;
+						if (typeof seconds === 'number') {
+							/* n秒後にサヨナラ */
+							if (this.timerId !== null) {
+								/* 予約されてたらキャンセル */
+								clearTimeout(this.timerId);
+								this.timerId = null;
+							}
+							
+							var self = this;
+							this.timerId = setTimeout(function() {
+								self.bye();
+							}, seconds * 1000);
+						}
+					}
+				}
+			})
+
 			/* 設定マンボウ */
 			var molaVM = new Vue({
 				el: '#mola',
@@ -236,6 +272,7 @@
 					upload: function () {
 						if (!this.hasCharacterName()) {
 							/* キャラ名がなかったらなにもしないよ */
+							tobiVM.speak('キャラ名とワールドを教えて', 5);
 							return;
 						}
 
@@ -244,14 +281,16 @@
 
 						doc.set(toOsakanaJSON())
 							.then(function () {
-								console.log('保存した');
+								tobiVM.speak('保存したよ', 5);
 							})
 							.catch(function (error) {
-								console.error('失敗', error);
+								console.error(error);
+								tobiVM.speak('保存できなかったよ', 5);
 							});
 					},
 					download: function () {
 						if (!this.hasCharacterName()) {
+							tobiVM.speak('キャラ名とワールドを教えて', 5);
 							return;
 						}
 
@@ -261,14 +300,15 @@
 						doc.get()
 							.then(function (meta) {
 								if (!meta.exists) {
-									console.log('保存されてないよ');
+									tobiVM.speak('保存されてないよ', 5);
 								} else {
 									fromOsakanaJSON(meta.data());
-									console.log('読み込んだ');
+									tobiVM.speak('読み込んだよ', 5);
 								}
 							})
 							.catch(function (error) {
-								console.error('失敗', error);
+								console.error(error);
+								tobiVM.speak('なんか失敗した', 5);
 							});
 					}
 				}
@@ -637,7 +677,7 @@
 		<div class="header-content">
 			<div class="where">
 				<select v-model="molaVM.where">
-					<option :value="''">どこにいる？</option>
+					<option :value="''">どこ？</option>
 					<option v-for="zone in zones" :key="zone" :value="zone">{{ zone }}</option>
 				</select>
 			</div>
@@ -657,6 +697,14 @@
 				<label for="caughtFishHidden">釣れた魚に用はない</label>
 			</div>
 		</div>
+	</div>
+
+	<div id="tobi" :class="message ? 'say' : null">
+		<div class="tobi-fish"></div>
+		<div class="tobi-note">
+			<span>{{ message }}</span>
+		</div>
+		<div class="tobi-close"></div>
 	</div>
 
 	<div id="mola" :class="[open ? 'open' : null]">
