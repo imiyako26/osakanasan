@@ -519,7 +519,7 @@ input:checked + .large-checkbox-deco:before {
 
 #tobi {
   position: fixed;
-  top: 100px;
+  top: 60px;
   left: -180px;
   width: 454px;
   height: 386px;
