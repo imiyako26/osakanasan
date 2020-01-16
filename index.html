@@ -56,6 +56,13 @@
 		/* おさかな名 → おさかな行 */
 		var details = {};
 
+		for (var i = 0; i < osakanas.length; i++) {
+			var osakana = osakanas[i];
+			/* 釣れたかどうかのデータを追加 */
+			osakana['Caught'] = localStorage.getItem(osakana.Fish) === 'Yes';
+			details[osakana.Fish] = osakana;
+		}
+
 		function formatTime(date) {
 			return ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
 		}
@@ -92,95 +99,211 @@
 			}
 		}
 
+		function undefinedTo(value, defaultValue) {
+			if (typeof value === 'undefined') {
+				return defaultValue;
+			}
+			return value;
+		}
+
+		/* dataをlocalStorageに保存するmixinを作成する */
+		var Synchronized = {
+			booleanData: function(dataName, storageName, defaultValue) {
+				var data = {};
+				var watch = {};
+				var storedValue = localStorage.getItem(storageName);
+				data[dataName] = storedValue === null ? defaultValue : storedValue === 'Yes';
+				watch[dataName] = function(newValue) {
+					localStorage.setItem(storageName, newValue ? 'Yes' : 'No');
+				}
+
+				return {
+					data: data,
+					watch: watch
+				};
+			},
+			stringData: function(dataName, storageName, defaultValue) {
+				var data = {};
+				var watch = {};
+				var storedValue = localStorage.getItem(storageName);
+				data[dataName] = storedValue === null ? defaultValue : storedValue;
+				watch[dataName] = function(newValue) {
+					if (newValue === null) {
+						localStorage.removeItem(storageName);
+					} else {
+						localStorage.setItem(storageName, newValue);
+					}
+				}
+				return {
+					data: data,
+					watch: watch
+				}
+			}
+		};
+		
+		/* 全てを知る透明な海。実体はない。*/
+		var Ocean = new Vue({
+			mixins: [
+				/* いつのフィッシュに用がある？ */
+				Synchronized.booleanData('realmreborn', 'realmreborn', true),
+				Synchronized.booleanData('heavensward', 'heavensward', true),
+				Synchronized.booleanData('stormblood', 'stormblood', true),
+				Synchronized.booleanData('shadowbringers', 'shadowbringers', true),
+				/* ヌシ・雑魚を表示する？ */
+				Synchronized.booleanData('lord', 'lord', true),
+				Synchronized.booleanData('zako', 'zako', false),
+				/* 釣れた魚に用はない */
+				Synchronized.booleanData('caughtFishHidden', 'caughtFishHidden', false),
+				/* どこいるの */
+				Synchronized.stringData('where', 'where', null),
+				/* Cloudに保存する名前 */
+				Synchronized.stringData('character', 'character', null),
+				Synchronized.stringData('world', 'world', null),
+				/* カニさんのターゲット */
+				Synchronized.stringData('targetHowTo', 'targetHowTo', null),
+				/* 一覧のソート */
+				Synchronized.stringData('sortBy', 'sortBy', 'name'),
+				Synchronized.booleanData('reversed', 'reversed', false)
+			],
+			data: {
+				/* お魚さんたち */
+				osakanas: osakanas
+			},
+			computed: {
+				hasCloudId: function() {
+					return this.character && this.world;
+				},
+				cloudId: function() {
+					return this.character + '@' + this.world;
+				}
+			},
+			methods: {
+				/* お知らせ。海には口がないので声を誰かが拾ってくれるのを待つ */
+				doSpeak: function(message) {
+					this.$emit('speak', message);
+				},
+				/* おさかな捕まえた！isCaughtがない場合は入れ替え */
+				doCatch: function(osakana, isCaught) {
+					if (typeof isCaught === 'undefined') {
+						isCaught = !osakana.Caught;
+					}
+					osakana.Caught = isCaught;
+					if (isCaught) {
+						localStorage.setItem(osakana.Fish, 'Yes');
+					} else {
+						localStorage.removeItem(osakana.Fish);
+					}
+				},
+				/* 現在の情報からosakana.jsonを作成 */
+				toOsakanaJSON: function() {
+					/* undefinedは保存できない */
+					var all = {};
+	
+					var list = {};
+					list['sortBy'] = undefinedTo(this.sortBy, null);
+					list['reversed'] = this.reversed;
+					all['list'] = list;
+	
+					var kani = {};
+					kani['targetHowTo'] = undefinedTo(this.targetHowTo, null);
+					all['kani'] = kani;
+	
+					var mola = {};
+					mola['realmreborn'] = this.realmreborn;
+					mola['heavensward'] = this.heavensward;
+					mola['stormblood'] = this.stormblood;
+					mola['shadowbringers'] = this.shadowbringers;
+					mola['lord'] = this.lord;
+					mola['zako'] = this.zako;
+					mola['caughtFishHidden'] = this.caughtFishHidden;
+					mola['where'] = this.where;
+					all['mola'] = mola;
+	
+					var fish = {};
+					for (var i = 0; i < osakanas.length; i++) {
+						var osakana = osakanas[i];
+						fish[osakana.Fish] = localStorage.getItem(osakana.Fish) === 'Yes';
+					}
+					all['catch'] = fish;
+	
+					return all;
+				},
+				/* osakana.jsonから復元だ */
+				fromOsakanaJSON: function(json) {						
+					var list = undefinedTo(json.list, {});
+					this.sortBy = undefinedTo(list.sortBy, null);
+					this.reversed = undefinedTo(list.reversed, false);
+
+					var kani = undefinedTo(json.kani, {});
+					this.targetHowTo = undefinedTo(kani.targetHowTo, null);
+
+					var mola = undefinedTo(json.mola, {});
+					this.realmreborn = undefinedTo(mola.realmreborn, true);
+					this.heavensward = undefinedTo(mola.heavensward, true);
+					this.stormblood = undefinedTo(mola.stormblood, true);
+					this.shadowbringers = undefinedTo(mola.shadowbringers, true);
+					this.lord = undefinedTo(mola.lord, true);
+					this.zako = undefinedTo(mola.zako, false);
+					this.where = undefinedTo(mola.where, '');
+					this.caughtFishHidden = undefinedTo(mola.caughtFishHidden, false);
+
+					var fish = undefinedTo(json['catch'], {});
+					for (var osakanaName in fish) {
+						var osakana = details[osakanaName];
+
+						if (osakana) {
+							this.doCatch(osakana, fish[osakanaName]);
+						}
+					}
+				},
+				/* Cloudに保存 */
+				upload: function () {
+					var self = this;
+
+					if (!this.hasCloudId) {
+						/* キャラ名がなかったらなにもしないよ */
+						self.doSpeak('キャラ名とワールドを教えて', 5);
+						return;
+					}
+
+					var doc = db.collection('anglers').doc(this.cloudId);
+					doc.set(this.toOsakanaJSON())
+						.then(function () {
+							self.doSpeak('保存したよ');
+						})
+						.catch(function (error) {
+							console.error(error);
+							self.doSpeak('保存できなかったよ');
+						});
+				},
+				/* Cloudから取得 */
+				download: function () {
+					var self = this;
+					if (!this.hasCloudId) {
+						self.doSpeak('キャラ名とワールドを教えて', 5);
+						return;
+					}
+
+					var doc = db.collection('anglers').doc(this.cloudId);
+					doc.get()
+						.then(function (meta) {
+							if (!meta.exists) {
+								self.doSpeak('保存されてないよ');
+							} else {
+								self.fromOsakanaJSON(meta.data());
+								self.doSpeak('読み込んだよ');
+							}
+						})
+						.catch(function (error) {
+							console.error(error);
+							self.doSpeak('なんか失敗した');
+						});
+				}				
+			}
+		});
 
 
 		$(function () {
-			for (var i = 0; i < osakanas.length; i++) {
-				var osakana = osakanas[i];
-				/* 釣れたかどうかのデータを追加 */
-				osakana['Caught'] = localStorage.getItem(osakana.Fish) === 'Yes';
-				details[osakana.Fish] = osakana;
-			}
-
-			function storeLocalStorage(key) {
-				return function (newValue) {
-					if (newValue) {
-						localStorage.setItem(key, newValue);
-					} else {
-						localStorage.removeItem(key);
-					}
-				};
-			}
-
-			function undefinedTo(value, defaultValue) {
-				if (typeof value === 'undefined') {
-					return defaultValue;
-				}
-				return value;
-			}
-
-			function toOsakanaJSON() {
-				/* undefinedは保存できない */
-				var all = {};
-
-				var list = {};
-				list['sortBy'] = undefinedTo(listVM.sortBy, null);
-				list['reversed'] = listVM.reversed;
-				all['list'] = list;
-
-				var kani = {};
-				kani['targetHowTo'] = undefinedTo(kaniVM.targetHowTo, null);
-				all['kani'] = kani;
-
-				var mola = {};
-				mola['realmreborn'] = molaVM.realmreborn;
-				mola['heavensward'] = molaVM.heavensward;
-				mola['stormblood'] = molaVM.stormblood;
-				mola['shadowbringers'] = molaVM.shadowbringers;
-				mola['lord'] = molaVM.lord;
-				mola['zako'] = molaVM.zako;
-				mola['caughtFishHidden'] = molaVM.caughtFishHidden;
-				mola['where'] = molaVM.where;
-				all['mola'] = mola;
-
-				var fish = {};
-				for (var i = 0; i < osakanas.length; i++) {
-					var osakana = osakanas[i];
-					fish[osakana.Fish] = localStorage.getItem(osakana.Fish) === 'Yes';
-				}
-				all['catch'] = fish;
-
-				return all;
-			}
-
-			/* osakana.jsonから復元だ */
-			function fromOsakanaJSON(json) {
-				var list = undefinedTo(json.list, {});
-				listVM.sortBy = undefinedTo(list.sortBy, null);
-				listVM.reversed = undefinedTo(list.reversed, false);
-
-				var kani = undefinedTo(json.kani, {});
-				kaniVM.targetHowTo = undefinedTo(kani.targetHowTo, null);
-
-				var mola = undefinedTo(json.mola, {});
-				molaVM.realmreborn = undefinedTo(mola.realmreborn, true);
-				molaVM.heavensward = undefinedTo(mola.heavensward, true);
-				molaVM.stormblood = undefinedTo(mola.stormblood, true);
-				molaVM.shadowbringers = undefinedTo(mola.shadowbringers, true);
-				molaVM.lord = undefinedTo(mola.lord, true);
-				molaVM.zako = undefinedTo(mola.zako, false);
-				molaVM.where = undefinedTo(mola.where, '');
-				molaVM.caughtFishHidden = undefinedTo(mola.caughtFishHidden, false);
-
-				var fish = undefinedTo(json['catch'], {});
-				for (var osakanaName in fish) {
-					var osakana = details[osakanaName];
-
-					if (osakana) {
-						listVM.catchFish(osakana, fish[osakanaName]);
-					}
-				}
-			}
 
 			/* お知らせトビウオ */
 			var tobiVM = new Vue({
@@ -189,6 +312,13 @@
 				data: {
 					message: null,
 					timerId: null
+				},
+
+				created: function() {
+					/* トビウオさんは海の声を拾って表示する */
+					Ocean.$on('speak', function(message) {
+						tobiVM.speak(message, 5);
+					});
 				},
 
 				methods: {
@@ -222,95 +352,9 @@
 			var molaVM = new Vue({
 				el: '#mola',
 				data: {
+					Ocean: Ocean,
 					worlds: worlds,
-					open: false,
-					/* 規定値はYes */
-					realmreborn: localStorage.getItem('realmreborn') === null || localStorage.getItem('realmreborn') === 'Yes',
-					heavensward: localStorage.getItem('heavensward') === null || localStorage.getItem('heavensward') === 'Yes',
-					stormblood: localStorage.getItem('stormblood') === null || localStorage.getItem('stormblood') === 'Yes',
-					shadowbringers: localStorage.getItem('shadowbringers') === null || localStorage.getItem('shadowbringers') === 'Yes',
-					/* ヌシ */
-					lord: localStorage.getItem('lord') === null || localStorage.getItem('lord') === 'Yes',
-					/* 雑魚 規定値はNo */
-					zako: localStorage.getItem('zako') === 'Yes',
-					/* 釣れた魚は洋ナシ */
-					caughtFishHidden: localStorage.getItem('caughtFishHidden') === 'Yes',
-					where: localStorage.getItem('where') || '',
-					character: localStorage.getItem('character') || '',
-					world: localStorage.getItem('world') || ''
-				},
-				watch: {
-					realmreborn: function (newYesNo) {
-						localStorage.setItem('realmreborn', newYesNo ? 'Yes' : 'No');
-					},
-					heavensward: function (newYesNo) {
-						localStorage.setItem('heavensward', newYesNo ? 'Yes' : 'No');
-					},
-					stormblood: function (newYesNo) {
-						localStorage.setItem('stormblood', newYesNo ? 'Yes' : 'No');
-					},
-					shadowbringers: function (newYesNo) {
-						localStorage.setItem('shadowbringers', newYesNo ? 'Yes' : 'No');
-					},
-					lord: function (newYesNo) {
-						localStorage.setItem('lord', newYesNo ? 'Yes' : 'No');
-					},
-					zako: function (newYesNo) {
-						localStorage.setItem('zako', newYesNo ? 'Yes' : 'No');
-					},
-					caughtFishHidden: function (newYesNo) {
-						localStorage.setItem('caughtFishHidden', newYesNo ? 'Yes' : 'No');
-					},
-					where: storeLocalStorage('where'),
-					character: storeLocalStorage('character'),
-					world: storeLocalStorage('world'),
-				},
-				methods: {
-					hasCharacterName: function () {
-						return this.character && this.world
-					},
-					upload: function () {
-						if (!this.hasCharacterName()) {
-							/* キャラ名がなかったらなにもしないよ */
-							tobiVM.speak('キャラ名とワールドを教えて', 5);
-							return;
-						}
-
-						var key = this.character + '@' + this.world;
-						var doc = db.collection('anglers').doc(key);
-
-						doc.set(toOsakanaJSON())
-							.then(function () {
-								tobiVM.speak('保存したよ', 5);
-							})
-							.catch(function (error) {
-								console.error(error);
-								tobiVM.speak('保存できなかったよ', 5);
-							});
-					},
-					download: function () {
-						if (!this.hasCharacterName()) {
-							tobiVM.speak('キャラ名とワールドを教えて', 5);
-							return;
-						}
-
-						var key = this.character + '@' + this.world;
-						var doc = db.collection('anglers').doc(key);
-
-						doc.get()
-							.then(function (meta) {
-								if (!meta.exists) {
-									tobiVM.speak('保存されてないよ', 5);
-								} else {
-									fromOsakanaJSON(meta.data());
-									tobiVM.speak('読み込んだよ', 5);
-								}
-							})
-							.catch(function (error) {
-								console.error(error);
-								tobiVM.speak('なんか失敗した', 5);
-							});
-					}
+					open: false
 				}
 			})
 
@@ -319,17 +363,17 @@
 				el: '#header',
 				data: {
 					current: new Date(),
-					molaVM: molaVM
+					Ocean: Ocean
 				},
 				computed: {
 					/* 過去2個、現在、未来2個の天気 */
 					weathers: function () {
 						/* 場所が設定されていないときはなし */
-						if (!molaVM.where) {
+						if (!Ocean.where) {
 							return [];
 						}
 
-						var where = molaVM.where;
+						var where = Ocean.where;
 						var zone = WeatherFinder.zoneJp[where];
 
 						function calculateWindowWheather(millis) {
@@ -378,27 +422,19 @@
 			var kaniVM = new Vue({
 				el: '.senpai',
 				data: {
-					targetHowTo: localStorage.getItem('targetHowTo')
+					Ocean: Ocean
 				},
 				created: function () {
+					/* 作成時とターゲット変更時に起動 */
 					this.informBody();
-				},
-				watch: {
-					targetHowTo: function (newTarget, oldTarget) {
-						if (newTarget) {
-							localStorage.setItem('targetHowTo', newTarget);
-						} else {
-							localStorage.removeItem('targetHowTo');
-						}
-						this.informBody();
-					}
+					Ocean.$watch('targetHowTo', this.informBody.bind(this))
 				},
 				computed: {
 					osakana: function () {
-						if (!this.targetHowTo) {
+						if (!Ocean.targetHowTo) {
 							return null;
 						}
-						return details[this.targetHowTo];
+						return details[Ocean.targetHowTo];
 					}
 				},
 				methods: {
@@ -406,7 +442,7 @@
 					formatWeatherTransition: formatWeatherTransition,
 					formatHookset: formatHookset,
 					informBody: function () {
-						if (this.targetHowTo) {
+						if (Ocean.targetHowTo) {
 							$(document.body).addClass('senpai-visible');
 						} else {
 							$(document.body).removeClass('senpai-visible');
@@ -419,31 +455,20 @@
 			var listVM = new Vue({
 				el: '.content',
 				data: {
-					kaniVM: kaniVM,
-					osakanas: osakanas,
-					sortBy: localStorage.getItem('sortBy'),
-					reversed: localStorage.getItem('sortByReversed') === 'Yes'
-				},
-				watch: {
-					sortBy: function (newSortBy) {
-						localStorage.setItem('sortBy', newSortBy)
-					},
-					reversed: function (newReversed) {
-						localStorage.setItem('sortByReversed', newReversed ? 'Yes' : 'No')
-					}
+					Ocean: Ocean
 				},
 				computed: {
 					/* リストはソートされてるお魚さんを表示 */
 					sortedOsakanas: function () {
 						var copy = [];
-						for (var i = 0; i < this.osakanas.length; i++) {
-							if (this.shouldList(this.osakanas[i])) {
-								copy.push(this.osakanas[i]);
+						for (var i = 0; i < osakanas.length; i++) {
+							if (this.shouldList(osakanas[i])) {
+								copy.push(osakanas[i]);
 							}
 						}
 
 						var self = this;
-						var factor = this.sortBy;
+						var factor = Ocean.sortBy;
 						copy.sort(function (a, b) {
 							var comparison;
 							switch (factor) {
@@ -474,7 +499,7 @@
 									break;
 							}
 
-							if (self.reversed) {
+							if (Ocean.reversed) {
 								comparison = -comparison;
 							}
 							return comparison;
@@ -493,31 +518,31 @@
 						if (!osakana.Since)
 							return true;
 						if (osakana.Since < 3) {
-							return molaVM.realmreborn;
+							return Ocean.realmreborn;
 						} else if (osakana.Since < 4) {
-							return molaVM.heavensward;
+							return Ocean.heavensward;
 						} else if (osakana.Since < 5) {
-							return molaVM.stormblood;
+							return Ocean.stormblood;
 						} else if (osakana.Since < 6) {
-							return molaVM.shadowbringers;
+							return Ocean.shadowbringers;
 						} else {
 							return true;
 						}
 					},
-					checkKind: function (osakana) {
+					checkGrade: function (osakana) {
 						if (osakana.Lord === 'Yes') {
-							return molaVM.lord;
+							return Ocean.lord;
 						} else {
-							return molaVM.zako;
+							return Ocean.zako;
 						}
 					},
 					checkLocation: function (osakana) {
-						return !molaVM.where || molaVM.where === osakana.Zone;
+						return !Ocean.where || Ocean.where === osakana.Zone;
 					},
 					shouldList: function (osakana) {
-						return (!osakana.Caught || !molaVM.caughtFishHidden)
+						return (!osakana.Caught || !Ocean.caughtFishHidden)
 							&& this.checkVersion(osakana)
-							&& this.checkKind(osakana)
+							&& this.checkGrade(osakana)
 							&& this.checkLocation(osakana);
 					},
 					getChances: function (osakana) {
@@ -547,37 +572,21 @@
 							return 'hook';
 						}
 					},
-					/* カニさんに教えを乞う */
-					teachMe: function (osakana) {
-						kaniVM.targetHowTo = osakana.Fish;
-					},
-					/* 釣った */
-					catchFish: function (osakana, isCaught) {
-						if (typeof isCaught === 'undefined') {
-							isCaught = !osakana.Caught;
-						}
-						osakana.Caught = isCaught;
-						if (isCaught) {
-							localStorage.setItem(osakana.Fish, 'Yes');
-						} else {
-							localStorage.removeItem(osakana.Fish);
-						}
-					},
 
 					changeSortBy: function (sortBy) {
-						if (this.sortBy === sortBy) {
+						if (Ocean.sortBy === sortBy) {
 							/* 現在の並び替えファクタをクリックしたら順を逆に */
-							this.sortBy = sortBy;
-							this.reversed = !this.reversed;
+							Ocean.sortBy = sortBy;
+							Ocean.reversed = !Ocean.reversed;
 						} else {
 							/* 別のソート対象だったら昇順 */
-							this.sortBy = sortBy;
-							this.reversed = false;
+							Ocean.sortBy = sortBy;
+							Ocean.reversed = false;
 						}
 					},
 					sortColumnClass: function (sortBy) {
-						if (this.sortBy === sortBy) {
-							if (this.reversed) {
+						if (Ocean.sortBy === sortBy) {
+							if (Ocean.reversed) {
 								return 'sort-column-descending';
 							} else {
 								return 'sort-column-ascending';
@@ -626,7 +635,7 @@
 		<div class="kani"></div>
 		<div class="same"></div>
 		<div class="kanban">
-			<div class="kanban-close" @click="targetHowTo = null"></div>
+			<div class="kanban-close" @click="Ocean.targetHowTo = null"></div>
 			<div class="kanban-content" v-if="osakana">
 				<h1>{{ osakana.Fish }}</h1>
 				<div>{{ osakana.Spot }} {{ osakana.Zone }}</div>
@@ -676,14 +685,14 @@
 		<div class="sun"></div>
 		<div class="header-content">
 			<div class="where">
-				<select v-model="molaVM.where">
+				<select v-model="Ocean.where">
 					<option :value="''">どこ？</option>
 					<option v-for="zone in zones" :key="zone" :value="zone">{{ zone }}</option>
 				</select>
 			</div>
 			<div class="forecasts">
 				<!-- v-for → v-ifの順らしい -->
-				<template v-if="molaVM.where">
+				<template v-if="Ocean.where">
 					<span v-for="(weatherWindow, nth) in weathers"
 						:class="['weather', weatherWindow.weatherClassName, nth === 2 ? 'present' : null, nth < 2 ? 'backcast' : null]"
 						:title="weatherWindow.weatherJp + ' ET' + weatherWindow.eorzeaTime" :key="nth"></span>
@@ -693,7 +702,7 @@
 				ET{{ eorzeaTime }}
 			</div>
 			<div class="nashi">
-				<input type="checkbox" id="caughtFishHidden" v-model="molaVM.caughtFishHidden">
+				<input type="checkbox" id="caughtFishHidden" v-model="Ocean.caughtFishHidden">
 				<label for="caughtFishHidden">釣れた魚に用はない</label>
 			</div>
 		</div>
@@ -711,18 +720,18 @@
 		<div class="appearance-hook" @click="open = !open" :title="open ? 'リリース！' : 'ストロングフッキング！'"></div>
 		<div class="filters">
 			<div class="nashi">
-				<input type="checkbox" id="caughtFishHidden-2" v-model="caughtFishHidden">
+				<input type="checkbox" id="caughtFishHidden-2" v-model="Ocean.caughtFishHidden">
 				<label for="caughtFishHidden-2">釣れた魚に用はない</label>
 			</div>
 			<div class="kind">
 				<h1>種類</h1>
 				<ul>
 					<li>
-						<input type="checkbox" v-model="lord" id="lord" />
+						<input type="checkbox" v-model="Ocean.lord" id="lord" />
 						<label for="lord">ヌシ</label>
 					</li>
 					<li>
-						<input type="checkbox" v-model="zako" id="zako" />
+						<input type="checkbox" v-model="Ocean.zako" id="zako" />
 						<label for="zako">雑魚</label>
 					</li>
 				</ul>
@@ -731,19 +740,19 @@
 				<h1>いつ？</h1>
 				<ul>
 					<li>
-						<input type="checkbox" v-model="realmreborn" id="realmreborn" />
+						<input type="checkbox" v-model="Ocean.realmreborn" id="realmreborn" />
 						<label for="realmreborn">新生</label>
 					</li>
 					<li>
-						<input type="checkbox" v-model="heavensward" id="heavensward" />
+						<input type="checkbox" v-model="Ocean.heavensward" id="heavensward" />
 						<label for="heavensward">蒼天</label>
 					</li>
 					<li>
-						<input type="checkbox" v-model="stormblood" id="stormblood" />
+						<input type="checkbox" v-model="Ocean.stormblood" id="stormblood" />
 						<label for="stormblood">紅蓮</label>
 					</li>
 					<li>
-						<input type="checkbox" v-model="shadowbringers" id="shadowbringers" />
+						<input type="checkbox" v-model="Ocean.shadowbringers" id="shadowbringers" />
 						<label for="shadowbringers">漆黒</label>
 					</li>
 				</ul>
@@ -751,11 +760,11 @@
 			<div class="who">
 				<h1>誰？</h1>
 				<div class="who-form">
-					<span class="chara"><input type="text" v-model="character" placeholder="キャラ名" /></span>
+					<span class="chara"><input type="text" v-model="Ocean.character" placeholder="キャラ名" /></span>
 					<span class="at">@</span>
-					<span class="world"><input type="text" v-model="world" placeholder="ワールド" /></span>
-					<span class="upload" @click="upload()" title="クラウドに保存"></span>
-					<span class="download" @click="download()" title="クラウドから取得"></span>
+					<span class="world"><input type="text" v-model="Ocean.world" placeholder="ワールド" /></span>
+					<span class="upload" @click="Ocean.upload()" title="クラウドに保存"></span>
+					<span class="download" @click="Ocean.download()" title="クラウドから取得"></span>
 				</div>
 			</div>
 		</div>
@@ -782,12 +791,12 @@
 			<tbody>
 				<!-- ここにお魚さん -->
 				<!-- <a>や<input>にはv-on:click.stopが必須。ないとクリックしたときにカニさんがお節介を焼いてしまう -->
-				<tr v-for="osakana in sortedOsakanas" v-on:click="teachMe(osakana)" :key="osakana.Neko"
-					:class="[osakana.Fish === kaniVM.targetHowTo ? 'highlight' : null]">
+				<tr v-for="osakana in sortedOsakanas" v-on:click="Ocean.targetHowTo = osakana.Fish" :key="osakana.Neko"
+					:class="[osakana.Fish === Ocean.targetHowTo ? 'highlight' : null]">
 					<td class="checkbox-cell">
 						<!-- v-model使うとwatchの仕方が分からない -->
 						<input type="checkbox" :id="'caught-' + osakana.Neko" :checked="osakana.Caught"
-							v-on:change="catchFish(osakana)" v-on:click.stop class="large-checkbox">
+							v-on:change="Ocean.doCatch(osakana)" v-on:click.stop class="large-checkbox">
 						<label class="large-checkbox-deco" :for="'caught-' + osakana.Neko" v-on:click.stop></label>
 					</td>
 					<td class="osakana"><a target="_blank" :href="getOsakanaLink(osakana)" v-on:click.stop>{{ osakana.Fish }}</a>
