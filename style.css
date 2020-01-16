@@ -523,7 +523,6 @@ input:checked + .large-checkbox-deco:before {
   left: -180px;
   width: 454px;
   height: 386px;
-  display: none;
   z-index: 100;
 }
 .tobi-fish {
@@ -552,7 +551,6 @@ input:checked + .large-checkbox-deco:before {
   text-shadow: 1px 1px 2px rgb(2, 4, 90);
   color: white;
   text-decoration: none;
-  display: none;
 }
 .tobi-close {
   position: absolute;
@@ -565,13 +563,18 @@ input:checked + .large-checkbox-deco:before {
   background-repeat: no-repeat;
   background-size: 20px 20px;
 }
-#tobi.say {
-  display: block;
+
+#tobi.tobi-enter-active {
   animation: tobi-appear 0.8s;
 }
-#tobi.say .tobi-note {
-  display: block;
-  animation: tobi-appear-note 0.8s;
+#tobi.tobi-leave-active {
+  animation: tobi-disappear 0.8s;
+}
+#tobi.tobi-enter-active .tobi-note,
+#tobi.tobi-enter-active .tobi-close,
+#tobi.tobi-leave-active .tobi-note,
+#tobi.tobi-leave-active .tobi-close {
+  display: none;
 }
 
 @keyframes tobi-appear {
@@ -580,12 +583,6 @@ input:checked + .large-checkbox-deco:before {
   }
   to {
     left: -180px;
-  }
-}
-
-@keyframes tobi-appear-note {
-  from {
-    display: none;
   }
 }
 

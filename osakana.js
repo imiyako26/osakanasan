@@ -1862,7 +1862,7 @@ osakanas = [
   {
     "Fish": "ゴールデンフィン",
     "Spot": "リムサ・ロミンサ：上甲板層",
-    "Zone": "リムサ・ロミンサ",
+    "Zone": "リムサ・ロミンサ：上甲板層",
     "From": 9,
     "To": 14,
     "Previous_Weather": "",
@@ -1882,7 +1882,7 @@ osakanas = [
   {
     "Fish": "メガオクトパス",
     "Spot": "リムサ・ロミンサ：下甲板層",
-    "Zone": "リムサ・ロミンサ",
+    "Zone": "リムサ・ロミンサ：下甲板層",
     "From": 9,
     "To": 17,
     "Previous_Weather": "",
@@ -4149,7 +4149,7 @@ osakanas = [
     "Weather": "快晴",
     "Bait": "ザザムシ",
     "Mooch": "",
-    "Hookset": "",
+    "Hookset": "プレシジョン",
     "Neko": 627,
     "Since": 4,
     "Remark": "",

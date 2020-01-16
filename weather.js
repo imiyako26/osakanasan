@@ -18,8 +18,8 @@ var weatherJpToEn = {
   "放電": "Umbral Static",
   "なし": "",
 };
-var weatherEnToJp = { };
-for (var jp in weatherJpToEn) 
+var weatherEnToJp = {};
+for (var jp in weatherJpToEn)
   weatherEnToJp[weatherJpToEn[jp]] = jp;
 
 var WeatherFinder = {
@@ -115,18 +115,18 @@ var WeatherFinder = {
   zoneJp: {
     "リムサ・ロミンサ：下甲板層": "Limsa Lominsa",
     "リムサ・ロミンサ：上甲板層": "Limsa Lominsa",
-    "リムサ・ロミンサ": "Limsa Lominsa",
+    // "リムサ・ロミンサ": "Limsa Lominsa",
     "中央ラノシア": "Middle La Noscea",
     "低地ラノシア": "Lower La Noscea",
     "東ラノシア": "Eastern La Noscea",
     "西ラノシア": "Western La Noscea",
     "高地ラノシア": "Upper La Noscea",
     "外地ラノシア": "Outer La Noscea",
-    "ミスト": "Mist",
+    // "ミスト": "Mist",
     "ミスト・ヴィレッジ": "Mist",
     "グリダニア：旧市街": "Gridania",
     "グリダニア：新市街": "Gridania",
-    "グリダニア": "Gridania",
+    // "グリダニア": "Gridania",
     "黒衣森：中央森林": "Central Shroud",
     "黒衣森：東部森林": "East Shroud",
     "黒衣森：南部森林": "South Shroud",
@@ -160,6 +160,14 @@ var WeatherFinder = {
     "アジムステップ": "The Azim Steppe",
     "クガネ": "Kugane",
     "シロガネ": "Shirogane",
+    "クリスタリウム": "The Crystarium",
+    "ユールモア": "Eulmore",
+    "レイクランド": "Lakeland",
+    "コルシア島": "Kholusia",
+    "アム・アレーン": "Amh Araeng",
+    "イル・メグ": "Il Mheg",
+    "ラケティカ大森林": "The Raktika Greatwood",
+    "テンペスト": "The Tempest"
   },
 
   weatherChances: {
@@ -221,6 +229,138 @@ var WeatherFinder = {
         return "Fair Skies";
       }
       return "Clear Skies";
+    },
+    "Amh Araeng": function (chance) {
+      if (chance < 45) {
+        return "Fair Skies";
+      }
+      if (chance < 60) {
+        return "Clouds";
+      }
+      if (chance < 70) {
+        return "Dust Storms";
+      }
+      if (chance < 80) {
+        return "Heat Waves";
+      }
+      return "Clear Skies";
+    },
+    "Eulmore": function (chance) {
+      if (chance < 10) {
+        return "Gales";
+      }
+      if (chance < 20) {
+        return "Rain";
+      }
+      if (chance < 30) {
+        return "Fog";
+      }
+      if (chance < 45) {
+        return "Clouds";
+      }
+      if (chance < 85) {
+        return "Fair Skies";
+      }
+      return "Clear Skies";
+    },
+    "Il Mheg": function (chance) {
+      if (chance < 10) {
+        return "Rain";
+      }
+      if (chance < 20) {
+        return "Fog";
+      }
+      if (chance < 35) {
+        return "Clouds";
+      }
+      if (chance < 45) {
+        return "Thunderstorms";
+      }
+      if (chance < 60) {
+        return "Clear Skies";
+      }
+      return "Fair Skies";
+    },
+    "Kholusia": function (chance) {
+      if (chance < 10) {
+        return "Gales";
+      }
+      if (chance < 20) {
+        return "Rain";
+      }
+      if (chance < 30) {
+        return "Fog";
+      }
+      if (chance < 45) {
+        return "Clouds";
+      }
+      if (chance < 85) {
+        return "Fair Skies";
+      }
+      return "Clear Skies";
+    },
+    "Lakeland": function (chance) {
+      if (chance < 20) {
+        return "Clear Skies";
+      }
+      if (chance < 60) {
+        return "Fair Skies";
+      }
+      if (chance < 75) {
+        return "Clouds";
+      }
+      if (chance < 85) {
+        return "Fog";
+      }
+      if (chance < 95) {
+        return "Rain";
+      }
+      return "Thunderstorms";
+    },
+    "The Crystarium": function (chance) {
+      if (chance < 20) {
+        return "Clear Skies";
+      }
+      if (chance < 60) {
+        return "Fair Skies";
+      }
+      if (chance < 75) {
+        return "Clouds";
+      }
+      if (chance < 85) {
+        return "Fog";
+      }
+      if (chance < 95) {
+        return "Rain";
+      }
+      return "Thunderstorms";
+    },
+    "The Raktika Greatwood": function (chance) {
+      if (chance < 10) {
+        return "Fog";
+      }
+      if (chance < 20) {
+        return "Rain";
+      }
+      if (chance < 30) {
+        return "Umbral Wind";
+      }
+      if (chance < 45) {
+        return "Clear Skies";
+      }
+      if (chance < 85) {
+        return "Fair Skies";
+      }
+      return "Clouds";
+    },
+    "The Tempest": function (chance) {
+      if (chance < 20) {
+        return "Clouds";
+      }
+      if (chance < 80) {
+        return "Fair Skies";
+      }
+      return "Clear Skies";
     }
   }
 };
@@ -249,9 +389,9 @@ function calculateTimeRange(windowStart, start, end) {
       if (start >= 8) {
         return null;
       }
-      return { 
-        start: start, 
-        end: Math.min(end, 8) 
+      return {
+        start: start,
+        end: Math.min(end, 8)
       };
     }
     case 8: {
@@ -259,7 +399,7 @@ function calculateTimeRange(windowStart, start, end) {
         if (start >= 16) {
           return null
         }
-        return { 
+        return {
           start: start,
           end: Math.min(end, 16)
         }
@@ -292,7 +432,7 @@ function calculateTimeRangePerWindows(start, end) {
       '16': a['16'] || b['16']
     };
   } else {
-    return { 
+    return {
       '0': calculateTimeRange(0, start, end),
       '8': calculateTimeRange(8, start, end),
       '16': calculateTimeRange(16, start, end)
@@ -344,7 +484,7 @@ function getFishChance(maximum, zone_, targetWeather_, targetPrevWeather_, start
       prevWeatherMatch = true;
     }
 
-      /* 0 or 8 or 16 */
+    /* 0 or 8 or 16 */
     var windowStartET = WeatherFinder.getEorzeaHour(weatherStartTime);
     var fishWindow = windows[windowStartET]
 

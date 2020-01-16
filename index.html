@@ -307,7 +307,7 @@
 
 			/* お知らせトビウオ */
 			var tobiVM = new Vue({
-				el: '#tobi',
+				el: '#tobi-container',
 
 				data: {
 					message: null,
@@ -708,13 +708,15 @@
 		</div>
 	</div>
 
-	<div id="tobi" :class="message ? 'say' : null">
-		<div class="tobi-fish"></div>
-		<div class="tobi-note">
-			<span>{{ message }}</span>
+	<transition id="tobi-container" name="tobi">
+		<div id="tobi" v-if="message">
+			<div class="tobi-fish"></div>
+			<div class="tobi-note">
+				<span>{{ message }}</span>
+			</div>
+			<div class="tobi-close" @click="bye()"></div>
 		</div>
-		<div class="tobi-close" @click="bye()"></div>
-	</div>
+	</transition>
 
 	<div id="mola" :class="[open ? 'open' : null]">
 		<div class="appearance-hook" @click="open = !open" :title="open ? 'リリース！' : 'ストロングフッキング！'"></div>
