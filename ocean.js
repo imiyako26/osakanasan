@@ -167,7 +167,7 @@ var Ocean = new Vue({
       }
       json['catch'] = fish;
 
-      return all;
+      return json;
     },
     /* osakana.jsonから復元だ */
     fromOsakanaJSON: function (json) {
