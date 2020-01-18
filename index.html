@@ -8,624 +8,19 @@
 	<link rel="preload" href="images/fish_mola2.png" as="image" type="image/png">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="phone.css" media="screen and (max-width:600px)">
-	<script type="text/javascript" src="weather.js"></script>
-	<script type="text/javascript" src="iroiro.js"></script>
-	<script type="text/javascript" src="osakana.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<!--
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<link rel="stylesheet" href="tablesorter.default.css">
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
-	 追加機能(widgets)を使用する場合は次も追加する 
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>-->
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>	
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<!--<script src="https://apis.google.com/js/api.js"></script>-->
-
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
 
-	<!-- TODO: Add SDKs for Firebase products that you want to use
-			https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
-
-	<script>
-		// Your web app's Firebase configuration
-		var firebaseConfig = {
-			apiKey: "AIzaSyBJ9OrjsQu8NfM6fV1tc0QQhJo0SDiLJZk",
-			authDomain: "osakana-f32c3.firebaseapp.com",
-			databaseURL: "https://osakana-f32c3.firebaseio.com",
-			projectId: "osakana-f32c3",
-			storageBucket: "osakana-f32c3.appspot.com",
-			messagingSenderId: "999992537612",
-			appId: "1:999992537612:web:de016927f80d6b5fff7429",
-			measurementId: "G-KZKN68346M"
-		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-		firebase.analytics();
-		db = firebase.firestore();
-	</script>
-
-
-	<script type="text/javascript">
-		/* お魚予測 (おさかな名　→ 時間Array) */
-		var forecasts = {};
-		/* おさかな名 → おさかな行 */
-		var details = {};
-
-		for (var i = 0; i < osakanas.length; i++) {
-			var osakana = osakanas[i];
-			/* 釣れたかどうかのデータを追加 */
-			osakana['Caught'] = localStorage.getItem(osakana.Fish) === 'Yes';
-			details[osakana.Fish] = osakana;
-		}
-
-		function formatTime(date) {
-			return ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
-		}
-
-		function formatTimeSpan(from, to) {
-			if (from !== "") {
-				return ("0" + from).slice(-2) + ":00-" + ("0" + to).slice(-2) + ":00";
-			}
-			return '';
-		}
-
-		function formatWeatherTransition(previousWeather, weather) {
-			if (previousWeather !== "" && weather !== "") {
-				/* 移ろいﾌｨｯｼｭ */
-				return previousWeather + " → " + weather;
-			} else if (weather !== "") {
-				/* 移ろわないﾌｨｯｼｭ */
-				return weather;
-			} else if (previousWeather !== "") {
-				/* 移ろいじゃないけど前天候に依存するﾌｨｯｼｭ。ステタカントゥス、お前のことだ！ */
-				return previousWeather + " → なんでも";
-			} else {
-				return '';
-			}
-		}
-
-		function formatHookset(value) {
-			if (value === 'プレシジョン') {
-				return 'プレシジョンフッキング';
-			} else if (value === 'ストロング') {
-				return 'ストロングフッキング';
-			} else {
-				return '';
-			}
-		}
-
-		function undefinedTo(value, defaultValue) {
-			if (typeof value === 'undefined') {
-				return defaultValue;
-			}
-			return value;
-		}
-
-		/* dataをlocalStorageに保存するmixinを作成する */
-		var Synchronized = {
-			booleanData: function(dataName, storageName, defaultValue) {
-				var data = {};
-				var watch = {};
-				var storedValue = localStorage.getItem(storageName);
-				data[dataName] = storedValue === null ? defaultValue : storedValue === 'Yes';
-				watch[dataName] = function(newValue) {
-					localStorage.setItem(storageName, newValue ? 'Yes' : 'No');
-				}
-
-				return {
-					data: data,
-					watch: watch
-				};
-			},
-			stringData: function(dataName, storageName, defaultValue) {
-				var data = {};
-				var watch = {};
-				var storedValue = localStorage.getItem(storageName);
-				data[dataName] = storedValue === null ? defaultValue : storedValue;
-				watch[dataName] = function(newValue) {
-					if (newValue === null) {
-						localStorage.removeItem(storageName);
-					} else {
-						localStorage.setItem(storageName, newValue);
-					}
-				}
-				return {
-					data: data,
-					watch: watch
-				}
-			}
-		};
-		
-		/* 全てを知る透明な海。実体はない。*/
-		var Ocean = new Vue({
-			mixins: [
-				/* いつのフィッシュに用がある？ */
-				Synchronized.booleanData('realmreborn', 'realmreborn', true),
-				Synchronized.booleanData('heavensward', 'heavensward', true),
-				Synchronized.booleanData('stormblood', 'stormblood', true),
-				Synchronized.booleanData('shadowbringers', 'shadowbringers', true),
-				/* ヌシ・雑魚を表示する？ */
-				Synchronized.booleanData('lord', 'lord', true),
-				Synchronized.booleanData('zako', 'zako', false),
-				/* 釣れた魚に用はない */
-				Synchronized.booleanData('caughtFishHidden', 'caughtFishHidden', false),
-				/* どこいるの */
-				Synchronized.stringData('where', 'where', null),
-				/* Cloudに保存する名前 */
-				Synchronized.stringData('character', 'character', null),
-				Synchronized.stringData('world', 'world', null),
-				/* カニさんのターゲット */
-				Synchronized.stringData('targetHowTo', 'targetHowTo', null),
-				/* 一覧のソート */
-				Synchronized.stringData('sortBy', 'sortBy', 'name'),
-				Synchronized.booleanData('reversed', 'reversed', false)
-			],
-			data: {
-				/* お魚さんたち */
-				osakanas: osakanas
-			},
-			computed: {
-				hasCloudId: function() {
-					return this.character && this.world;
-				},
-				cloudId: function() {
-					return this.character + '@' + this.world;
-				}
-			},
-			methods: {
-				/* お知らせ。海には口がないので声を誰かが拾ってくれるのを待つ */
-				doSpeak: function(message) {
-					this.$emit('speak', message);
-				},
-				/* おさかな捕まえた！isCaughtがない場合は入れ替え */
-				doCatch: function(osakana, isCaught) {
-					if (typeof isCaught === 'undefined') {
-						isCaught = !osakana.Caught;
-					}
-					osakana.Caught = isCaught;
-					if (isCaught) {
-						localStorage.setItem(osakana.Fish, 'Yes');
-					} else {
-						localStorage.removeItem(osakana.Fish);
-					}
-				},
-				/* 現在の情報からosakana.jsonを作成 */
-				toOsakanaJSON: function() {
-					/* undefinedは保存できない */
-					var all = {};
-	
-					var list = {};
-					list['sortBy'] = undefinedTo(this.sortBy, null);
-					list['reversed'] = this.reversed;
-					all['list'] = list;
-	
-					var kani = {};
-					kani['targetHowTo'] = undefinedTo(this.targetHowTo, null);
-					all['kani'] = kani;
-	
-					var mola = {};
-					mola['realmreborn'] = this.realmreborn;
-					mola['heavensward'] = this.heavensward;
-					mola['stormblood'] = this.stormblood;
-					mola['shadowbringers'] = this.shadowbringers;
-					mola['lord'] = this.lord;
-					mola['zako'] = this.zako;
-					mola['caughtFishHidden'] = this.caughtFishHidden;
-					mola['where'] = this.where;
-					all['mola'] = mola;
-	
-					var fish = {};
-					for (var i = 0; i < osakanas.length; i++) {
-						var osakana = osakanas[i];
-						fish[osakana.Fish] = localStorage.getItem(osakana.Fish) === 'Yes';
-					}
-					all['catch'] = fish;
-	
-					return all;
-				},
-				/* osakana.jsonから復元だ */
-				fromOsakanaJSON: function(json) {						
-					var list = undefinedTo(json.list, {});
-					this.sortBy = undefinedTo(list.sortBy, null);
-					this.reversed = undefinedTo(list.reversed, false);
-
-					var kani = undefinedTo(json.kani, {});
-					this.targetHowTo = undefinedTo(kani.targetHowTo, null);
-
-					var mola = undefinedTo(json.mola, {});
-					this.realmreborn = undefinedTo(mola.realmreborn, true);
-					this.heavensward = undefinedTo(mola.heavensward, true);
-					this.stormblood = undefinedTo(mola.stormblood, true);
-					this.shadowbringers = undefinedTo(mola.shadowbringers, true);
-					this.lord = undefinedTo(mola.lord, true);
-					this.zako = undefinedTo(mola.zako, false);
-					this.where = undefinedTo(mola.where, '');
-					this.caughtFishHidden = undefinedTo(mola.caughtFishHidden, false);
-
-					var fish = undefinedTo(json['catch'], {});
-					for (var osakanaName in fish) {
-						var osakana = details[osakanaName];
-
-						if (osakana) {
-							this.doCatch(osakana, fish[osakanaName]);
-						}
-					}
-				},
-				/* Cloudに保存 */
-				upload: function () {
-					var self = this;
-
-					if (!this.hasCloudId) {
-						/* キャラ名がなかったらなにもしないよ */
-						self.doSpeak('キャラ名とワールドを教えて', 5);
-						return;
-					}
-
-					var doc = db.collection('anglers').doc(this.cloudId);
-					doc.set(this.toOsakanaJSON())
-						.then(function () {
-							self.doSpeak('保存したよ');
-						})
-						.catch(function (error) {
-							console.error(error);
-							self.doSpeak('保存できなかったよ');
-						});
-				},
-				/* Cloudから取得 */
-				download: function () {
-					var self = this;
-					if (!this.hasCloudId) {
-						self.doSpeak('キャラ名とワールドを教えて', 5);
-						return;
-					}
-
-					var doc = db.collection('anglers').doc(this.cloudId);
-					doc.get()
-						.then(function (meta) {
-							if (!meta.exists) {
-								self.doSpeak('保存されてないよ');
-							} else {
-								self.fromOsakanaJSON(meta.data());
-								self.doSpeak('読み込んだよ');
-							}
-						})
-						.catch(function (error) {
-							console.error(error);
-							self.doSpeak('なんか失敗した');
-						});
-				}				
-			}
-		});
-
-
-		$(function () {
-
-			/* お知らせトビウオ */
-			var tobiVM = new Vue({
-				el: '#tobi-container',
-
-				data: {
-					message: null,
-					timerId: null
-				},
-
-				created: function() {
-					/* トビウオさんは海の声を拾って表示する */
-					Ocean.$on('speak', function(message) {
-						tobiVM.speak(message, 5);
-					});
-				},
-
-				methods: {
-					bye: function() {
-						this.message = null;
-						if (this.timerId !== null) {
-							clearTimeout(this.timerId);
-							this.timerId = null;
-						}
-					},
-					speak: function(message, seconds) {
-						this.message = message;
-						if (typeof seconds === 'number') {
-							/* n秒後にサヨナラ */
-							if (this.timerId !== null) {
-								/* 予約されてたらキャンセル */
-								clearTimeout(this.timerId);
-								this.timerId = null;
-							}
-							
-							var self = this;
-							this.timerId = setTimeout(function() {
-								self.bye();
-							}, seconds * 1000);
-						}
-					}
-				}
-			})
-
-			/* 設定マンボウ */
-			var molaVM = new Vue({
-				el: '#mola',
-				data: {
-					Ocean: Ocean,
-					worlds: worlds,
-					open: false
-				}
-			})
-
-			/* 太陽奴 */
-			var sunVM = new Vue({
-				el: '#header',
-				data: {
-					current: new Date(),
-					Ocean: Ocean
-				},
-				computed: {
-					/* 過去2個、現在、未来2個の天気 */
-					weathers: function () {
-						/* 場所が設定されていないときはなし */
-						if (!Ocean.where) {
-							return [];
-						}
-
-						var where = Ocean.where;
-						var zone = WeatherFinder.zoneJp[where];
-
-						function calculateWindowWheather(millis) {
-							var date = new Date(millis);
-							var weather = WeatherFinder.getWeather(millis, zone);
-							var eorzeaTime = WeatherFinder.getEorzeaTime(millis);
-							eorzeaTime.setMinutes(0);
-							/* 空白入りはclassに使えないよ */
-							var weatherClassName = weather.replace(' ', '_')
-
-							return {
-								weather: weather,
-								weatherJp: weatherEnToJp[weather],
-								weatherClassName: weatherClassName,
-								eorzeaTime: formatTime(eorzeaTime),
-								localTime: formatTime(date)
-							};
-						}
-
-						/* 8合わせ */
-						var millis = WeatherFinder.getWeatherTimeFloor(this.current).getTime()
-						return [
-							calculateWindowWheather(millis - (175 * 16 * 1000)),
-							calculateWindowWheather(millis - (175 * 8 * 1000)),
-							calculateWindowWheather(millis),
-							calculateWindowWheather(millis + (175 * 8 * 1000)),
-							calculateWindowWheather(millis + (175 * 16 * 1000))
-						];
-					},
-					eorzeaTime: function () {
-						var time = WeatherFinder.getEorzeaTime(this.current.getTime());
-						return formatTime(time);
-					},
-					zones: function () {
-						return Object.keys(WeatherFinder.zoneJp);
-					}
-				}
-			});
-
-			/* 3秒毎に更新だよ */
-			setInterval(function () {
-				sunVM.current = new Date();
-			}, 3000)
-
-			/* 教えて！カニさん */
-			var kaniVM = new Vue({
-				el: '.senpai',
-				data: {
-					Ocean: Ocean
-				},
-				created: function () {
-					/* 作成時とターゲット変更時に起動 */
-					this.informBody();
-					Ocean.$watch('targetHowTo', this.informBody.bind(this))
-				},
-				computed: {
-					osakana: function () {
-						if (!Ocean.targetHowTo) {
-							return null;
-						}
-						return details[Ocean.targetHowTo];
-					}
-				},
-				methods: {
-					formatTimeSpan: formatTimeSpan,
-					formatWeatherTransition: formatWeatherTransition,
-					formatHookset: formatHookset,
-					informBody: function () {
-						if (Ocean.targetHowTo) {
-							$(document.body).addClass('senpai-visible');
-						} else {
-							$(document.body).removeClass('senpai-visible');
-						}
-					}
-				}
-			})
-
-			/* おさかなさんリスト */
-			var listVM = new Vue({
-				el: '.content',
-				data: {
-					Ocean: Ocean
-				},
-				computed: {
-					/* リストはソートされてるお魚さんを表示 */
-					sortedOsakanas: function () {
-						var copy = [];
-						for (var i = 0; i < osakanas.length; i++) {
-							if (this.shouldList(osakanas[i])) {
-								copy.push(osakanas[i]);
-							}
-						}
-
-						var self = this;
-						var factor = Ocean.sortBy;
-						copy.sort(function (a, b) {
-							var comparison;
-							switch (factor) {
-								case 'chance1': {
-									/* chanceは日付の数値 */
-									var chanceA = self.getChance(a, 0);
-									var chanceB = self.getChance(b, 0);
-									comparison = chanceA - chanceB;
-									break;
-								}
-								case 'chance2': {
-									var chanceA = self.getChance(a, 1);
-									var chanceB = self.getChance(b, 1);
-									comparison = chanceA - chanceB;
-									break;
-								}
-								case 'spot': {
-									comparison = a.Spot.localeCompare(b.Spot);
-									break;
-								}
-								case 'zone': {
-									comparison = a.Zone.localeCompare(b.Zone);
-									break;
-								}
-								case 'name':
-								default:
-									comparison = a.Fish.localeCompare(b.Fish)
-									break;
-							}
-
-							if (Ocean.reversed) {
-								comparison = -comparison;
-							}
-							return comparison;
-						});
-						return copy;
-					},
-				},
-				methods: {
-					formatTimeSpan: formatTimeSpan,
-					formatWeatherTransition: formatWeatherTransition,
-					formatHookset: formatHookset,
-					getOsakanaLink: function (osakana) {
-						return 'https://ff14angler.com/fish/' + osakana.Neko;
-					},
-					checkVersion: function (osakana) {
-						if (!osakana.Since)
-							return true;
-						if (osakana.Since < 3) {
-							return Ocean.realmreborn;
-						} else if (osakana.Since < 4) {
-							return Ocean.heavensward;
-						} else if (osakana.Since < 5) {
-							return Ocean.stormblood;
-						} else if (osakana.Since < 6) {
-							return Ocean.shadowbringers;
-						} else {
-							return true;
-						}
-					},
-					checkGrade: function (osakana) {
-						if (osakana.Lord === 'Yes') {
-							return Ocean.lord;
-						} else {
-							return Ocean.zako;
-						}
-					},
-					checkLocation: function (osakana) {
-						return !Ocean.where || Ocean.where === osakana.Zone;
-					},
-					shouldList: function (osakana) {
-						return (!osakana.Caught || !Ocean.caughtFishHidden)
-							&& this.checkVersion(osakana)
-							&& this.checkGrade(osakana)
-							&& this.checkLocation(osakana);
-					},
-					getChances: function (osakana) {
-						/* チャンス計算は一回だけ */
-						var chances = forecasts[osakana.Fish];
-						if (!chances) {
-							chances = getFishChance(2, osakana.Zone, osakana.Weather, osakana.Previous_Weather, osakana.From, osakana.To);
-							forecasts[osakana.Fish] = chances;
-						}
-						return chances;
-					},
-					getChance: function (osakana, nth) {
-						return this.getChances(osakana)[nth];
-					},
-					getChanceLT: function (osakana, nth) {
-						return getFormattedLocalTime(this.getChance(osakana, nth));
-					},
-					getChanceET: function (osakana, nth) {
-						return getFormattedEorzeaTime(this.getChance(osakana, nth));
-					},
-					getHooksetClass: function (osakana) {
-						if (osakana.Hookset === 'プレシジョン') {
-							return 'precision-hookset';
-						} else if (osakana.Hookset === 'ストロング') {
-							return 'powerful-hookset';
-						} else {
-							return 'hook';
-						}
-					},
-
-					changeSortBy: function (sortBy) {
-						if (Ocean.sortBy === sortBy) {
-							/* 現在の並び替えファクタをクリックしたら順を逆に */
-							Ocean.sortBy = sortBy;
-							Ocean.reversed = !Ocean.reversed;
-						} else {
-							/* 別のソート対象だったら昇順 */
-							Ocean.sortBy = sortBy;
-							Ocean.reversed = false;
-						}
-					},
-					sortColumnClass: function (sortBy) {
-						if (Ocean.sortBy === sortBy) {
-							if (Ocean.reversed) {
-								return 'sort-column-descending';
-							} else {
-								return 'sort-column-ascending';
-							}
-						} else {
-							return 'sort-column';
-						}
-					}
-				}
-			});
-
-
-			var last_known_scroll_position = 0;
-			var ticking = false;
-
-			function doSomething(scroll_pos) {
-				// console.log(scroll_pos)
-				if (scroll_pos > 10) {
-					$(document.body).addClass('scrolled')
-				} else {
-					$(document.body).removeClass('scrolled')
-				}
-			}
-
-			window.addEventListener('scroll', function (e) {
-				last_known_scroll_position = window.scrollY;
-
-				if (!ticking) {
-					window.requestAnimationFrame(function () {
-						doSomething(last_known_scroll_position);
-						ticking = false;
-					});
-
-					ticking = true;
-				}
-			});
-
-		})
-	</script>
+	<script src="translation.js"></script>
+	<script src="weather.js"></script>
+	<script src="osakana.js"></script>
+	<script src="residents.js"></script>
+	<script src="ocean.js"></script>
+	<script src="friends.js"></script>
 </head>
 
 <body>
@@ -640,13 +35,13 @@
 				<h1>{{ osakana.Fish }}</h1>
 				<div>{{ osakana.Spot }} {{ osakana.Zone }}</div>
 				<table>
-					<tr v-if="osakana.To">
+					<tr v-if="osakana.formatted.time">
 						<th>時間</th>
-						<td>{{ formatTimeSpan(osakana.From, osakana.To) }}</td>
+						<td>{{ osakana.formatted.time }}</td>
 					</tr>
-					<tr v-if="osakana.Weather || osakana.Previous_Weather">
+					<tr v-if="osakana.formatted.weather">
 						<th>天候</th>
-						<td>{{ formatWeatherTransition(osakana.Previous_Weather, osakana.Weather) }}</td>
+						<td>{{ osakana.formatted.weather }}</td>
 					</tr>
 					<tr v-if="osakana.Bait">
 						<th>エサ</th>
@@ -656,9 +51,9 @@
 						<th>泳がせ</th>
 						<td>{{ osakana.Mooch }}</td>
 					</tr>
-					<tr v-if="formatHookset(osakana.Hookset)">
+					<tr v-if="osakana.clear.hookset !== 'Hook'">
 						<th>フッキング</th>
-						<td>{{ formatHookset(osakana.Hookset) }}</td>
+						<td>{{ Translation.translate('etc', 'en', 'ja', osakana.clear.hookset) }}</td>
 					</tr>
 					<tr v-if="osakana.Fish_Eyes">
 						<th>フィッシュアイ</th>
@@ -695,11 +90,11 @@
 				<template v-if="Ocean.where">
 					<span v-for="(weatherWindow, nth) in weathers"
 						:class="['weather', weatherWindow.weatherClassName, nth === 2 ? 'present' : null, nth < 2 ? 'backcast' : null]"
-						:title="weatherWindow.weatherJp + ' ET' + weatherWindow.eorzeaTime" :key="nth"></span>
+						:title="weatherWindow.weatherJa + ' ET' + weatherWindow.eorzeaTime" :key="nth"></span>
 				</template>
 			</div>
 			<div class="current-time">
-				ET{{ eorzeaTime }}
+				ET{{ formatTime(Ocean.eorzeaTime) }}
 			</div>
 			<div class="nashi">
 				<input type="checkbox" id="caughtFishHidden" v-model="Ocean.caughtFishHidden">
@@ -797,7 +192,7 @@
 					:class="[osakana.Fish === Ocean.targetHowTo ? 'highlight' : null]">
 					<td class="checkbox-cell">
 						<!-- v-model使うとwatchの仕方が分からない -->
-						<input type="checkbox" :id="'caught-' + osakana.Neko" :checked="osakana.Caught"
+						<input type="checkbox" :id="'caught-' + osakana.Neko" :checked="Ocean.isCaught(osakana)"
 							v-on:change="Ocean.doCatch(osakana)" v-on:click.stop class="large-checkbox">
 						<label class="large-checkbox-deco" :for="'caught-' + osakana.Neko" v-on:click.stop></label>
 					</td>
@@ -806,11 +201,11 @@
 					<td class="spot">{{ osakana.Spot }}</td>
 					<td class="zone">{{ osakana.Zone }}</td>
 					<td class="when">
-						<span class="time" v-if="osakana.To !== ''">
-							{{ formatTimeSpan(osakana.From, osakana.To) }}
+						<span class="time" v-if="osakana.formatted.time">
+							{{ osakana.formatted.time }}
 						</span>
 						<span class="weather" v-if="osakana.Weather !== '' || osakana.Previous_Weather !== ''">
-							{{ formatWeatherTransition(osakana.Previous_Weather, osakana.Weather) }}
+							{{ osakana.formatted.weather }}
 						</span>
 					</td>
 					<td class="how">
@@ -819,7 +214,7 @@
 							:title="osakana.Mooch"></span>
 						<span
 							:class="['fisher-icon',	getHooksetClass(osakana), getHooksetClass(osakana) === 'hook' ? 'unavailable' : '']"
-							:title="formatHookset(osakana.Hookset)"></span>
+							:title="Translation.translate('etc', 'en', 'ja', osakana.clear.hookset)"></span>
 						<span :class="['fisher-icon', 'fisheyes', osakana.Fish_Eyes.length === 0 ? 'unavailable' : '']"
 							:title="osakana.Fish_Eyes"></span>
 						<span :class="['fisher-icon', 'intuition', osakana.Intuition.length === 0 ? 'unavailable' : '']"
@@ -827,11 +222,11 @@
 					</td>
 					<td class="chance chance1">
 						<span class="local-time">{{ getChanceLT(osakana, 0) }}</span>
-						<span class="eorzea-time">{{ getChanceET(osakana, 0) }}</span>
+						<span class="eorzea-time">ET{{ getChanceET(osakana, 0) }}</span>
 					</td>
 					<td class="chance chance2">
 						<span class="local-time">{{ getChanceLT(osakana, 1) }}</span>
-						<span class="eorzea-time">{{ getChanceET(osakana, 1) }}</span>
+						<span class="eorzea-time">ET{{ getChanceET(osakana, 1) }}</span>
 					</td>
 				</tr>
 			</tbody>

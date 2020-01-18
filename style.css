@@ -634,7 +634,7 @@ a {
 }
 
 /* 釣り方ヒント　漁師アイコン */
-.how {
+td.how {
   letter-spacing: -.4em; /* 文字間を詰めて隙間をなくす */
 }
 .fisher-icon {
